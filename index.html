@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านค้าของฉัน (My Shop)</title>
+    <style>
+        /* ส่วนของการตกแต่ง (CSS) */
+        body { font-family: 'Sarabun', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #ff6f61; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
+        
+        /* การจัดวางสินค้าแบบ Grid */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        
+        /* กล่องสินค้า */
+        .product-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            text-align: center; 
+        }
+        .product-img { 
+            width: 100%; 
+            height: 200px; 
+            background-color: #ddd; /* สีเทาแทนรูปภาพ */
+            object-fit: cover; 
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .price { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
+        
+        /* ปุ่มสั่งซื้อ */
+        .buy-btn { 
+            background-color: #28a745; 
+            color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-top: 10px;
+        }
+        .buy-btn:hover { background-color: #218838; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>ชื่อร้านค้าของคุณ</h1>
+        <p>ขายสินค้าคุณภาพดี ราคาเป็นกันเอง</p>
+    </header>
+
+    <div class="container">
+        <h2>รายการสินค้าแนะนำ</h2>
+        
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300" alt="รูปสินค้า 1" class="product-img">
+                <h3>ชื่อสินค้า A</h3>
+                <p>รายละเอียดสินค้าสั้นๆ ใส่ตรงนี้</p>
+                <p class="price">฿590</p>
+                <a href="https://line.me/ti/p/ไอดีไลน์ของคุณ" class="buy-btn">ทักแชทสั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300" alt="รูปสินค้า 2" class="product-img">
+                <h3>ชื่อสินค้า B</h3>
+                <p>รายละเอียดสินค้าสั้นๆ ใส่ตรงนี้</p>
+                <p class="price">฿350</p>
+                <a href="https://m.me/ชื่อเฟสบุ๊คของคุณ" class="buy-btn">ทักแชทสั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300" alt="รูปสินค้า 3" class="product-img">
+                <h3>ชื่อสินค้า C</h3>
+                <p>รายละเอียดสินค้าสั้นๆ ใส่ตรงนี้</p>
+                <p class="price">฿990</p>
+                <a href="#" class="buy-btn">ทักแชทสั่งซื้อ</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
