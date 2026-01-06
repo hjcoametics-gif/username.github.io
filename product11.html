@@ -7,14 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Prompt', sans-serif; background-color: #f0f7f4; margin: 0; padding: 0; color: #333; }
-        header { background-color: #2e7d32; color: white; padding: 15px; text-align: center; }
+        header { background-color: #2e7d32; color: white; padding: 15px; text-align: center; position: relative; }
         
+        /* สไตล์ปุ่มสลับภาษา */
+        .lang-switch { position: absolute; right: 15px; top: 12px; display: flex; gap: 5px; }
+        .btn-lang { background: rgba(255,255,255,0.2); border: 1px solid white; color: white; padding: 4px 8px; border-radius: 5px; cursor: pointer; font-size: 0.8em; }
+        .btn-lang.active { background: white; color: #2e7d32; font-weight: bold; }
+
         .container { max-width: 900px; margin: 20px auto; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
         .product-main { display: flex; flex-wrap: wrap; padding: 30px; gap: 30px; }
-        
         .image-side { flex: 1; min-width: 300px; text-align: center; }
         .image-side img { width: 100%; max-width: 350px; border-radius: 10px; border: 1px solid #eee; }
-        
         .info-side { flex: 1; min-width: 300px; }
         .back-link { display: inline-block; text-decoration: none; color: #2e7d32; font-weight: bold; margin-bottom: 15px; }
         
@@ -23,20 +26,29 @@
         .old-price { text-decoration: line-through; color: #999; font-size: 0.5em; font-weight: normal; }
         
         .details-content { padding: 30px; border-top: 1px solid #eee; background-color: #fafafa; }
-        .details-content h2 { color: #2e7d32; font-size: 1.3em; border-left: 5px solid #2e7d32; padding-left: 10px; }
+        .details-content h2 { color: #2e7d32; font-size: 1.3em; border-left: 5px solid #2e7d32; padding-left: 10px; margin-top: 20px; }
         
         .action-btns { margin-top: 25px; display: flex; gap: 10px; }
         .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; text-align: center; flex: 1; }
         .btn-line { background-color: #06c755; color: white; }
         .btn-shopee { background-color: #ee4d2d; color: white; }
         
-        @media (max-width: 600px) { .product-main { padding: 15px; } .info-side { text-align: center; } .action-btns { flex-direction: column; } }
+        @media (max-width: 600px) { 
+            .product-main { padding: 15px; } 
+            .info-side { text-align: center; } 
+            .action-btns { flex-direction: column; } 
+            .lang-switch { position: static; justify-content: center; margin-top: 10px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <strong>HJ COSMETICS</strong>
+    <div class="lang-switch">
+        <button onclick="changeLang('th')" id="btn-th" class="btn-lang">TH</button>
+        <button onclick="changeLang('en')" id="btn-en" class="btn-lang">EN</button>
+    </div>
 </header>
 
 <div class="container">
@@ -46,28 +58,80 @@
         </div>
         
         <div class="info-side">
-            <a href="index.html" class="back-link">← กลับหน้าหลัก</a>
+            <a href="index.html" class="back-link" id="txt-back">← กลับหน้าหลัก</a>
             <h1>FRAIJOUR HEARTLEAF AIRY FIT SUN CREAM (50ml.)</h1>
             <div class="price-tag">
                     <span class="old-price">฿450</span> ฿280
             </div>
-            <p>✅ ปกป้องผิวจากรังสี UV ด้วยค่า SPF50+ PA++++<br>✅ สารสกัดจาก Heartleaf ช่วยปลอบประโลมผิวจากการถูกทำร้ายด้วยแสงแดด<br>✅ เนื้อสัมผัส Airy Fit บางเบา ไม่เหนียวเหนอะหนะ สบายผิวตลอดวัน</p>
+            <div id="txt-short-desc">
+                <p>✅ ปกป้องผิวจากรังสี UV ด้วยค่า SPF50+ PA++++<br>✅ สารสกัดจาก Heartleaf ช่วยปลอบประโลมผิวจากการถูกทำร้ายด้วยแสงแดด<br>✅ เนื้อสัมผัส Airy Fit บางเบา ไม่เหนียวเหนอะหนะ สบายผิวตลอดวัน</p>
+            </div>
             
             <div class="action-btns">
-                <a href="https://line.me/ti/p/ไอดีไลน์คุณ" class="btn btn-line">สั่งซื้อผ่าน Line</a>
-                <a href="https://th.shp.ee/8eGfTRS" class="btn btn-shopee">ซื้อบน Shopee</a>
+                <a href="https://line.me/ti/p/ไอดีไลน์คุณ" class="btn btn-line" id="txt-btn-line">สั่งซื้อผ่าน Line</a>
+                <a href="https://th.shp.ee/8eGfTRS" class="btn btn-shopee" id="txt-btn-shopee">ซื้อบน Shopee</a>
             </div>
         </div>
     </div>
 
     <div class="details-content">
-        <h2>รายละเอียดสินค้าแบบละเอียด</h2>
-        <p>คุณสมบัติเด่น: ครีมกันแดดสูตรอ่อนโยนที่ออกแบบมาเพื่อผิวบอบบางและเป็นสิวง่ายโดยเฉพาะ ผสานพลังของ <strong>Heartleaf (ใบพลูคาว)</strong> ที่ช่วยลดการระคายเคืองและควบคุมความมันส่วนเกิน เนื้อครีมเนียนละเอียด เกลี่ยง่าย ไม่ทิ้งคราบขาว (No White Cast) ให้ผิวดูเป็นธรรมชาติและยังคงความชุ่มชื้นโดยไม่ทำให้หน้าเยิ้มระหว่างวัน</p>
+        <h2 id="txt-title-detail">รายละเอียดสินค้าแบบละเอียด</h2>
+        <p id="txt-full-desc">คุณสมบัติเด่น: ครีมกันแดดสูตรอ่อนโยนที่ออกแบบมาเพื่อผิวบอบบางและเป็นสิวง่ายโดยเฉพาะ ผสานพลังของ <strong>Heartleaf (ใบพลูคาว)</strong> ที่ช่วยลดการระคายเคืองและควบคุมความมันส่วนเกิน เนื้อครีมเนียนละเอียด เกลี่ยง่าย ไม่ทิ้งคราบขาว (No White Cast) ให้ผิวดูเป็นธรรมชาติและยังคงความชุ่มชื้นโดยไม่ทำให้หน้าเยิ้มระหว่างวัน</p>
         
-        <h2>วิธีใช้</h2>
-        <p>ใช้เป็นขั้นตอนสุดท้ายของการบำรุงผิวในตอนเช้า ทาครีมกันแดดให้ทั่วใบหน้าและลำคอก่อนออกแดดประมาณ 15-30 นาที เพื่อประสิทธิภาพสูงสุดควรทาซ้ำทุก 2-3 ชั่วโมงหากต้องอยู่กลางแดดจัดเป็นเวลานาน</p>
+        <h2 id="txt-title-usage">วิธีใช้</h2>
+        <p id="txt-usage-desc">ใช้เป็นขั้นตอนสุดท้ายของการบำรุงผิวในตอนเช้า ทาครีมกันแดดให้ทั่วใบหน้าและลำคอก่อนออกแดดประมาณ 15-30 นาที เพื่อประสิทธิภาพสูงสุดควรทาซ้ำทุก 2-3 ชั่วโมงหากต้องอยู่กลางแดดจัดเป็นเวลานาน</p>
     </div>
 </div>
+
+<script>
+    const content = {
+        th: {
+            back: "← กลับหน้าหลัก",
+            shortDesc: "✅ ปกป้องผิวจากรังสี UV ด้วยค่า SPF50+ PA++++<br>✅ สารสกัดจาก Heartleaf ช่วยปลอบประโลมผิวจากการถูกทำร้ายด้วยแสงแดด<br>✅ เนื้อสัมผัส Airy Fit บางเบา ไม่เหนียวเหนอะหนะ สบายผิวตลอดวัน",
+            btnLine: "สั่งซื้อผ่าน Line",
+            btnShopee: "ซื้อบน Shopee",
+            titleDetail: "รายละเอียดสินค้าแบบละเอียด",
+            fullDesc: "คุณสมบัติเด่น: ครีมกันแดดสูตรอ่อนโยนที่ออกแบบมาเพื่อผิวบอบบางและเป็นสิวง่ายโดยเฉพาะ ผสานพลังของ Heartleaf (ใบพลูคาว) ที่ช่วยลดการระคายเคืองและควบคุมความมันส่วนเกิน เนื้อครีมเนียนละเอียด เกลี่ยง่าย ไม่ทิ้งคราบขาว (No White Cast)",
+            titleUsage: "วิธีใช้",
+            usageDesc: "ใช้เป็นขั้นตอนสุดท้ายของการบำรุงผิวในตอนเช้า ทาครีมกันแดดให้ทั่วใบหน้าและลำคอก่อนออกแดดประมาณ 15-30 นาที"
+        },
+        en: {
+            back: "← Back to Home",
+            shortDesc: "✅ Ultimate UV Protection with SPF50+ PA++++<br>✅ Heartleaf extract soothes and repairs sun-damaged skin<br>✅ Airy Fit texture: Lightweight, non-greasy, and fresh all day",
+            btnLine: "Order via Line",
+            btnShopee: "Buy on Shopee",
+            titleDetail: "Detailed Product Information",
+            fullDesc: "Highlights: A gentle sunscreen formula crafted specifically for sensitive and acne-prone skin. Infused with Heartleaf extract to calm irritation and manage excess oil. Airy, smooth texture that blends easily with No White Cast.",
+            titleUsage: "How to Use",
+            usageDesc: "Apply as the final step of your morning skincare routine. Spread evenly over face and neck 15-30 minutes before sun exposure."
+        }
+    };
+
+    function changeLang(lang) {
+        document.getElementById('txt-back').innerText = content[lang].back;
+        document.getElementById('txt-short-desc').innerHTML = content[lang].shortDesc;
+        document.getElementById('txt-btn-line').innerText = content[lang].btnLine;
+        document.getElementById('txt-btn-shopee').innerText = content[lang].btnShopee;
+        document.getElementById('txt-title-detail').innerText = content[lang].titleDetail;
+        document.getElementById('txt-full-desc').innerText = content[lang].fullDesc;
+        document.getElementById('txt-title-usage').innerText = content[lang].titleUsage;
+        document.getElementById('txt-usage-desc').innerText = content[lang].usageDesc;
+
+        // สลับสถานะปุ่ม
+        document.getElementById('btn-th').classList.toggle('active', lang === 'th');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+
+    // ระบบ Auto Detect
+    window.onload = function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        if (userLang.startsWith('en')) {
+            changeLang('en');
+        } else {
+            changeLang('th');
+        }
+    };
+</script>
 
 </body>
 </html>
