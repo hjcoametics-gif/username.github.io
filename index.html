@@ -14,7 +14,7 @@
         /* --- Header แบบวิดีโอเคลื่อนไหว --- */
         header { 
             position: relative;
-            height: 350px; /* ปรับความสูงตามชอบ */
+            height: 350px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -24,7 +24,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* ตั้งค่าตัววิดีโอ */
         .header-video {
             position: absolute;
             top: 50%;
@@ -38,18 +37,16 @@
             object-fit: cover;
         }
 
-        /* เลเยอร์สีทับวิดีโอเพื่อให้ตัวหนังสืออ่านง่ายขึ้น */
         .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(27, 94, 32, 0.5); /* สีเขียวเข้มโปร่งแสง */
+            background: rgba(27, 94, 32, 0.5); 
             z-index: 2;
         }
 
-        /* เนื้อหาใน Header */
         .header-content {
             position: relative;
             z-index: 3;
@@ -70,7 +67,6 @@
 
         header p { font-size: 1.2em; opacity: 0.95; margin-top: 5px; }
 
-        /* --- ส่วนอื่นๆ --- */
         .platforms-section {
             background-color: white; padding: 20px; text-align: center;
             margin-bottom: 20px; border-bottom: 1px solid #ddd;
@@ -115,7 +111,7 @@
             object-fit: cover; border-radius: 8px; margin-bottom: 12px;
         }
         
-        .product-card h3 { font-size: 1em; margin: 10px 0; color: #1b5e20; line-height: 1.4; height: 3em; overflow: hidden; }
+        .product-card h3 { font-size: 0.95em; margin: 10px 0; color: #1b5e20; line-height: 1.4; height: 3em; overflow: hidden; }
         
         .price-container { margin: 10px 0; }
         .old-price { text-decoration: line-through; color: #999; font-size: 0.9em; margin-right: 8px; }
@@ -138,9 +134,7 @@
         <video autoplay muted loop playsinline class="header-video">
             <source src="Video.mp4" type="video/mp4">
         </video>
-        
         <div class="video-overlay"></div>
-
         <div class="header-content">
             <img src="Untitled design.jpeg" alt="Logo ร้าน" class="logo-img">
             <h1>hj cosmetics</h1>
@@ -163,17 +157,154 @@
             <div class="product-card">
                 <div class="flash-badge">⚡ FLASH SALE</div>
                 <a href="product1.html" class="product-link">
-                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+1" alt="สินค้า 1" class="product-img">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+1" class="product-img">
                     <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CALMING WATERY CREAM (100ml.)</h3>
                 </a>
-                <div class="price-container">
-                    <span class="old-price">฿369</span>
-                    <span class="sale-price">฿250</span>
-                </div>
+                <div class="price-container"><span class="old-price">฿369</span><span class="sale-price">฿250</span></div>
                 <a href="product1.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
             </div>
 
+            <div class="product-card">
+                <div class="flash-badge">⚡ ลด 50%</div>
+                <a href="product2.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+2" class="product-img">
+                    <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CALMING TONER (250ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿459</span><span class="sale-price">฿350</span></div>
+                <a href="product2.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
             </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ HOT</div>
+                <a href="product3.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+3" class="product-img">
+                    <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CLEANSNG WATER (300ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿400</span><span class="sale-price">฿250</span></div>
+                <a href="product3.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product4.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+4" class="product-img">
+                    <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CLEANSING FOAM (150ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿399</span><span class="sale-price">฿290</span></div>
+                <a href="product4.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product5.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+5" class="product-img">
+                    <h3>FRAIJOUR HEARTLEAF BLEMISH MOISTURE CREAM (100ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿590</span><span class="sale-price">฿310</span></div>
+                <a href="product5.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ นาทีทอง</div>
+                <a href="product6.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+6" class="product-img">
+                    <h3>FRAIJOUR HEARTLEAF BLEMISH TONER (100ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿529</span><span class="sale-price">฿360</span></div>
+                <a href="product6.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product7.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+7" class="product-img">
+                    <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE CREAM (50ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿459</span><span class="sale-price">฿250</span></div>
+                <a href="product7.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ 99.-</div>
+                <a href="product8.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+8" class="product-img">
+                    <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE EYE CREAM (15ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿370</span><span class="sale-price">฿195</span></div>
+                <a href="product8.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product9.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+9" class="product-img">
+                    <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE TONER (250ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿500</span><span class="sale-price">฿290</span></div>
+                <a href="product9.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product10.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+10" class="product-img">
+                    <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE LIP OIL (3.2ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿259</span><span class="sale-price">฿125</span></div>
+                <a href="product10.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ SALE</div>
+                <a href="product11.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+11" class="product-img">
+                    <h3>FRAIJOUR HEARTLEAF AIRY FIT SUN CREAM (50ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿450</span><span class="sale-price">฿280</span></div>
+                <a href="product11.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product12.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+12" class="product-img">
+                    <h3>FRAIJOUR HEARTLEAF WATER FIT SUN SCREEN (50ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿590</span><span class="sale-price">฿320</span></div>
+                <a href="product12.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product13.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+13" class="product-img">
+                    <h3>FRAIJOUR ORIGINAL HERB WORMWOOD SHEET MASK (23ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿29</span><span class="sale-price">฿17</span></div>
+                <a href="product13.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product14.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+14" class="product-img">
+                    <h3>BATHPA BODY TONE UP CREAM (150ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿529</span><span class="sale-price">฿150</span></div>
+                <a href="product14.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+            <div class="product-card">
+                <div class="flash-badge">⚡ FLASH SALE</div>
+                <a href="product15.html" class="product-link">
+                    <img src="https://via.placeholder.com/300/c8e6c9/2e7d32?text=Product+15" class="product-img">
+                    <h3>CHAR CHAR MANG BEAN CICA CLEANSING FOAM (220ml.)</h3>
+                </a>
+                <div class="price-container"><span class="old-price">฿199</span><span class="sale-price">฿120</span></div>
+                <a href="product15.html" class="buy-btn">ดูรายละเอียด / สั่งซื้อ</a>
+            </div>
+
+        </div>
     </div>
 
 </body>
