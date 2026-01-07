@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJ COSMETICS - Premium Experience</title>
+    <title>HJ COSMETICS - Heartleaf Blemish Moisture Cream</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
             --p-green: #0a2e1f;
             --m-green: #1b4332;
             --l-green: #b7e4c7;
-            --gold: #c5a059; /* สีทองอ่อนๆ เพิ่มความพรีเมี่ยม */
+            --gold: #c5a059;
             --off-white: #fdfdfd;
         }
 
@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* ตกแต่งพื้นหลังให้ไม่โล่ง */
         body::before {
             content: "";
             position: fixed;
@@ -54,7 +53,6 @@
             gap: 60px; padding: 40px; align-items: center;
         }
 
-        /* ส่วนรูปภาพที่ดูพรีเมี่ยมขึ้น */
         .img-container {
             position: relative;
             background: white;
@@ -92,7 +90,6 @@
             font-size: 0.85rem; border: 1px solid #edf2f0;
             display: flex; align-items: center; gap: 10px;
         }
-        .f-item i { color: var(--gold); }
 
         .btn-group { display: flex; gap: 15px; }
         .btn-main {
@@ -104,7 +101,6 @@
         .shopee { border: 1px solid #ddd; color: #555; }
         .shopee:hover { background: #ee4d2d; color: white; border-color: #ee4d2d; }
 
-        /* Section รายละเอียดที่ดูไม่โล่ง */
         .details-wrapper {
             background: white; padding: 80px 10%;
             display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
@@ -121,7 +117,7 @@
         @media (max-width: 900px) {
             .hero-section, .details-wrapper { grid-template-columns: 1fr; padding: 20px; }
             .content-box { border-left: none; padding-left: 0; }
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -138,27 +134,27 @@
 
 <section class="hero-section">
     <div class="img-container">
-        <img src="Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png" alt="Product Image">
+        <img src="https://via.placeholder.com/500x500/ffffff/1b4332?text=Heartleaf+Moisture+Cream" alt="Heartleaf Blemish Moisture Cream">
     </div>
     
     <div class="info-area">
-        <a href="#" class="back-btn" id="txt-back">← Collection</a>
-        <h1 id="txt-title">Heartleaf Airy Fit Sun Cream</h1>
+        <a href="index.html" class="back-btn" id="txt-back">← Collection</a>
+        <h1 id="txt-title">Heartleaf Blemish Moisture Cream</h1>
         <div class="price-box">
-            <span class="current-price">฿280</span>
-            <span class="old-price">฿450</span>
+            <span class="current-price">฿310</span>
+            <span class="old-price">฿590</span>
         </div>
         
         <div class="features-grid" id="txt-features">
-            <div class="f-item">✨ SPF50+ PA++++</div>
-            <div class="f-item">🌿 Heartleaf Extract</div>
-            <div class="f-item">☁️ Airy Fit Texture</div>
-            <div class="f-item">💧 Oil Control</div>
+            <div class="f-item">🌿 Heartleaf 5%</div>
+            <div class="f-item">✨ Blemish Care</div>
+            <div class="f-item">💧 Deep Hydration</div>
+            <div class="f-item">🛡️ Sensitive Safe</div>
         </div>
 
         <div class="btn-group">
-            <a href="#" class="btn-main line" id="txt-btn-line">Order via Line</a>
-            <a href="#" class="btn-main shopee" id="txt-btn-shopee">Shopee Store</a>
+            <a href="https://line.me/ti/p/ไอดีไลน์คุณ" class="btn-main line" id="txt-btn-line">Order via Line</a>
+            <a href="https://shopee.co.th/hj_cosmetics" class="btn-main shopee" id="txt-btn-shopee">Shopee Store</a>
         </div>
     </div>
 </section>
@@ -170,11 +166,11 @@
     <div class="content-box">
         <div class="content-section">
             <h3 id="txt-title-detail">Information</h3>
-            <p id="txt-full-desc">ปลุกผิวให้สดชื่นพร้อมการปกป้องที่สมบูรณ์แบบ ครีมกันแดดที่มอบสัมผัสบางเบาราวกับอากาศ ผสานพลังจาก Heartleaf เพื่อปลอบประโลมผิวบอบบางโดยเฉพาะ ไม่ทิ้งคราบขาวและไม่ทำให้หน้าเยิ้มระหว่างวัน</p>
+            <p id="txt-full-desc">มอยส์เจอไรเซอร์สูตรเข้มข้นแต่บางเบา ออกแบบมาเพื่อฟื้นบำรุงผิวที่เป็นสิวและบอบบางโดยเฉพาะ ด้วยส่วนผสมจากสารสกัด Heartleaf ที่ช่วยลดรอยแดงและอาการระคายเคือง พร้อมเติมเต็มความชุ่มชื้นให้ผิวแลดูอิ่มน้ำ สุขภาพดี โดยไม่ทำให้เกิดการอุดตัน</p>
         </div>
         <div class="content-section">
             <h3 id="txt-title-usage">Application</h3>
-            <p id="txt-usage-desc">ลูบไล้เนื้อครีมให้ทั่วใบหน้าและลำคอเป็นประจำทุกเช้า เพื่อการปกป้องที่มีประสิทธิภาพสูงสุด</p>
+            <p id="txt-usage-desc">ทาเนื้อครีมในปริมาณที่เหมาะสมให้ทั่วใบหน้าและลำคอ เป็นขั้นตอนสุดท้ายของการบำรุงผิวทั้งในตอนเช้าและก่อนนอน เพื่อล็อคความชุ่มชื้นยาวนานตลอดวัน</p>
         </div>
     </div>
 </div>
@@ -187,9 +183,9 @@
             btnLine: "สั่งซื้อผ่าน Line",
             btnShopee: "สั่งซื้อผ่าน Shopee",
             titleDetail: "ข้อมูลผลิตภัณฑ์",
-            fullDesc: "ปลุกผิวให้สดชื่นพร้อมการปกป้องที่สมบูรณ์แบบ ครีมกันแดดที่มอบสัมผัสบางเบาราวกับอากาศ ผสานพลังจาก Heartleaf เพื่อปลอบประโลมผิวบอบบางโดยเฉพาะ ไม่ทิ้งคราบขาวและไม่ทำให้หน้าเยิ้มระหว่างวัน",
+            fullDesc: "มอยส์เจอไรเซอร์สูตรเข้มข้นแต่บางเบา ออกแบบมาเพื่อฟื้นบำรุงผิวที่เป็นสิวและบอบบางโดยเฉพาะ ด้วยส่วนผสมจากสารสกัด Heartleaf ที่ช่วยลดรอยแดงและอาการระคายเคือง พร้อมเติมเต็มความชุ่มชื้นให้ผิวแลดูอิ่มน้ำ สุขภาพดี โดยไม่ทำให้เกิดการอุดตัน",
             titleUsage: "วิธีการใช้",
-            usageDesc: "ลูบไล้เนื้อครีมให้ทั่วใบหน้าและลำคอเป็นประจำทุกเช้า เพื่อการปกป้องที่มีประสิทธิภาพสูงสุด"
+            usageDesc: "ทาเนื้อครีมในปริมาณที่เหมาะสมให้ทั่วใบหน้าและลำคอ เป็นขั้นตอนสุดท้ายของการบำรุงผิวทั้งในตอนเช้าและก่อนนอน เพื่อล็อคความชุ่มชื้นยาวนานตลอดวัน"
         },
         en: {
             back: "← Collection",
@@ -197,9 +193,9 @@
             btnLine: "Order via Line",
             btnShopee: "Shopee Store",
             titleDetail: "Information",
-            fullDesc: "Wake up your skin with perfect protection. A sunscreen that feels as light as air, infused with Heartleaf to soothe sensitive skin. No white cast and no greasy residue throughout the day.",
+            fullDesc: "A concentrated yet lightweight moisturizer specifically designed for acne-prone and sensitive skin. Infused with Heartleaf extract to reduce redness and irritation while deeply hydrating the skin for a healthy, non-comedogenic glow.",
             titleUsage: "Application",
-            usageDesc: "Smooth over face and neck every morning as the final step of your skincare routine."
+            usageDesc: "Apply an appropriate amount evenly over the face and neck. Use as the final step of your skincare routine, both morning and night, to lock in moisture."
         }
     };
 
@@ -220,3 +216,4 @@
 
 </body>
 </html>
+
