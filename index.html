@@ -3,224 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJ COSMETICS - Exclusive Flash Sale</title>
+    <title>HJ COSMETICS - Full Flash Sale Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --p-green: #1b4332;
-            --accent: #2d6a4f;
+            --a-green: #2d6a4f;
             --gold: #c5a059;
-            --soft-white: #fdfdfd;
+            --white: #ffffff;
+            --bg: #fcfdfc;
         }
 
-        body { 
-            font-family: 'Prompt', sans-serif; 
-            margin: 0; padding: 0; background-color: #f9fbf9; color: #2d3436;
-        }
-        
+        body { font-family: 'Prompt', sans-serif; margin: 0; background-color: var(--bg); color: #333; }
+
         header { 
-            position: relative; height: 450px; 
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white; overflow: hidden;
+            position: relative; height: 380px; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; color: white;
         }
+        .header-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: 1; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 46, 31, 0.6); z-index: 2; }
+        .header-content { position: relative; z-index: 3; text-align: center; }
+        .header-content h1 { font-family: 'Playfair Display', serif; font-size: 3rem; letter-spacing: 5px; margin: 0; }
 
-        .header-video {
-            position: absolute; top: 50%; left: 50%;
-            min-width: 100%; min-height: 100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover; z-index: 1;
+        .platforms { 
+            display: flex; justify-content: center; gap: 15px; padding: 25px; 
+            background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
+        .p-btn { text-decoration: none; font-size: 0.8rem; color: #777; border: 1px solid #eee; padding: 8px 18px; border-radius: 20px; transition: 0.3s; }
+        .p-btn:hover { border-color: var(--p-green); color: var(--p-green); }
 
-        .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(10,46,31,0.7), rgba(255,255,255,0)); 
-            z-index: 2;
-        }
-
-        .header-content { position: relative; z-index: 3; }
-
-        .logo-img {
-            width: 100px; height: 100px; border-radius: 50%;
-            border: 2px solid white; background: white; 
-            padding: 5px; margin-bottom: 20px;
-        }
-
-        header h1 { 
-            font-family: 'Playfair Display', serif;
-            margin: 0; font-size: 3rem; letter-spacing: 8px; text-transform: uppercase;
-        }
-
-        .platforms-section {
-            background: white; padding: 30px; text-align: center;
-            width: 85%; max-width: 900px; margin: -50px auto 50px;
-            border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            position: relative; z-index: 10;
-        }
-
-        .platform-btn {
-            display: inline-block; padding: 10px 22px; margin: 5px;
-            text-decoration: none; border-radius: 30px;
-            font-size: 0.85rem; border: 1px solid #eee; color: #555;
-            transition: 0.3s;
-        }
-        .platform-btn:hover { border-color: var(--p-green); color: var(--p-green); transform: translateY(-2px); }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 100px; }
-        
-        .section-title {
-            text-align: center; font-family: 'Playfair Display', serif;
-            font-size: 2.5rem; color: var(--p-green); margin-bottom: 50px;
-        }
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.2rem; color: var(--p-green); margin-bottom: 40px; }
 
         .product-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
             gap: 30px; 
         }
-        
-        .product-card { 
-            background: white; border-radius: 25px; padding: 20px; 
-            transition: 0.4s; position: relative;
-            display: flex; flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
 
-        .flash-badge {
-            position: absolute; top: 15px; left: 15px;
-            background: var(--p-green); color: white; padding: 4px 15px;
-            font-size: 0.65rem; font-weight: 600; border-radius: 50px;
-            z-index: 10; letter-spacing: 1px;
+        .card { 
+            background: white; border-radius: 15px; padding: 15px; position: relative;
+            transition: 0.4s; border: 1px solid rgba(0,0,0,0.02); display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+
+        .badge { 
+            position: absolute; top: 15px; left: 15px; background: var(--p-green); color: white;
+            font-size: 10px; padding: 3px 10px; border-radius: 4px; z-index: 5; letter-spacing: 1px;
         }
 
-        .img-box {
-            width: 100%; height: 260px; background: #f9f9f9;
-            border-radius: 20px; margin-bottom: 20px;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
+        .img-box { 
+            width: 100%; height: 220px; background: #f9f9f9; border-radius: 10px; 
+            margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
         .img-box img { width: 85%; height: 85%; object-fit: contain; transition: 0.5s; }
-        .product-card:hover .img-box img { transform: scale(1.08); }
+        .card:hover img { transform: scale(1.08); }
 
-        .product-card h3 { 
-            font-size: 0.85rem; margin: 5px 0 15px; color: var(--p-green); 
-            font-weight: 400; line-height: 1.6; height: 3.2em; overflow: hidden;
+        .card h3 { font-size: 0.85rem; font-weight: 400; color: var(--p-green); line-height: 1.5; margin: 10px 0; height: 2.5rem; overflow: hidden; }
+        .price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 15px; }
+        .sale { color: #d63031; font-weight: 600; font-size: 1.2rem; }
+        .old { color: #b2bec3; text-decoration: line-through; font-size: 0.8rem; }
+
+        .btn { 
+            background: var(--p-green); color: white; text-align: center; text-decoration: none;
+            padding: 10px; border-radius: 8px; font-size: 0.8rem; border: 1px solid var(--p-green); transition: 0.3s;
         }
-        
-        .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
-        .sale-price { color: var(--p-green); font-weight: 600; font-size: 1.4rem; }
-        .old-price { color: #b2bec3; text-decoration: line-through; font-size: 0.9rem; }
-        
-        .buy-btn { 
-            background: var(--p-green); color: white; padding: 14px; 
-            text-decoration: none; border-radius: 12px; text-align: center;
-            font-size: 0.8rem; letter-spacing: 1px; font-weight: 600;
-            transition: 0.3s;
-        }
-        .buy-btn:hover { background: var(--accent); }
+        .btn:hover { background: transparent; color: var(--p-green); }
 
         @media (max-width: 600px) {
             .product-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            header h1 { font-size: 1.8rem; }
-            .img-box { height: 180px; }
+            .header-content h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <video autoplay muted loop playsinline class="header-video">
-            <source src="Video.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-        <div class="header-content">
-            <img src="Untitled design.jpeg" alt="Logo" class="logo-img">
-            <h1>HJ Cosmetics</h1>
-            <p style="letter-spacing: 4px; font-weight: 200;">OFFICIAL SELECTION</p>
-        </div>
-    </header>
-
-    <div class="platforms-section">
-        <h3 style="font-size: 0.7rem; color: #bbb; letter-spacing: 2px; text-transform: uppercase;">Shop on Platforms</h3>
-        <a href="https://shopee.co.th/hj_cosmetics" class="platform-btn">SHOPEE</a>
-        <a href="https://www.lazada.co.th/shop/hj-cosmetics/" class="platform-btn">LAZADA</a>
-        <a href="https://vt.tiktok.com/ZMkJ5PWfF/" class="platform-btn">TIKTOK</a>
-        <a href="https://line.me/ti/p/ไอดีไลน์คุณ" class="platform-btn">LINE OA</a>
+<header>
+    <video autoplay muted loop playsinline class="header-video"><source src="Video.mp4" type="video/mp4"></video>
+    <div class="overlay"></div>
+    <div class="header-content">
+        <h1>HJ COSMETICS</h1>
+        <p>REDEFINING NATURAL BEAUTY</p>
     </div>
+</header>
 
-    <div class="container">
-        <h2 class="section-title">Flash Sale</h2>
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+1"></div>
-                <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CALMING WATERY CREAM (100ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿250</span><span class="old-price">฿369</span></div>
-                <a href="product1.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+<div class="platforms">
+    <a href="#" class="p-btn">Shopee</a>
+    <a href="#" class="p-btn">Lazada</a>
+    <a href="#" class="p-btn">TikTok</a>
+    <a href="#" class="p-btn">Line OA</a>
+</div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+2"></div>
-                <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CALMING TONER (250ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿350</span><span class="old-price">฿459</span></div>
-                <a href="product2.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+<div class="container">
+    <h2 class="section-title">Flash Sale Selection</h2>
+    <div class="product-grid">
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ HOT ITEM</div>
-                <div class="img-box"><img src="ดีไซน์ที่ยังไม่ได้ตั้งชื่อ.png"></div>
-                <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CLEANSNG WATER (300ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿250</span><span class="old-price">฿400</span></div>
-                <a href="product3.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+1"></div>
+            <h3>ORIGINAL HERB WORMWOOD CALMING WATERY CREAM</h3>
+            <div class="price"><span class="sale">฿250</span><span class="old">฿369</span></div>
+            <a href="product1.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="IMG_5751.png"></div>
-                <h3>FRAIJOUR ORIGINAL HERB WORMWOOD CLEANSING FOAM (150ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿290</span><span class="old-price">฿399</span></div>
-                <a href="product4.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+2"></div>
+            <h3>ORIGINAL HERB WORMWOOD CALMING TONER</h3>
+            <div class="price"><span class="sale">฿350</span><span class="old">฿459</span></div>
+            <a href="product2.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+5"></div>
-                <h3>FRAIJOUR HEARTLEAF BLEMISH MOISTURE CREAM (100ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿310</span><span class="old-price">฿590</span></div>
-                <a href="product5.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">HOT ITEM</div>
+            <div class="img-box"><img src="ดีไซน์ที่ยังไม่ได้ตั้งชื่อ.png"></div>
+            <h3>ORIGINAL HERB WORMWOOD CLEANSNG WATER</h3>
+            <div class="price"><span class="sale">฿250</span><span class="old">฿400</span></div>
+            <a href="product3.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+6"></div>
-                <h3>FRAIJOUR HEARTLEAF BLEMISH TONER (100ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿360</span><span class="old-price">฿529</span></div>
-                <a href="product6.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="IMG_5751.png"></div>
+            <h3>ORIGINAL HERB WORMWOOD CLEANSING FOAM</h3>
+            <div class="price"><span class="sale">฿290</span><span class="old">฿399</span></div>
+            <a href="product4.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+7"></div>
-                <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE CREAM (50ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿250</span><span class="old-price">฿459</span></div>
-                <a href="product7.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">EXCLUSIVE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+5"></div>
+            <h3>HEARTLEAF BLEMISH MOISTURE CREAM</h3>
+            <div class="price"><span class="sale">฿310</span><span class="old">฿590</span></div>
+            <a href="product5.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ 1.1 SPECIAL</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+8"></div>
-                <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE EYE CREAM (15ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿195</span><span class="old-price">฿370</span></div>
-                <a href="product8.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">BEST DEAL</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+6"></div>
+            <h3>HEARTLEAF BLEMISH TONER</h3>
+            <div class="price"><span class="sale">฿360</span><span class="old">฿529</span></div>
+            <a href="product6.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            <div class="product-card">
-                <div class="flash-badge">⚡ FLASH SALE</div>
-                <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+9"></div>
-                <h3>FRAIJOUR RETIN-COLLAGEN 3D CORE TONER (250ml.)</h3>
-                <div class="price-row"><span class="sale-price">฿290</span><span class="old-price">฿500</span></div>
-                <a href="product9.html" class="buy-btn">VIEW DETAILS</a>
-            </div>
+        <div class="card">
+            <div class="badge">3D CORE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+7"></div>
+            <h3>RETIN-COLLAGEN 3D CORE CREAM</h3>
+            <div class="price"><span class="sale">฿250</span><span class="old">฿459</span></div>
+            <a href="product7.html" class="btn">VIEW DETAILS</a>
+        </div>
 
-            
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+8"></div>
+            <h3>RETIN-COLLAGEN 3D CORE EYE CREAM</h3>
+            <div class="price"><span class="sale">฿195</span><span class="old">฿370</span></div>
+            <a href="product8.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+9"></div>
+            <h3>RETIN-COLLAGEN 3D CORE TONER</h3>
+            <div class="price"><span class="sale">฿290</span><span class="old">฿500</span></div>
+            <a href="product9.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">SPECIAL</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+10"></div>
+            <h3>RETIN-COLLAGEN 3D CORE LIP OIL</h3>
+            <div class="price"><span class="sale">฿125</span><span class="old">฿259</span></div>
+            <a href="product10.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">AIRY FIT</div>
+            <div class="img-box"><img src="Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png"></div>
+            <h3>HEARTLEAF AIRY FIT SUN CREAM</h3>
+            <div class="price"><span class="sale">฿280</span><span class="old">฿450</span></div>
+            <a href="product11.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">SUN SCREEN</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+12"></div>
+            <h3>HEARTLEAF WATER FIT SUN SCREEN</h3>
+            <div class="price"><span class="sale">฿320</span><span class="old">฿590</span></div>
+            <a href="product12.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">FLASH SALE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+13"></div>
+            <h3>ORIGINAL HERB WORMWOOD SHEET MASK</h3>
+            <div class="price"><span class="sale">฿17</span><span class="old">฿29</span></div>
+            <a href="product13.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">TONE UP</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+14"></div>
+            <h3>BATHPA BODY TONE UP CREAM</h3>
+            <div class="price"><span class="sale">฿150</span><span class="old">฿529</span></div>
+            <a href="product14.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+        <div class="card">
+            <div class="badge">CICA CARE</div>
+            <div class="img-box"><img src="https://via.placeholder.com/300/f9f9f9/1b4332?text=Product+15"></div>
+            <h3>MANG BEAN CICA CLEANSING FOAM</h3>
+            <div class="price"><span class="sale">฿120</span><span class="old">฿199</span></div>
+            <a href="product15.html" class="btn">VIEW DETAILS</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
