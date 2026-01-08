@@ -3,186 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - HJ COSMETICS</title>
+    <title>Contact Us - HJ COSMETICS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @font-face { font-family: 'IBM-Plex-Light'; src: url('IBMPlexSansThai-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; }
-        @font-face { font-family: 'Nanum-Bold'; src: url('NanumMyeongjo-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
+        /* นำฟอนต์ดั้งเดิมจากหน้า Index กลับมา */
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=IBM+Plex+Sans+Thai:wght@200;300;400;600&display=swap');
 
-        :root { --p-green: #1b4332; --gold-dark: #c5a059; --gold-light: #f1d38e; --text-main: #1a1a1a; --bg-creme: #fdfcf9; }
+        :root { 
+            --p-green: #1b4332; 
+            --gold-dark: #c5a059; 
+            --gold-light: #f1d38e; 
+            --bg-creme: #fdfcf9; 
+        }
 
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; font-style: normal !important; }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body { 
-            font-family: 'IBM-Plex-Light', sans-serif; 
-            margin: 0; background-color: var(--bg-creme); 
-            background-image: radial-gradient(var(--gold-dark) 0.5px, transparent 0.5px);
-            background-size: 30px 30px; background-attachment: fixed;
-            color: var(--text-main); 
-            line-height: 1.6; 
-            letter-spacing: -0.2px; 
+            font-family: 'IBM Plex Sans Thai', sans-serif; 
+            margin: 0; background-color: var(--bg-creme); color: var(--p-green);
+            background: linear-gradient(135deg, #fdfcf9 0%, #f7f1e3 100%);
         }
 
-        /* --- ✨ ส่วนแก้ไขความห่างฟอนต์ไทย --- */
-        body.lang-th { letter-spacing: 0px !important; }
-        body.lang-th h1, body.lang-th h2, body.lang-th h3, body.lang-th p, body.lang-th a, body.lang-th span { 
-            letter-spacing: 0px !important; 
+        h1, h2, h4, .hero-title { font-family: 'Nanum Myeongjo', serif; }
+
+        /* --- ✨ Navigation (ให้เหมือนหน้า Index) --- */
+        .top-nav { 
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); 
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
-        /* ยกเว้นส่วนที่ต้องการให้ห่างจริงๆ เช่น Hero Sub หรือ Tag */
-        body.lang-th .hero p#hero-sub { letter-spacing: 2px !important; }
+        .logo-box img { height: 45px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold-dark); }
 
-        body.lang-kr { font-family: 'Nanum-Bold', serif; letter-spacing: 0; line-height: 1.7; }
+        /* 🌐 ปุ่มเปลี่ยนภาษา 3 ภาษา (เหมือนหน้า Index) */
+        .lang-switch { 
+            background: var(--p-green); color: var(--gold-light); 
+            border: 1px solid var(--gold-dark); padding: 8px 18px; 
+            border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem;
+            min-width: 120px; transition: 0.3s;
+        }
+        .lang-switch:hover { background: var(--gold-dark); color: white; }
 
-        /* --- Layout Styles --- */
-        .top-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold-dark); }
-        .logo-box img { height: 48px; }
-        .nav-links { display: flex; gap: 35px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; letter-spacing: 1px; font-weight: 600; }
-        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; border-radius: 50px; }
-
-        .hero { height: 50vh; position: relative; background: var(--p-green); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1556228578-0f192f4709b3?q=80') center/cover; opacity: 0.35; }
-        .hero-frame { position: absolute; top: 30px; left: 30px; right: 30px; bottom: 30px; border: 1px solid var(--gold-dark); z-index: 2; }
+        /* --- Hero --- */
+        .hero { height: 40vh; position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero-bg { position: absolute; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80') center/cover; opacity: 0.5; }
         .hero-content { position: relative; z-index: 3; text-align: center; color: white; }
-        .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 10px; font-weight: 400; text-transform: uppercase; line-height: 1.2; }
-        .hero p { font-size: 0.9rem; letter-spacing: 5px; color: var(--gold-light); text-transform: uppercase; margin-top: 15px; }
+        .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 10px; font-weight: 400; text-transform: uppercase; }
 
-        .origin-section { padding: 100px 0; background: white; border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
-        .story-flex { display: flex; align-items: center; gap: 50px; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-        .story-img { flex: 1; text-align: right; }
-        .story-img img { width: 280px; filter: grayscale(1) contrast(1.1); transition: 0.5s; }
-        .story-img img:hover { filter: grayscale(0); }
-        .story-text { flex: 1.5; }
-        .story-text h2 { font-size: 2.8rem; color: var(--p-green); margin-bottom: 20px; line-height: 1.2; }
-        .story-text p { font-size: 1.05rem; color: #444; }
+        /* --- Contact Content --- */
+        .contact-container { max-width: 1200px; margin: -60px auto 50px; padding: 0 20px; position: relative; z-index: 10; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
 
-        .brand-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 60px 8%; background: var(--p-green); box-shadow: 15px 15px 0px var(--gold-dark); overflow: hidden; border-radius: 10px; }
-        .brand-image { height: 450px; }
-        .brand-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-        .brand-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; color: white; }
-        .brand-content span { color: var(--gold-light); letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
-        .brand-content h3 { font-size: 3rem; margin: 0 0 20px; font-weight: 400; line-height: 1.2; }
-        .brand-content p { line-height: 1.7; color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 30px; }
-        .btn-visit { align-self: flex-start; text-decoration: none; color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 12px 30px; font-size: 0.8rem; letter-spacing: 3px; transition: 0.3s; border-radius: 5px; }
-        .btn-visit:hover { background: var(--gold-dark); color: var(--p-green); }
+        .info-card { background: var(--p-green); color: white; padding: 60px; border-radius: 2px; box-shadow: 10px 10px 30px rgba(0,0,0,0.1); }
+        .info-card h2 { color: var(--gold-light); font-size: 2.2rem; margin-bottom: 30px; font-weight: 400; }
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { color: var(--gold-dark); margin: 0 0 5px; letter-spacing: 2px; font-size: 0.9rem; }
+        .info-item p { margin: 0; font-size: 1rem; opacity: 0.9; line-height: 1.6; }
 
-        footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; }
-        .footer-col h4 { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-weight: 400; text-transform: uppercase; }
-        .footer-col p { font-size: 0.95rem; line-height: 1.7; margin: 0 0 10px; letter-spacing: 0; }
-        .footer-col strong { color: var(--gold-dark); display: block; margin-bottom: 5px; font-size: 0.8rem; letter-spacing: 1px; }
-        .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: rgba(197, 160, 89, 0.5); letter-spacing: 1px; }
+        .form-card { background: white; padding: 60px; border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 2px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--p-green); font-weight: 700; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #eee; background: #fafafa; outline: none; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--gold-dark); background: white; }
+        
+        .btn-submit { background: var(--p-green); color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 15px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; letter-spacing: 2px; text-transform: uppercase; }
+        .btn-submit:hover { background: var(--gold-dark); color: white; }
 
-        @media (max-width: 1000px) { 
-            .brand-grid { grid-template-columns: 1fr; } 
-            .brand-image { height: 350px; }
-            .story-flex { flex-direction: column; text-align: center; }
-            .story-img { text-align: center; margin-bottom: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        /* --- Map Section --- */
+        .map-section { width: 100%; max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; text-align: center; }
+        .map-wrapper { width: 100%; height: 450px; border: 1px solid var(--gold-dark); overflow: hidden; margin-bottom: 20px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+        .btn-maps { display: inline-block; border: 1px solid var(--p-green); color: var(--p-green); padding: 12px 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; }
+        .btn-maps:hover { background: var(--p-green); color: var(--gold-light); }
+
+        /* --- 🏺 Footer (เหมือนหน้า Index) --- */
+        footer { background: #0a1410; color: #fff; padding: 80px 8% 40px; }
+        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; }
+        .f-col h4 { color: var(--gold-light); letter-spacing: 2px; margin-bottom: 25px; font-weight: 700; border-bottom: 1px solid rgba(241, 211, 142, 0.3); display: inline-block; padding-bottom: 5px; font-family: 'IBM Plex Sans Thai'; }
+        .f-col p { opacity: 0.7; line-height: 2; font-size: 0.9rem; margin: 5px 0; }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 900px) { 
+            .contact-grid { grid-template-columns: 1fr; } 
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body id="main-body">
+<body>
 
 <nav class="top-nav">
     <div class="logo-box"><a href="index.html"><img src="HJ (5).png" alt="HJ LOGO"></a></div>
     <div class="nav-links">
         <a href="index.html" id="nav-home">HOME</a>
-        <a href="about.html" id="nav-about" style="color:var(--gold-dark)">ABOUT</a>
-        <a href="contact.html" id="nav-contact">CONTACT</a>
-        <button onclick="rotateLanguage()" id="langBtn" class="lang-switch">EN</button>
+        <a href="about.html" id="nav-about">ABOUT</a>
+        <a href="contact.html" id="nav-contact" style="color:var(--gold-dark)">CONTACT</a>
+        <button onclick="rotateLanguage()" id="langBtn" class="lang-switch">EN / KR</button>
     </div>
 </nav>
 
-<header class="hero">
-    <div class="hero-bg"></div><div class="hero-frame"></div>
-    <div class="hero-content"><h1 id="hero-title">Our Heritage</h1><p id="hero-sub">The Essence of Korean Beauty Selection</p></div>
-</header>
+<header class="hero"><div class="hero-bg"></div><div class="hero-content"><h1 id="hero-title">Contact Us</h1></div></header>
 
-<section class="origin-section">
-    <div class="story-flex">
-        <div class="story-img"><img src="HJ (5).png" alt="HJ LOGO"></div>
-        <div class="story-text">
-            <h2 id="hj-title">The HJ Story</h2>
-            <p id="hj-desc">...</p>
+<div class="contact-container">
+    <div class="contact-grid">
+        <div class="info-card">
+            <h2 id="info-h">Get In Touch</h2>
+            <div class="info-item">
+                <h4 id="h-addr-label">ADDRESS</h4>
+                <p id="addr-text">323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, Chon Buri 20230</p>
+            </div>
+            <div class="info-item">
+                <h4 id="h-cont-label">CONTACT</h4>
+                <p><strong>TEL:</strong> 03-8182-577</p>
+                <p><strong>LINE ID:</strong> @thaihj11</p>
+                <p><strong>EMAIL:</strong> thaihjglobal@gmail.com</p>
+            </div>
         </div>
-    </div>
-</section>
-
-<div class="brand-container">
-    <div class="brand-grid">
-        <div class="brand-image"><img src="IMG_5808.jpeg"></div>
-        <div class="brand-content"><span id="f-tag-sub">Botanical Therapy</span><h3>Fraijour</h3><p id="f-desc">...</p><a href="https://fraijour.co.kr/index.html" target="_blank" class="btn-visit">OFFICIAL SITE</a></div>
-    </div>
-    <div class="brand-grid" style="direction: rtl;">
-        <div class="brand-image"><img src="IMG_5805.jpeg"></div>
-        <div class="brand-content" style="direction: ltr;"><span id="b-tag-sub">Body Ritual</span><h3>Bathpa</h3><p id="b-desc">...</p><a href="https://www.evascosmetic.com/bathpa" target="_blank" class="btn-visit">OFFICIAL SITE</a></div>
-    </div>
-    <div class="brand-grid">
-        <div class="brand-image"><img src="IMG_5807.jpeg"></div>
-        <div class="brand-content"><span id="c-tag-sub">Intensive Hair & Skin Care</span><h3>Char Char</h3><p id="c-desc">...</p><a href="https://www.evascosmetic.com/charchar" target="_blank" class="btn-visit">OFFICIAL SITE</a></div>
+        <div class="form-card">
+            <form>
+                <div class="form-group"><label id="l-name">NAME</label><input type="text" placeholder="..."></div>
+                <div class="form-group"><label id="l-email">EMAIL</label><input type="email" placeholder="..."></div>
+                <div class="form-group"><label id="l-msg">MESSAGE</label><textarea rows="4" placeholder="..."></textarea></div>
+                <button type="submit" class="btn-submit" id="btn-send">Send Message</button>
+            </form>
+        </div>
     </div>
 </div>
 
+<section class="map-section">
+    <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.123456789!2d101.0!3d13.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzAwLjAiTiAxMDHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sth!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <a href="#" target="_blank" class="btn-maps">📍 OPEN IN GOOGLE MAPS</a>
+</section>
+
 <footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4 style="color: #fff; font-size: 2.2rem; margin-bottom: 15px;">HJ COSMETICS</h4>
-            <p id="foot-desc">Premium Korean Skincare Curator.</p>
-            <p style="color: var(--gold-dark); font-weight: 600;">Selection of Excellence</p>
+    <div class="f-grid">
+        <div class="f-col">
+            <h2 style="font-family: 'Nanum Myeongjo'; font-size: 2rem; color: var(--gold-light); margin-top: 0;">HJ COSMETICS</h2>
+            <p id="f-desc">Premium Korean Skincare Curator.</p>
         </div>
-        <div class="footer-col">
-            <h4 id="h-addr-foot">ADDRESS</h4>
-            <p id="addr-text">323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
+        <div class="f-col">
+            <h4 id="f-h-addr">ADDRESS</h4>
+            <p id="f-addr">323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
         </div>
-        <div class="footer-col">
-            <h4 id="h-cont-foot">CONTACT</h4>
+        <div class="f-col">
+            <h4 id="f-h-cont">CONTACT</h4>
             <p><strong>TEL:</strong> 03-8182-577</p>
+            <p><strong>LINE ID:</strong> @thaihj11</p>
             <p><strong>EMAIL:</strong> thaihjglobal@gmail.com</p>
-            <p><strong>LINE ID:</strong> thaihj11</p>
         </div>
     </div>
-    <div class="footer-bottom">&copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
+    <div class="footer-bottom">© 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
     const languages = ['th', 'en', 'kr'];
-    let langIndex = languages.indexOf(localStorage.getItem('selectedLang')) || 0;
-    if (langIndex === -1) langIndex = 0;
+    let currentLang = localStorage.getItem('selectedLang') || 'th';
 
     const trans = {
-        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroTitle: "มรดกแห่งความงาม", heroSub: "แก่นแท้ของการคัดสรรสกินแคร์จากเกาหลี", hjTitle: "เส้นทางของ HJ COSMETICS", hjDesc: "เราเริ่มต้นด้วยเจตนารมณ์ที่เรียบง่าย คือการคัดสรรสิ่งที่ดีที่สุด HJ COSMETICS เชื่อมั่นในพลังของส่วนผสมจากธรรมชาติที่ผสานกับเทคโนโลยีอันล้ำสมัยจากเกาหลี เพื่อส่งต่อผลิตภัณฑ์ที่ดูแลผิวของคุณอย่างทะนุถนอมและลึกซึ้ง", fDesc: "สัมผัสพลังแห่งการฟื้นฟูจากพืชพรรณธรรมชาติ ด้วยสารสกัดจาก Wormwood เพื่อสุขภาพผิวที่แข็งแรงอย่างยั่งยืน", bDesc: "เปลี่ยนกิจวัตรประจำวันให้เป็นช่วงเวลาแห่งการพักผ่อนระดับพรีเมียม ปรนนิบัติผิวกายให้กระจ่างใสด้วยกลิ่นหอมอันเป็นเอกลักษณ์", cDesc: "การดูแลอย่างล้ำลึกด้วยสารสกัดเข้มข้น มอบทางออกที่ดีที่สุดสำหรับปัญหาผิวและเส้นผมในหนึ่งเดียว", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", hAddr: "ที่อยู่บริษัท", hCont: "ติดต่อเรา", visit: "เข้าชมเว็บไซต์", btn: "EN" },
-        en: { home: "HOME", about: "ABOUT", contact: "CONTACT", heroTitle: "Our Heritage", heroSub: "The Essence of Korean Beauty Selection", hjTitle: "The HJ Story", hjDesc: "Born from a simple vision to curate excellence. HJ COSMETICS believes in the profound synergy of natural ingredients and South Korean innovation.", fDesc: "Experience the healing power of nature. Fraijour’s formulas are crafted for purity and long-term resilience.", bDesc: "Elevate your daily ritual into a premium escape with Bathpa’s scents and textures.", cDesc: "Intensive care with concentrated extracts, providing the ultimate solution for skin and hair health.", footDesc: "Handpicked Korean beauty for your skin's health.", hAddr: "ADDRESS", hCont: "CONTACT", visit: "OFFICIAL SITE", btn: "KR" },
-        kr: { home: "홈", about: "회사소개", contact: "문의", heroTitle: "아름다운 유산", heroSub: "한국 뷰티 셀렉션의 정수", hjTitle: "HJ 코스메틱 이야기", hjDesc: "최고만을 선별하겠다는 단순한 비전에서 시작되었습니다. HJ COSMETICS는 진심을 담아 당신의 피부를 돌보는 제품만을 선보입니다.", fDesc: "자연의 치유력을 경험해 보세요. 프라이주어는 당신의 피부 본연의 건강함을 되찾아줍니다.", bDesc: "일상의 루틴을 프리미엄 휴식으로 바꿔보세요. 배스파가 선사하는 고품격 리추얼.", cDesc: "고농축 추출물을 통한 집중 케어, 피부와 헤어 건강을 위한 최적의 솔루션을 제공합니다.", footDesc: "자연의 힘으로 완성하는 최상의 스킨케어.", hAddr: "주소", hCont: "고객센터", visit: "공식 사이트", btn: "TH" }
+        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroTitle: "ติดต่อเรา", infoH: "ช่องทางการติดต่อ", hAddr: "ที่อยู่", hCont: "ข้อมูลติดต่อ", lName: "ชื่อ", lEmail: "อีเมล", lMsg: "ข้อความ", btnSend: "ส่งข้อความ", footDesc: "ผู้นำเข้าผลิตภัณฑ์ความงามพรีเมียมจากเกาหลี", next: "ENGLISH / 한국어" },
+        en: { home: "HOME", about: "ABOUT", contact: "CONTACT", heroTitle: "Contact Us", infoH: "Get In Touch", hAddr: "ADDRESS", hCont: "CONTACT INFO", lName: "NAME", lEmail: "EMAIL", lMsg: "MESSAGE", btnSend: "SEND MESSAGE", footDesc: "Premium Korean Skincare Curator.", next: "ภาษาไทย / 한국어" },
+        kr: { home: "홈", about: "정보", contact: "문의하기", heroTitle: "문의하기", infoH: "연락처", hAddr: "주소", hCont: "연락처 정보", lName: "성함", lEmail: "이메일", lMsg: "메시지", btnSend: "보내기", footDesc: "한국 프리미엄 뷰티 큐레이터.", next: "ภาษาไทย / ENGLISH" }
     };
 
     function updateContent() {
-        const l = trans[languages[langIndex]];
-        const body = document.getElementById('main-body');
-        
-        // จัดการ Class ภาษาเพื่อคุม CSS
-        body.classList.remove('lang-kr', 'lang-th');
-        if (languages[langIndex] === 'kr') body.classList.add('lang-kr');
-        if (languages[langIndex] === 'th') body.classList.add('lang-th');
-        
+        const l = trans[currentLang];
         document.getElementById('nav-home').textContent = l.home;
         document.getElementById('nav-about').textContent = l.about;
         document.getElementById('nav-contact').textContent = l.contact;
         document.getElementById('hero-title').textContent = l.heroTitle;
-        document.getElementById('hero-sub').textContent = l.heroSub;
-        document.getElementById('hj-title').textContent = l.hjTitle;
-        document.getElementById('hj-desc').textContent = l.hjDesc;
-        document.getElementById('f-desc').textContent = l.fDesc;
-        document.getElementById('b-desc').textContent = l.bDesc;
-        document.getElementById('c-desc').textContent = l.cDesc;
-        document.getElementById('foot-desc').textContent = l.footDesc;
-        document.getElementById('h-addr-foot').textContent = l.hAddr;
-        document.getElementById('h-cont-foot').textContent = l.hCont;
-
-        document.querySelectorAll('.btn-visit').forEach(b => b.textContent = l.visit);
-        document.getElementById('langBtn').textContent = l.btn;
-        localStorage.setItem('selectedLang', languages[langIndex]);
+        document.getElementById('info-h').textContent = l.infoH;
+        document.getElementById('h-addr-label').textContent = l.hAddr;
+        document.getElementById('h-cont-label').textContent = l.hCont;
+        document.getElementById('l-name').textContent = l.lName;
+        document.getElementById('l-email').textContent = l.lEmail;
+        document.getElementById('l-msg').textContent = l.lMsg;
+        document.getElementById('btn-send').textContent = l.btnSend;
+        document.getElementById('f-desc').textContent = l.footDesc;
+        document.getElementById('f-h-addr').textContent = l.hAddr;
+        document.getElementById('f-h-cont').textContent = l.hCont;
+        document.getElementById('langBtn').textContent = l.next;
+        localStorage.setItem('selectedLang', currentLang);
     }
-    function rotateLanguage() { langIndex = (langIndex + 1) % languages.length; updateContent(); }
+
+    function rotateLanguage() {
+        currentLang = languages[(languages.indexOf(currentLang) + 1) % languages.length];
+        updateContent();
+    }
+
     updateContent();
 </script>
 </body>
