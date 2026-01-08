@@ -146,34 +146,34 @@
     let langIndex = languages.indexOf(localStorage.getItem('selectedLang')) || 0;
     if (langIndex === -1) langIndex = 0;
 
+    // คืนค่ารายการสินค้าทั้ง 15 ตัวเดิมของคุณ
     const products = [
-        // --- Fraijour ---
         { brand: "Fraijour", name: "Original Herb Wormwood Calming Watery Cream", sale: 250, old: 369, badge: "BEST SELLER", img: "1.jpeg" },
         { brand: "Fraijour", name: "Original Herb Wormwood Calming Toner", sale: 350, old: 459, badge: "RECOMMENDED", img: "2.jpeg" },
         { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Water", sale: 250, old: 400, badge: "GENTLE", img: "3.jpeg" },
         { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Foam", sale: 290, old: 399, badge: "NEW", img: "4.jpeg" },
         { brand: "Fraijour", name: "Heartleaf Blemish Moisture Cream", sale: 310, old: 590, badge: "EXCLUSIVE", img: "5.jpeg" },
+        { brand: "Fraijour", name: "Heartleaf Blemish Toner", sale: 360, old: 529, badge: "SOOTHING", img: "https://via.placeholder.com/300" },
+        { brand: "Fraijour", name: "Retin-Collagen 3D Core Cream", sale: 250, old: 459, badge: "3D CORE", img: "https://via.placeholder.com/300" },
+        { brand: "Fraijour", name: "Retin-Collagen 3D Core Eye Cream", sale: 195, old: 370, badge: "LIFTING", img: "https://via.placeholder.com/300" },
+        { brand: "Fraijour", name: "Retin-Collagen 3D Core Toner", sale: 290, old: 500, badge: "FIRMING", img: "https://via.placeholder.com/300" },
+        { brand: "Fraijour", name: "Retin-Collagen 3D Core Lip Oil", sale: 125, old: 259, badge: "GLOWY", img: "https://via.placeholder.com/300" },
         { brand: "Fraijour", name: "Heartleaf Airy Fit Sun Cream 50g", sale: 280, old: 450, badge: "UV PROTECT", img: "Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png" },
-        
-        // --- Bathpa ---
+        { brand: "Fraijour", name: "Heartleaf Water Fit Sun Screen", sale: 320, old: 590, badge: "WATER FIT", img: "https://via.placeholder.com/300" },
+        { brand: "Fraijour", name: "Original Herb Wormwood Sheet Mask", sale: 17, old: 29, badge: "MASK", img: "https://via.placeholder.com/300" },
         { brand: "Bathpa", name: "Bathpa Body Tone Up Cream", sale: 150, old: 529, badge: "BRIGHT", img: "13.jpeg" },
-        
-        // --- Char Char ---
-        { brand: "CharChar", name: "Argan Oil Intensive Repair Shampoo", sale: 190, old: 350, badge: "HAIR CARE", img: "https://via.placeholder.com/300" },
         { brand: "CharChar", name: "Mung Bean Cica Cleansing Foam", sale: 120, old: 199, badge: "CICA CARE", img: "https://via.placeholder.com/300" }
     ];
 
     const trans = {
         th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroSub: "แก่นแท้ของการคัดสรรสกินแคร์จากเกาหลี", fTag: "พลังแห่งการบำบัดจากสมุนไพร", bTag: "สุนทรียภาพแห่งการดูแลผิวกาย", cTag: "การฟื้นบำรุงผิวและเส้นผมอย่างล้ำลึก", shop: "เลือกซื้อสินค้า", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", hAddr: "ที่อยู่บริษัท", hCont: "ติดต่อเรา", btn: "EN" },
         en: { home: "HOME", about: "ABOUT US", contact: "CONTACT US", heroSub: "The Essence of Korean Beauty Selection", fTag: "Botanical Therapy", bTag: "Luxury Body Ritual", cTag: "Intensive Hair & Skin Solution", shop: "SHOP NOW", footDesc: "Premium Korean Skincare Curator.", hAddr: "ADDRESS", hCont: "CONTACT", btn: "KR" },
-        kr: { home: "홈", about: "회사소개", contact: "문의하기", heroSub: "한국 뷰티 셀렉션의 정수", fTag: "보태니컬 테รา피", bTag: "럭셔리 바디 리추얼", cTag: "헤어 & ส킨 집중 솔루션", shop: "구매하기", footDesc: "자연의 힘으로 완성하는 최상의 스킨케어", hAddr: "주소", hCont: "고객센터", btn: "TH" }
+        kr: { home: "홈", about: "회사소개", contact: "문의하기", heroSub: "한국 뷰티 셀렉션의 정수", fTag: "보태니컬 테라피", bTag: "럭셔리 바디 리추얼", cTag: "헤어 & ส킨 집중 솔루션", shop: "구매하기", footDesc: "자연의 힘으로 완성하는 최상의 ส킨케어", hAddr: "주소", hCont: "고객센터", btn: "TH" }
     };
 
     function updateContent() {
         const l = trans[languages[langIndex]];
         const body = document.getElementById('main-body');
-        
-        // สลับคลาสเพื่อแก้ปัญหาตัวอักษรห่าง
         body.classList.remove('lang-kr', 'lang-th');
         if (languages[langIndex] === 'kr') body.classList.add('lang-kr');
         else if (languages[langIndex] === 'th') body.classList.add('lang-th');
@@ -189,44 +189,20 @@
         document.getElementById('h-addr-foot').textContent = l.hAddr;
         document.getElementById('h-cont-foot').textContent = l.hCont;
         document.getElementById('langBtn').textContent = l.btn;
-        
         localStorage.setItem('selectedLang', languages[langIndex]);
         renderProducts();
     }
 
     function renderProducts() {
-        const grids = { 
-            Fraijour: document.getElementById('grid-fraijour'), 
-            Bathpa: document.getElementById('grid-bathpa'), 
-            CharChar: document.getElementById('grid-charchar') 
-        };
-
+        const grids = { Fraijour: document.getElementById('grid-fraijour'), Bathpa: document.getElementById('grid-bathpa'), CharChar: document.getElementById('grid-charchar') };
         Object.values(grids).forEach(g => { if(g) g.innerHTML = ""; });
-
         products.forEach(p => {
-            const html = `
-                <div class="card">
-                    <div class="badge">${p.badge}</div>
-                    <div class="img-box"><img src="${p.img}"></div>
-                    <h3>${p.name}</h3>
-                    <div class="price-box">
-                        <span class="sale">฿${p.sale}</span>
-                        <span class="old">฿${p.old}</span>
-                    </div>
-                    <a class="btn-buy">${trans[languages[langIndex]].shop}</a>
-                </div>`;
-            
-            if(grids[p.brand]) {
-                grids[p.brand].innerHTML += html;
-            }
+            const html = `<div class="card"><div class="badge">${p.badge}</div><div class="img-box"><img src="${p.img}"></div><h3>${p.name}</h3><div class="price-box"><span class="sale">฿${p.sale}</span><span class="old">฿${p.old}</span></div><a class="btn-buy">${trans[languages[langIndex]].shop}</a></div>`;
+            if(grids[p.brand]) grids[p.brand].innerHTML += html;
         });
     }
 
-    function rotateLanguage() { 
-        langIndex = (langIndex + 1) % languages.length; 
-        updateContent(); 
-    }
-    
+    function rotateLanguage() { langIndex = (langIndex + 1) % languages.length; updateContent(); }
     updateContent();
 </script>
 </body>
