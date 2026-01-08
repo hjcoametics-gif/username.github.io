@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HJ COSMETICS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Prompt:wght@200;300;400;500;600&family=Sarabun:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- 🎨 คัดลอก CSS Root & Base จากหน้าหลักมาทั้งหมดเพื่อให้ดีไซน์ต่อเนื่อง --- */
+        :root {
+            --p-green: #1b4332;
+            --gold-light: #f1d38e;
+            --gold-dark: #c5a059;
+            --gold-gradient: linear-gradient(135deg, #c5a059 0%, #f1d38e 50%, #c5a059 100%);
+            --white: #ffffff;
+            --bg: #fdfdfd;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Sarabun', 'Prompt', sans-serif; margin: 0; background-color: var(--bg); color: #333; overflow-x: hidden; }
+
+        /* --- ✨ ส่วนเสริมเฉพาะหน้า About Us ✨ --- */
+        .about-section { padding: 100px 0; overflow: hidden; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
+        .about-image { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--gold-light); }
+        .about-image img { width: 100%; display: block; transition: 0.5s; }
+        .about-image:hover img { transform: scale(1.05); }
+        
+        .content-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--p-green); margin-bottom: 20px; }
+        .content-box p { line-height: 1.9; font-weight: 300; color: #555; font-size: 1.1rem; }
+        
+        .vision-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .v-card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .v-card:hover { border-color: var(--gold-dark); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .v-card i { font-size: 2.5rem; color: var(--gold-dark); margin-bottom: 20px; display: block; }
+
+        /* --- ✨ นำสไตล์เดิมจากหน้าหลักมาใช้ (Nav, Footer, Title) ✨ --- */
+        .top-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.2); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.95rem; font-family: 'Prompt'; font-weight: 500; }
+        
+        .section-title { 
+            font-family: 'Cormorant Garamond', 'Prompt', serif; text-align: center;
+            font-size: 3.5rem; font-weight: 700; background: linear-gradient(to bottom, #c5a059 20%, #f1d38e 50%, #c5a059 80%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 4px; margin-bottom: 60px;
+        }
+
+        footer { background: var(--p-green); color: white; padding: 80px 0 40px 0; border-top: 5px solid var(--gold-dark); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-grid:nth-child(even) .about-image { order: 2; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="logo-box"><img src="HJ (5).png" height="55" onerror="this.src='https://via.placeholder.com/150x60/1b4332/ffffff?text=HJ+COSMETICS'"></div>
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="#" style="color: var(--gold-dark);">ABOUT US</a>
+        <a href="#main-footer">CONTACT</a>
+    </div>
+</nav>
+
+<div class="container" style="max-width: 1200px; margin: 80px auto;">
+    <h1 class="section-title" id="page-title">OUR STORY</h1>
+
+    <div class="about-grid">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=800" alt="Laboratory">
+        </div>
+        <div class="content-box">
+            <h2 id="h-story">จุดเริ่มต้นของเรา</h2>
+            <p id="p-story">
+                HJ COSMETICS ก่อตั้งขึ้นจากความหลงใหลในคุณค่าของธรรมชาติและการแสวงหานวัตกรรมที่ดีที่สุดเพื่อผิวพรรณ 
+                เราเชื่อว่าความงามที่แท้จริงเริ่มต้นจากความสมดุลและการดูแลที่อ่อนโยนที่สุด เราจึงคัดสรรสารสกัดจากทั่วทุกมุมโลก 
+                โดยเฉพาะสมุนไพรเกาหลีระดับพรีเมียม เพื่อส่งต่อผลลัพธ์ที่ยอดเยี่ยมถึงมือคุณ
+            </p>
+        </div>
+    </div>
+
+    <div class="about-grid" style="direction: rtl; text-align: left;">
+        <div class="about-image" style="direction: ltr;">
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=800" alt="Product">
+        </div>
+        <div class="content-box" style="direction: ltr;">
+            <h2 id="h-mission">พันธกิจของเรา</h2>
+            <p id="p-mission">
+                พันธกิจของเราคือการมอบประสบการณ์การดูแลผิวที่เหนือระดับ (Luxury Care) 
+                ที่ทุกคนสามารถเข้าถึงได้ เราใส่ใจในทุกขั้นตอนการผลิต ตั้งแต่การคัดเลือกวัตถุดิบ 
+                ไปจนถึงการทดสอบความปลอดภัย เพื่อให้มั่นใจว่าผลิตภัณฑ์ทุกชิ้นของ HJ COSMETICS 
+                จะสร้างความประทับใจและผลลัพธ์ที่พึงพอใจสูงสุด
+            </p>
+        </div>
+    </div>
+
+    <div class="vision-cards">
+        <div class="v-card">
+            <h3 style="color: var(--p-green); font-family: 'Prompt';">Premium Quality</h3>
+            <p style="font-size: 0.9rem; font-weight: 300;">คัดสรรเฉพาะสารสกัดเกรดพรีเมียมที่ผ่านการวิจัยและทดสอบประสิทธิภาพ</p>
+        </div>
+        <div class="v-card">
+            <h3 style="color: var(--p-green); font-family: 'Prompt';">Safe & Gentle</h3>
+            <p style="font-size: 0.9rem; font-weight: 300;">อ่อนโยนต่อทุกสภาพผิว ปราศจากสารอันตรายที่ทำร้ายผิวในระยะยาว</p>
+        </div>
+        <div class="v-card">
+            <h3 style="color: var(--p-green); font-family: 'Prompt';">Natural Power</h3>
+            <p style="font-size: 0.9rem; font-weight: 300;">ดึงพลังจากธรรมชาติมาปรับใช้กับเทคโนโลยีสมัยใหม่ได้อย่างลงตัว</p>
+        </div>
+    </div>
+</div>
+
+<footer id="main-footer">
+    <div class="container" style="max-width: 1300px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 20px;">HJ COSMETICS</h3>
+                <p id="f-desc">คัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ มั่นใจในความปลอดภัยและคุณภาพระดับพรีเมียม</p>
+            </div>
+            <div class="footer-section">
+                <h4 id="h-addr">ADDRESS</h4>
+                <address id="f-addr">
+                    บริษัท ไทย เอชเจ โกลบอล จำกัด <br>
+                    เลขที่ 323/11-12 ห้วยปราบเมืองทอง 5 <br>
+                    หมู่ 3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+                </address>
+            </div>
+            <div class="footer-section">
+                <h4 id="h-cont">CONTACT</h4>
+                <p id="f-cont">โทร: 03-8182-577 <br>อีเมล: thaihjglobal@gmail.com <br>Line Official: @thaihj11</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // คุณสามารถนำระบบสลับภาษาจากหน้าหลักมาใส่ตรงนี้เพิ่มได้เช่นกัน 
+    // เพื่อให้หน้า About Us รองรับ 2 ภาษาเหมือนหน้าหลักครับ
+</script>
+
+</body>
+</html>
