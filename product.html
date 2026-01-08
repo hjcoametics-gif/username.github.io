@@ -20,11 +20,15 @@
             color: var(--text-main); line-height: 1.6;
         }
 
+        body.lang-th, body.lang-th * { letter-spacing: 0px !important; }
+        body.lang-kr { font-family: 'Nanum-Bold', serif; }
+
         /* --- Navigation --- */
         .top-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold-dark); }
         .logo-box img { height: 45px; }
         .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
+        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; border-radius: 50px; }
 
         /* --- Layout --- */
         .container { max-width: 1200px; margin: 50px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
@@ -33,7 +37,7 @@
         .img-display img { max-width: 100%; height: auto; transition: 0.5s; object-fit: contain; }
 
         .brand-label { color: var(--gold-dark); letter-spacing: 4px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin: 0; }
-        h1 { font-size: 2.8rem; color: var(--p-green); margin: 10px 0 20px; line-height: 1.2; font-weight: 400; }
+        h1 { font-size: 2.5rem; color: var(--p-green); margin: 10px 0 20px; line-height: 1.2; font-weight: 400; }
         
         .price-tag { font-size: 2.8rem; font-weight: 700; color: var(--p-green); margin-bottom: 30px; display: flex; align-items: baseline; gap: 15px; }
         .price-tag .old { font-size: 1.4rem; color: #aaa; text-decoration: line-through; font-weight: 300; }
@@ -42,33 +46,31 @@
         .desc-section h3 { color: var(--gold-dark); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--gold-dark); padding-left: 15px; }
         .desc-section p { font-size: 1.05rem; color: #444; margin: 0; text-align: justify; }
 
-        /* Highlights Grid */
-        .highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .hl-item { background: rgba(27, 67, 50, 0.05); padding: 12px; border-radius: 10px; font-size: 0.9rem; color: var(--p-green); font-weight: 600; border-left: 3px solid var(--p-green); }
-
-        .btn-order { display: flex; align-items: center; justify-content: center; background: var(--p-green); color: white; text-align: center; padding: 22px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin-top: 20px; border: 2px solid var(--p-green); transition: 0.3s; box-shadow: 0 10px 20px rgba(27, 67, 50, 0.1); }
+        .btn-order { display: flex; align-items: center; justify-content: center; background: var(--p-green); color: white; text-align: center; padding: 22px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin-top: 20px; border: 2px solid var(--p-green); transition: 0.3s; }
         .btn-order:hover { background: transparent; color: var(--p-green); transform: translateY(-3px); }
 
+        /* --- Footer (Same as Index) --- */
         footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; }
-        .footer-col h4 { color: var(--gold-light); margin-bottom: 20px; font-weight: 400; letter-spacing: 1.5px; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; }
+        .footer-col h4 { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-weight: 400; text-transform: uppercase; }
+        .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: rgba(197, 160, 89, 0.5); letter-spacing: 1px; }
 
         @media (max-width: 900px) {
             .container { grid-template-columns: 1fr; }
             .img-display { position: static; padding: 30px; }
-            h1 { font-size: 2.2rem; }
-            .highlights-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
-<body>
+<body id="prod-body">
 
 <nav class="top-nav">
     <div class="logo-box"><a href="index.html"><img src="HJ (5).png" alt="HJ LOGO"></a></div>
     <div class="nav-links">
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html" id="nav-home">HOME</a>
+        <a href="about.html" id="nav-about">ABOUT</a>
+        <a href="contact.html" id="nav-contact">CONTACT</a>
+        <button onclick="rotateLanguage()" id="langBtn" class="lang-switch">EN</button>
     </div>
 </nav>
 
@@ -85,90 +87,117 @@
         </div>
         
         <div class="desc-section">
-            <h3 id="label-desc">Product Details</h3>
+            <h3 id="lbl-desc">Details</h3>
             <p id="p-desc"></p>
-            <div class="highlights-grid" id="p-highlights"></div>
         </div>
         
         <div class="desc-section">
-            <h3 id="label-use">How to Use</h3>
+            <h3 id="lbl-use">How to Use</h3>
             <p id="p-use"></p>
         </div>
 
-        <a href="https://line.me/R/ti/p/@thaihj11" class="btn-order">ORDER VIA LINE</a>
+        <a href="https://line.me/R/ti/p/@thaihj11" class="btn-order" id="btn-order">ORDER VIA LINE</a>
     </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h4>HJ COSMETICS</h4><p>Premium Korean Skincare Curator. We bring the best of K-Beauty to your doorstep.</p></div>
-        <div class="footer-col"><h4>ADDRESS</h4><p>323/11-12 Huayprab Muangthong 5, Bowin, Sriracha, Chon Buri 20230</p></div>
-        <div class="footer-col"><h4>CONTACT</h4><p>Line: @thaihj11<br>Tel: 03-8182-577</p></div>
+        <div class="footer-col">
+            <h4 style="color: #fff; font-size: 2.2rem; margin-bottom: 15px;">HJ COSMETICS</h4>
+            <p id="foot-desc">Premium Korean Skincare Curator.</p>
+        </div>
+        <div class="footer-col">
+            <h4 id="h-addr-foot">ADDRESS</h4>
+            <p>323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
+        </div>
+        <div class="footer-col">
+            <h4 id="h-cont-foot">CONTACT</h4>
+            <p><strong id="lbl-tel">TEL:</strong> 03-8182-577</p>
+            <p><strong>EMAIL:</strong> info@hjcosmetics.com</p>
+            <p><strong>LINE ID:</strong> @thaihj11</p>
+        </div>
     </div>
+    <div class="footer-bottom">&copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
-    const productData = {
-        1: { brand: "Fraijour", name: "Original Herb Wormwood Calming Watery Cream", sale: "฿250", old: "฿369", img: "1.jpeg", 
-             desc: "ครีมบำรุงเนื้อวอเตอรี่ สัมผัสบางเบาแต่ให้ความชุ่มชื้นล้ำลึก สกัดจากสมุนไพรเกาหลี 7 ชนิด โดยเฉพาะ Wormwood (มักเวิร์ต) ที่ช่วยปลอบประโลมผิวบอบบางแพ้ง่าย ลดรอยแดง และฟื้นฟูผิวให้กลับมาแข็งแรง", 
-             use: "ทาบำรุงทั่วใบหน้าและลำคอเป็นขั้นตอนสุดท้ายของการบำรุง ใช้ได้เป็นประจำทั้งเช้าและเย็น",
-             hl: ["ปลอบประโลมผิวแพ้ง่าย", "ลดรอยแดงอักเสบ", "เติมความชุ่มชื้น 24 ชม.", "สารสกัดสมุนไพรธรรมชาติ"] },
-        
-        2: { brand: "Fraijour", name: "Original Herb Wormwood Calming Toner", sale: "฿350", old: "฿459", img: "2.jpeg", 
-             desc: "โทนเนอร์ปรับสภาพผิวสูตรอ่อนโยน ผสานคุณค่าจากมักเวิร์ต ช่วยทำความสะอาดสิ่งสกปรกที่ตกค้างในรูขุมขน พร้อมลดการระคายเคืองและช่วยให้ผิวพร้อมรับการบำรุงในขั้นตอนถัดไป", 
-             use: "หลังล้างหน้า หยดโทนเนอร์ลงบนสำลีแล้วเช็ดเบาๆ ทั่วใบหน้า หรือตบเบาๆ บนผิว",
-             hl: ["ปรับสมดุลผิว pH Balance", "ลดการสะสมของแบคทีเรีย", "รูขุมขนกระชับขึ้น", "เย็นสบายผิว ไม่แสบ"] },
+    const languages = ['th', 'en', 'kr'];
+    let langIndex = languages.indexOf(localStorage.getItem('selectedLang')) || 0;
+    if (langIndex === -1) langIndex = 0;
 
-        3: { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Water", sale: "฿250", old: "฿400", img: "3.jpeg", 
-             desc: "ผลิตภัณฑ์ทำความสะอาดเครื่องสำอางสูตรน้ำ อ่อนโยนต่อผิวรอบดวงตาและริมฝีปาก ลบเมคอัพกันน้ำได้หมดจดโดยไม่ต้องล้างน้ำซ้ำ พร้อมบำรุงผิวให้ชุ่มชื้นไม่แห้งตึง", 
-             use: "เทลงบนสำลีให้ชุ่ม แล้วเช็ดเบาๆ ทั่วใบหน้าจนกว่าจะไม่มีคราบเครื่องสำอางติดออกมา",
-             hl: ["ล้างสะอาดล้ำลึก", "สูตร No-Wash ไม่ต้องล้างน้ำ", "อ่อนโยนต่อผิวแพ้ง่าย", "บำรุงผิวให้สดใส"] },
-
-        4: { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Foam", sale: "฿290", old: "฿399", img: "4.jpeg", 
-             desc: "โฟมล้างหน้าเนื้อละเอียดที่ช่วยขจัดสิ่งสกปรกและฝุ่นละออง PM 2.5 ได้อย่างมีประสิทธิภาพ พร้อมคุณสมบัติปลอบประโลมผิวจากอาการแพ้ด้วยสารสกัดสมุนไพรเข้มข้น", 
-             use: "บีบเนื้อโฟมลงบนฝ่ามือ ผสมน้ำเล็กน้อยให้เกิดฟอง นวดวนทั่วใบหน้าแล้วล้างออกด้วยน้ำสะอาด",
-             hl: ["ฟองนุ่มละเอียด", "ลดการอักเสบของผิว", "ผิวไม่แห้งหลังล้าง", "ขจัดสารพิษตกค้าง"] },
-
-        5: { brand: "Fraijour", name: "Heartleaf Blemish Moisture Cream", sale: "฿310", old: "฿590", img: "5.jpeg", 
-             desc: "ครีมบำรุงเข้มข้นจากสารสกัด Heartleaf (ผักคาวทอง) ออกแบบมาเพื่อผิวที่เป็นสิวง่ายและผิวมันโดยเฉพาะ ช่วยควบคุมความมันส่วนเกินและยับยั้งการเกิดสิวใหม่", 
-             use: "ทาบางๆ ทั่วใบหน้าหลังการลงเซรั่ม เน้นบริเวณที่แห้งกร้านหรือมีปัญหาสิว",
-             hl: ["คุมมันยาวนาน", "ลดสิวอุดตัน/สิวผด", "ปรับผิวให้เรียบเนียน", "เพิ่มความยืดหยุ่นให้ผิว"] },
-
-        11: { brand: "Fraijour", name: "Heartleaf Airy Fit Sun Cream", sale: "฿280", old: "฿450", img: "Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png", 
-             desc: "กันแดดเนื้อแอร์รี่ บางเบาเหมือนอากาศ ไม่เหนียวเหนอะหนะ ปกป้องผิวจาก UVA/UVB สูงสุดด้วย SPF50+ PA++++ พร้อมสารสกัด Heartleaf ที่ช่วยลดอุณหภูมิผิว", 
-             use: "ทาทั่วใบหน้าและลำคอเป็นขั้นตอนสุดท้ายก่อนออกแดดอย่างน้อย 15 นาที",
-             hl: ["เนื้อบางเบาพิเศษ", "ไม่เป็นคราบขาว", "กันแดดสูงสุด", "ปลอบประโลมผิวแดด"] },
-
-        14: { brand: "Bathpa", name: "Bathpa Body Tone Up Cream", sale: "฿150", old: "฿529", img: "13.jpeg", 
-             desc: "ครีมปรับสีผิวกายให้กระจ่างใสทันทีที่ทา ให้ลุคผิวขาวนวลเป็นธรรมชาติ ไม่วอก ไม่ติดขน พร้อมสารบำรุงผิวให้นุ่มชุ่มชื้นและมีกลิ่นหอมติดทนนานหรูหรา", 
-             use: "ลูบไล้ครีมทั่วผิวกายหลังอาบน้ำ หรือใช้ทาก่อนออกงานเพื่อผิวที่ดูมีออร่า",
-             hl: ["ขาวขึ้นทันที", "เกลี่ยง่าย ไม่ติดขน", "กันน้ำ กันเหงื่อ", "กลิ่นหอมระดับน้ำหอม"] },
-
-        15: { brand: "CharChar", name: "Mung Bean Cica Cleansing Foam", sale: "฿120", old: "฿199", img: "https://via.placeholder.com/300", 
-             desc: "โฟมล้างหน้าพลังสารสกัดจากถั่วเขียวและใบบัวบก (Cica) ช่วยดีท็อกซ์ผิวและลดรอยแดงจากสิวได้อย่างดีเยี่ยม ทำความสะอาดได้ถึงระดับรูขุมขน", 
-             use: "ใช้ทำความสะอาดผิวหน้าเป็นประจำเช้าและเย็น",
-             hl: ["ดีท็อกซ์สิ่งสกปรก", "ลดรอยแดงจากสิว", "สารสกัดธรรมชาติ 100%", "ผิวสะอาด สดชื่น"] }
-        // (คุณสามารถก๊อปปี้เพิ่มจนครบ 15 ตัวได้เลยครับ)
+    const trans = {
+        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", lblDesc: "รายละเอียดสินค้า", lblUse: "วิธีใช้", btnOrder: "สั่งซื้อผ่าน LINE", hAddr: "ที่อยู่บริษัท", hCont: "ติดต่อเรา", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", btn: "EN" },
+        en: { home: "HOME", about: "ABOUT US", contact: "CONTACT US", lblDesc: "PRODUCT DETAILS", lblUse: "HOW TO USE", btnOrder: "ORDER VIA LINE", hAddr: "ADDRESS", hCont: "CONTACT", footDesc: "Premium Korean Skincare Curator.", btn: "KR" },
+        kr: { home: "홈", about: "회사소개", contact: "문의하기", lblDesc: "상세 정보", lblUse: "사용 방법", btnOrder: "라인으로 주문하기", hAddr: "주소", hCont: "고객센터", footDesc: "자연의 힘으로 완성하는 최상의 스킨케어", btn: "TH" }
     };
 
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    const p = productData[id] || productData[1]; // ถ้าหา ID ไม่เจอ ให้ดึงตัวที่ 1 มาโชว์ก่อน
+    const productData = {
+        1: { 
+            th: { name: "Original Herb Wormwood Calming Watery Cream", desc: "ครีมบำรุงเนื้อวอเตอรี่ ช่วยปลอบประโลมผิวอย่างล้ำลึกด้วยสารสกัดสมุนไพร", use: "ทาบำรุงทั่วใบหน้าและลำคอ เช้า-เย็น" },
+            en: { name: "Original Herb Wormwood Calming Watery Cream", desc: "Watery cream that deeply soothes the skin with herbal extracts.", use: "Apply over face and neck morning and night." },
+            kr: { name: "오리지널 허브 웜우드 카밍 워터리 크림", desc: "허브 추출물로 피부를 깊게 진정시켜주는 워터리 크림입니다.", use: "아침 저녁으로 얼굴과 목에 펴 발라줍니다." },
+            brand: "Fraijour", sale: "250", old: "369", img: "1.jpeg"
+        },
+        2: { 
+            th: { name: "Original Herb Wormwood Calming Toner", desc: "โทนเนอร์ช่วยปรับสมดุลผิวและลดการระคายเคือง", use: "เช็ดเบาๆ ทั่วใบหน้าหลังล้างหน้า" },
+            en: { name: "Original Herb Wormwood Calming Toner", desc: "Toner that balances the skin and reduces irritation.", use: "Gently wipe over face after cleansing." },
+            kr: { name: "오리지널 허브 웜우드 카밍 토너", desc: "피부 밸런스를 맞춰주고 자극을 줄여주는 토너입니다.", use: "세안 후 얼굴 전체를 부드럽게 닦아냅니다." },
+            brand: "Fraijour", sale: "350", old: "459", img: "2.jpeg"
+        },
+        11: {
+            th: { name: "Heartleaf Airy Fit Sun Cream", desc: "กันแดดเนื้อบางเบาสบายผิว ปกป้องยูวีสูงสุด", use: "ทาทั่วใบหน้าก่อนออกแดด 15 นาที" },
+            en: { name: "Heartleaf Airy Fit Sun Cream", desc: "Lightweight sun cream with maximum UV protection.", use: "Apply to face 15 minutes before sun exposure." },
+            kr: { name: "하트리프 에어리 핏 선크림", desc: "가볍고 산뜻한 사용감의 강력한 자외선 차단제입니다.", use: "외출 15분 전 얼굴에 골고루 펴 바릅니다." },
+            brand: "Fraijour", sale: "280", old: "450", img: "Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png"
+        },
+        14: {
+            th: { name: "Bathpa Body Tone Up Cream", desc: "ครีมบำรุงผิวกาย ปรับผิวขาวกระจ่างใสทันที", use: "ทาทั่วผิวกายทุกครั้งหลังอาบน้ำ" },
+            en: { name: "Bathpa Body Tone Up Cream", desc: "Body cream for instant skin brightening and nourishment.", use: "Apply all over the body after showering." },
+            kr: { name: "바스파 바디 톤업 크림", desc: "바르는 즉시 피부를 밝게 해주는 바디 크림입니다.", use: "샤워 후 전신에 골고루 펴 바릅니다." },
+            brand: "Bathpa", sale: "150", old: "529", img: "13.jpeg"
+        }
+        // สามารถเพิ่ม 3-10, 12, 13, 15 ได้ในรูปแบบเดียวกัน
+    };
 
-    if(p) {
+    function updateContent() {
+        const lang = languages[langIndex];
+        const l = trans[lang];
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 1;
+        const p = productData[id] || productData[1];
+
+        // UI Language
+        const body = document.getElementById('prod-body');
+        body.className = `lang-${lang}`;
+        document.getElementById('nav-home').textContent = l.home;
+        document.getElementById('nav-about').textContent = l.about;
+        document.getElementById('nav-contact').textContent = l.contact;
+        document.getElementById('lbl-desc').textContent = l.lblDesc;
+        document.getElementById('lbl-use').textContent = l.lblUse;
+        document.getElementById('btn-order').textContent = l.btnOrder;
+        document.getElementById('h-addr-foot').textContent = l.hAddr;
+        document.getElementById('h-cont-foot').textContent = l.hCont;
+        document.getElementById('foot-desc').textContent = l.footDesc;
+        document.getElementById('langBtn').textContent = l.btn;
+
+        // Product Content Language
+        const pInfo = p[lang];
         document.getElementById('p-img').src = p.img;
-        document.getElementById('p-brand').innerText = p.brand;
-        document.getElementById('p-name').innerText = p.name;
-        document.getElementById('p-sale').innerText = p.sale;
-        document.getElementById('p-old').innerText = p.old;
-        document.getElementById('p-desc').innerText = p.desc;
-        document.getElementById('p-use').innerText = p.use;
-        document.getElementById('page-title').innerText = p.name;
+        document.getElementById('p-brand').textContent = p.brand;
+        document.getElementById('p-name').textContent = pInfo.name;
+        document.getElementById('p-sale').textContent = `฿${p.sale}`;
+        document.getElementById('p-old').textContent = `฿${p.old}`;
+        document.getElementById('p-desc').textContent = pInfo.desc;
+        document.getElementById('p-use').textContent = pInfo.use;
+        document.getElementById('page-title').textContent = `${pInfo.name} - HJ Cosmetics`;
 
-        // ใส่จุดเด่น Highlights
-        const hlBox = document.getElementById('p-highlights');
-        hlBox.innerHTML = p.hl.map(text => `<div class="hl-item">✨ ${text}</div>`).join('');
+        localStorage.setItem('selectedLang', lang);
     }
+
+    function rotateLanguage() { langIndex = (langIndex + 1) % languages.length; updateContent(); }
+    
+    // โหลดครั้งแรก
+    updateContent();
 </script>
 </body>
 </html>
