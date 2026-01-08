@@ -45,20 +45,11 @@
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; }
 
-        /* ✨ ปุ่มเปลี่ยนภาษาแบบชัดเจน */
         .lang-switch { 
-            background: var(--p-green); 
-            color: var(--gold-light); 
-            border: 1px solid var(--gold-dark); 
-            padding: 8px 18px; 
-            border-radius: 30px; 
-            cursor: pointer; 
-            font-weight: bold;
-            font-size: 0.75rem;
-            transition: 0.3s;
-            min-width: 60px;
+            background: var(--p-green); color: var(--gold-light); 
+            border: 1px solid var(--gold-dark); padding: 8px 18px; 
+            border-radius: 30px; cursor: pointer; font-weight: bold; min-width: 60px;
         }
-        .lang-switch:hover { background: var(--gold-dark); color: white; }
 
         /* --- Hero --- */
         header { height: 75vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000; }
@@ -72,7 +63,7 @@
         .brand-section { padding: 100px 0; position: relative; }
         .bg-text { 
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 14vw; font-weight: 800; color: rgba(27, 67, 50, 0.03);
+            font-size: 14vw; font-weight: 800; color: rgba(27, 67, 50, 0.035);
             z-index: 0; pointer-events: none; text-transform: uppercase;
         }
 
@@ -91,44 +82,29 @@
             box-shadow: 15px 15px 40px rgba(0,0,0,0.03); border: 1px solid white; position: relative;
         }
         .card:hover { transform: translateY(-15px); box-shadow: 25px 25px 60px rgba(197, 160, 89, 0.15); border-color: var(--gold-dark); }
-        
-        .badge { 
-            position: absolute; top: 25px; left: -10px; background: var(--p-green); 
-            color: var(--gold-light); padding: 7px 15px; font-size: 10px; font-weight: 700; 
-            border-radius: 0 20px 20px 0;
-        }
-        
+        .badge { position: absolute; top: 25px; left: -10px; background: var(--p-green); color: var(--gold-light); padding: 7px 15px; font-size: 10px; font-weight: 700; border-radius: 0 20px 20px 0; }
         .img-box { width: 100%; height: 260px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
-        .img-box img { max-width: 85%; max-height: 85%; object-fit: contain; transition: 0.5s; }
-        .card:hover .img-box img { transform: scale(1.05); }
-        
+        .img-box img { max-width: 85%; max-height: 85%; object-fit: contain; }
         .card h3 { font-size: 1.05rem; text-align: center; margin-bottom: 15px; font-weight: 500; height: 3rem; overflow: hidden; }
         .price-box { text-align: center; margin-bottom: 25px; }
         .sale { font-size: 1.6rem; font-weight: 600; }
         .old { font-size: 0.9rem; color: #bbb; text-decoration: line-through; margin-left: 8px; }
-        
-        .btn-buy { 
-            display: block; width: 100%; padding: 16px; border-radius: 40px;
-            background: var(--p-green); color: var(--gold-light); text-align: center;
-            text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;
-            transition: 0.4s;
-        }
-        .btn-buy:hover { background: var(--gold-dark); color: white; }
+        .btn-buy { display: block; width: 100%; padding: 16px; border-radius: 40px; background: var(--p-green); color: var(--gold-light); text-align: center; text-decoration: none; font-size: 0.85rem; font-weight: 700; }
 
-        .arrow-btn {
-            position: absolute; top: 50%; width: 50px; height: 50px; border-radius: 50%;
-            background: white; border: none; cursor: pointer; z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); color: var(--p-green);
-        }
+        .arrow-btn { position: absolute; top: 50%; width: 50px; height: 50px; border-radius: 50%; background: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .arrow-prev { left: 15px; }
         .arrow-next { right: 15px; }
 
-        footer { background: #0a1410; color: white; padding: 100px 8% 50px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
+        /* --- Footer (Updated) --- */
+        footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 4px solid var(--gold-dark); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; }
+        .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 25px; letter-spacing: 2px; border-left: 3px solid var(--gold-dark); padding-left: 15px; }
+        .footer-col p { line-height: 1.8; font-size: 0.9rem; margin: 10px 0; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 30px; text-align: center; font-size: 0.75rem; letter-spacing: 1px; }
 
         @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
             .header-content h1 { font-size: 3rem; letter-spacing: 8px; }
-            .card { flex: 0 0 300px; }
         }
     </style>
 </head>
@@ -187,10 +163,22 @@
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h2>HJ COSMETICS</h2><p>Premium Korean Beauty Selection.</p></div>
-        <div class="footer-col"><h4 id="h-addr">ADDRESS</h4><p>Bowin, Chon Buri, Thailand</p></div>
-        <div class="footer-col"><h4 id="h-cont">CONTACT</h4><p>Line: @thaihj11</p></div>
+        <div class="footer-col">
+            <h4 style="border:none; padding:0; font-size: 2rem;">HJ COSMETICS</h4>
+            <p id="foot-desc">Premium Korean Skincare Curator. We select only the best for your skin health and beauty journey.</p>
+        </div>
+        <div class="footer-col">
+            <h4 id="h-addr">ADDRESS</h4>
+            <p id="addr-text">323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
+        </div>
+        <div class="footer-col">
+            <h4 id="h-cont">CONTACT</h4>
+            <p><strong>TEL:</strong> 03-8182-577</p>
+            <p><strong>EMAIL:</strong> thaihjglobal@gmail.com</p>
+            <p><strong>LINE ID:</strong> thaihj11</p>
+        </div>
     </div>
+    <div class="footer-bottom">&copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
@@ -216,9 +204,21 @@
     let currentLang = localStorage.getItem('selectedLang') || 'th';
 
     const trans = {
-        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", hero: "แก่นแท้ความงามจากเกาหลี", shop: "สั่งซื้อสินค้า", btn: "EN", addr: "ที่อยู่", cont: "ติดต่อ" },
-        en: { home: "HOME", about: "ABOUT", contact: "CONTACT", hero: "The Essence of Korean Beauty", shop: "SHOP NOW", btn: "KR", addr: "ADDRESS", cont: "CONTACT" },
-        kr: { home: "홈", about: "소개", contact: "문의", hero: "한국 뷰티의 정수", shop: "구매하기", btn: "TH", addr: "주소", cont: "고객센터" }
+        th: { 
+            home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", hero: "แก่นแท้ความงามจากเกาหลี", shop: "สั่งซื้อสินค้า", btn: "EN", 
+            addrTitle: "ที่อยู่", contTitle: "ติดต่อเรา", 
+            addr: "323/11-12 ห้วยปราบเมืองทอง 5, <br>หมู่ 3, บ่อวิน, ศรีราชา, <br>ชลบุรี 20230, ประเทศไทย"
+        },
+        en: { 
+            home: "HOME", about: "ABOUT", contact: "CONTACT", hero: "The Essence of Korean Beauty", shop: "SHOP NOW", btn: "KR", 
+            addrTitle: "ADDRESS", contTitle: "CONTACT", 
+            addr: "323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand"
+        },
+        kr: { 
+            home: "홈", about: "소개", contact: "문의", hero: "한국 뷰티의 정수", shop: "구매하기", btn: "TH", 
+            addrTitle: "주소", contTitle: "고객센터", 
+            addr: "323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand"
+        }
     };
 
     function moveSlider(id, dir) { document.getElementById(id).scrollBy({ left: dir * 350, behavior: 'smooth' }); }
@@ -230,28 +230,21 @@
         document.getElementById('nav-contact').textContent = l.contact;
         document.getElementById('hero-sub').textContent = l.hero;
         document.getElementById('langBtn').textContent = l.btn;
-        document.getElementById('h-addr').textContent = l.addr;
-        document.getElementById('h-cont').textContent = l.cont;
+        document.getElementById('h-addr').textContent = l.addrTitle;
+        document.getElementById('h-cont').textContent = l.contTitle;
+        document.getElementById('addr-text').innerHTML = l.addr;
         
         const containers = { Fraijour: 'grid-fraijour', Bathpa: 'grid-bathpa', CharChar: 'grid-charchar' };
         Object.values(containers).forEach(id => document.getElementById(id).innerHTML = '');
         
         products.forEach(p => {
-            const html = `
-                <div class="card">
-                    <div class="badge">${p.badge}</div>
-                    <div class="img-box"><img src="${p.img}"></div>
-                    <h3>${p.name}</h3>
-                    <div class="price-box"><span class="sale">฿${p.sale}</span><span class="old">฿${p.old}</span></div>
-                    <a href="product.html?id=${p.id}" class="btn-buy">${l.shop}</a>
-                </div>`;
+            const html = `<div class="card"><div class="badge">${p.badge}</div><div class="img-box"><img src="${p.img}"></div><h3>${p.name}</h3><div class="price-box"><span class="sale">฿${p.sale}</span><span class="old">฿${p.old}</span></div><a href="product.html?id=${p.id}" class="btn-buy">${l.shop}</a></div>`;
             document.getElementById(containers[p.brand]).innerHTML += html;
         });
     }
 
     function rotateLanguage() {
-        const idx = (languages.indexOf(currentLang) + 1) % languages.length;
-        currentLang = languages[idx];
+        currentLang = languages[(languages.indexOf(currentLang) + 1) % languages.length];
         localStorage.setItem('selectedLang', currentLang);
         updateContent();
     }
