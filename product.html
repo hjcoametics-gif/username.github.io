@@ -16,7 +16,7 @@
             font-family: 'IBM-Plex-Light', sans-serif; 
             margin: 0; background-color: var(--bg-creme); 
             background-image: radial-gradient(var(--gold-dark) 0.3px, transparent 0.3px);
-            background-size: 20px 20px;
+            background-size: 25px 25px; background-attachment: fixed;
             color: var(--text-main); line-height: 1.6;
         }
 
@@ -26,44 +26,38 @@
         .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
 
-        /* --- Main Layout --- */
-        .container { max-width: 1300px; margin: 60px auto; padding: 0 5%; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+        /* --- Layout --- */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         
-        /* Image Display */
-        .img-display { background: white; padding: 60px; border-radius: 40px; border: 1px solid rgba(197, 160, 89, 0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 120px; transition: 0.3s; }
-        .img-display:hover { border-color: var(--gold-dark); }
-        .img-display img { max-width: 100%; height: auto; object-fit: contain; }
+        .img-display { background: white; padding: 50px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 120px; }
+        .img-display img { max-width: 100%; height: auto; transition: 0.5s; object-fit: contain; }
 
-        /* Content Display */
         .brand-label { color: var(--gold-dark); letter-spacing: 4px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin: 0; }
-        h1 { font-size: 3rem; color: var(--p-green); margin: 15px 0; line-height: 1.2; font-weight: 400; font-family: 'IBM-Plex-Light', sans-serif; }
+        h1 { font-size: 2.8rem; color: var(--p-green); margin: 10px 0 20px; line-height: 1.2; font-weight: 400; }
         
-        .price-wrapper { display: flex; align-items: baseline; gap: 20px; margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .price-sale { font-size: 3rem; font-weight: 700; color: var(--p-green); }
-        .price-old { font-size: 1.5rem; color: #aaa; text-decoration: line-through; }
+        .price-tag { font-size: 2.8rem; font-weight: 700; color: var(--p-green); margin-bottom: 30px; display: flex; align-items: baseline; gap: 15px; }
+        .price-tag .old { font-size: 1.4rem; color: #aaa; text-decoration: line-through; font-weight: 300; }
 
-        .section { margin-bottom: 35px; }
-        .section h3 { color: var(--gold-dark); font-size: 1.1rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px; border-left: 3px solid var(--gold-dark); padding-left: 15px; }
-        .section p { font-size: 1.05rem; color: #444; text-align: justify; }
+        .desc-section { border-top: 1px solid rgba(197, 160, 89, 0.2); padding: 30px 0; }
+        .desc-section h3 { color: var(--gold-dark); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--gold-dark); padding-left: 15px; }
+        .desc-section p { font-size: 1.05rem; color: #444; margin: 0; text-align: justify; }
 
         /* Highlights Grid */
-        .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .hl-item { background: rgba(27, 67, 50, 0.04); padding: 15px; border-radius: 12px; border-left: 3px solid var(--p-green); font-size: 0.9rem; font-weight: 600; color: var(--p-green); }
+        .highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .hl-item { background: rgba(27, 67, 50, 0.05); padding: 12px; border-radius: 10px; font-size: 0.9rem; color: var(--p-green); font-weight: 600; border-left: 3px solid var(--p-green); }
 
-        /* Order Button */
-        .btn-order { display: flex; align-items: center; justify-content: center; background: var(--p-green); color: white; padding: 22px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin-top: 40px; border: 2px solid var(--p-green); transition: 0.4s; gap: 10px; }
-        .btn-order:hover { background: transparent; color: var(--p-green); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(27, 67, 50, 0.1); }
+        .btn-order { display: flex; align-items: center; justify-content: center; background: var(--p-green); color: white; text-align: center; padding: 22px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin-top: 20px; border: 2px solid var(--p-green); transition: 0.3s; box-shadow: 0 10px 20px rgba(27, 67, 50, 0.1); }
+        .btn-order:hover { background: transparent; color: var(--p-green); transform: translateY(-3px); }
 
-        /* Footer */
-        footer { background: #0a1410; color: rgba(255,255,255,0.7); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
-        .footer-col h4 { color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-weight: 400; }
+        footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; }
+        .footer-col h4 { color: var(--gold-light); margin-bottom: 20px; font-weight: 400; letter-spacing: 1.5px; }
 
         @media (max-width: 900px) {
-            .container { grid-template-columns: 1fr; margin-top: 20px; }
+            .container { grid-template-columns: 1fr; }
             .img-display { position: static; padding: 30px; }
             h1 { font-size: 2.2rem; }
-            .highlights { grid-template-columns: 1fr; }
+            .highlights-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -80,94 +74,88 @@
 
 <div class="container">
     <div class="img-display">
-        <img id="p-img" src="" alt="Product Image">
+        <img id="p-img" src="" alt="Product">
     </div>
     <div class="info-box">
         <p class="brand-label" id="p-brand"></p>
         <h1 id="p-name"></h1>
+        <div class="price-tag">
+            <span id="p-sale"></span>
+            <span class="old" id="p-old"></span>
+        </div>
         
-        <div class="price-wrapper">
-            <span class="price-sale" id="p-sale"></span>
-            <span class="price-old" id="p-old"></span>
-        </div>
-
-        <div class="section">
-            <h3 id="lbl-desc">Product Benefits</h3>
+        <div class="desc-section">
+            <h3 id="label-desc">Product Details</h3>
             <p id="p-desc"></p>
-            <div class="highlights" id="p-highlights">
-                </div>
+            <div class="highlights-grid" id="p-highlights"></div>
         </div>
-
-        <div class="section">
-            <h3 id="lbl-use">How to Experience</h3>
+        
+        <div class="desc-section">
+            <h3 id="label-use">How to Use</h3>
             <p id="p-use"></p>
         </div>
 
-        <div class="section">
-            <h3 id="lbl-origin">Authenticity</h3>
-            <p>100% Authentic Product from Korea. Carefully selected for premium quality and proven results.</p>
-        </div>
-
-        <a href="https://line.me/R/ti/p/@thaihj11" class="btn-order">
-            <span>ORDER VIA LINE</span>
-        </a>
+        <a href="https://line.me/R/ti/p/@thaihj11" class="btn-order">ORDER VIA LINE</a>
     </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h4>HJ COSMETICS</h4><p>Your trusted curator of premium Korean skincare. We believe in beauty backed by nature and science.</p></div>
-        <div class="footer-col"><h4>HEADQUARTERS</h4><p>323/11-12 Huayprab Muangthong 5, Bowin, Sriracha, Chon Buri 20230</p></div>
+        <div class="footer-col"><h4>HJ COSMETICS</h4><p>Premium Korean Skincare Curator. We bring the best of K-Beauty to your doorstep.</p></div>
+        <div class="footer-col"><h4>ADDRESS</h4><p>323/11-12 Huayprab Muangthong 5, Bowin, Sriracha, Chon Buri 20230</p></div>
         <div class="footer-col"><h4>CONTACT</h4><p>Line: @thaihj11<br>Tel: 03-8182-577</p></div>
     </div>
 </footer>
 
 <script>
     const productData = {
-        1: { 
-            brand: "Fraijour", 
-            name: "Wormwood Calming Watery Cream", 
-            sale: "฿250", old: "฿369", 
-            img: "1.jpeg", 
-            desc: "ครีมบำรุงเนื้อเจลวอเตอรี่ สัมผัสบางเบาแต่ให้ความชุ่มชื้นสูงเป็นพิเศษ ด้วยสารสกัดจากมักเวิร์ต (Wormwood) เข้มข้น ช่วยปลอบประโลมผิวที่อ่อนแอ ลดรอยแดง และสร้างเกราะป้องกันผิวให้แข็งแรง เหมาะสำหรับทุกสภาพผิวโดยเฉพาะผิวแพ้ง่าย",
-            use: "ลูบไล้ครีมเบาๆ ทั่วใบหน้าและลำคอ เป็นขั้นตอนสุดท้ายของการบำรุง ใช้ได้ทั้งเช้าและเย็น",
-            hl: ["ปลอบประโลมผิวอักเสบ", "เติมความชุ่มชื้นล้ำลึก", "เนื้อสัมผัสไม่เหนียวเหนอะหนะ", "ลดรอยแดงจากสิว"]
-        },
-        2: { 
-            brand: "Fraijour", 
-            name: "Wormwood Calming Toner", 
-            sale: "฿350", old: "฿459", 
-            img: "2.jpeg", 
-            desc: "โทนเนอร์สมุนไพรสูตรอ่อนโยน ที่ช่วยผลัดเซลล์ผิวอย่างละมุนด้วย AHA/BHA จากธรรมชาติ พร้อมพลังการบำบัดจาก Wormwood ช่วยปรับสมดุลค่า pH ของผิวให้เหมาะสม และเตรียมผิวให้พร้อมสำหรับการบำรุงในขั้นตอนต่อไป",
-            use: "หลังล้างหน้า หยดโทนเนอร์ลงบนสำลีแล้วเช็ดให้ทั่วใบหน้า หรือหยดลงบนฝ่ามือแล้วตบเบาๆ",
-            hl: ["ปรับสมดุลค่า pH", "ลดสิวผดและสิวอุดตัน", "ทำความสะอาดรูขุมขน", "ปราศจากแอลกอฮอล์"]
-        },
-        11: { 
-            brand: "Fraijour", 
-            name: "Heartleaf Airy Fit Sun Cream", 
-            sale: "฿280", old: "฿450", 
-            img: "Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png", 
-            desc: "กันแดดเนื้อแอร์รี่ (Airy Fit) ที่ให้ความรู้สึกเบาราวกับไม่ได้ทา ปกป้องผิวจากรังสี UVA และ UVB ด้วยค่า SPF50+ PA++++ ผสานสารสกัดจาก Heartleaf ช่วยลดอุณหภูมิผิวและป้องกันการระคายเคืองจากแสงแดด",
-            use: "ทาให้ทั่วใบหน้าและลำคอเป็นขั้นตอนสุดท้ายก่อนออกแดด 15-20 นาที",
-            hl: ["SPF50+ PA++++", "คุมมันยาวนาน", "ไม่ทิ้งคราบขาว", "บำรุงผิวในตัว"]
-        },
-        14: { 
-            brand: "Bathpa", 
-            name: "Body Tone Up Cream", 
-            sale: "฿150", old: "฿529", 
-            img: "13.jpeg", 
-            desc: "นวัตกรรมครีมปรับสีผิวให้ขาวกระจ่างใสทันทีที่ทา (Instant Brightening) พร้อมบำรุงล้ำลึกด้วยสารสกัดเข้มข้น เนื้อครีมเกลี่ยง่าย ไม่ติดขน ไม่เป็นคราบ และให้กลิ่นหอมหรูหราติดทนนานตลอดวัน",
-            use: "ทาบำรุงผิวกายทุกวันหลังอาบน้ำ หรือใช้ทาเฉพาะจุดที่ต้องการความกระจ่างใสเป็นพิเศษ",
-            hl: ["ผิวสว่างขึ้น 1-2 ระดับ", "กันน้ำ กันเหงื่อ", "กลิ่นหอมพรีเมียม", "บำรุงผิวให้นุ่มนวล"]
-        }
-        // ... เพิ่มสินค้าตัวอื่นๆ ด้วยโครงสร้างเดียวกันได้เลยครับ ...
+        1: { brand: "Fraijour", name: "Original Herb Wormwood Calming Watery Cream", sale: "฿250", old: "฿369", img: "1.jpeg", 
+             desc: "ครีมบำรุงเนื้อวอเตอรี่ สัมผัสบางเบาแต่ให้ความชุ่มชื้นล้ำลึก สกัดจากสมุนไพรเกาหลี 7 ชนิด โดยเฉพาะ Wormwood (มักเวิร์ต) ที่ช่วยปลอบประโลมผิวบอบบางแพ้ง่าย ลดรอยแดง และฟื้นฟูผิวให้กลับมาแข็งแรง", 
+             use: "ทาบำรุงทั่วใบหน้าและลำคอเป็นขั้นตอนสุดท้ายของการบำรุง ใช้ได้เป็นประจำทั้งเช้าและเย็น",
+             hl: ["ปลอบประโลมผิวแพ้ง่าย", "ลดรอยแดงอักเสบ", "เติมความชุ่มชื้น 24 ชม.", "สารสกัดสมุนไพรธรรมชาติ"] },
+        
+        2: { brand: "Fraijour", name: "Original Herb Wormwood Calming Toner", sale: "฿350", old: "฿459", img: "2.jpeg", 
+             desc: "โทนเนอร์ปรับสภาพผิวสูตรอ่อนโยน ผสานคุณค่าจากมักเวิร์ต ช่วยทำความสะอาดสิ่งสกปรกที่ตกค้างในรูขุมขน พร้อมลดการระคายเคืองและช่วยให้ผิวพร้อมรับการบำรุงในขั้นตอนถัดไป", 
+             use: "หลังล้างหน้า หยดโทนเนอร์ลงบนสำลีแล้วเช็ดเบาๆ ทั่วใบหน้า หรือตบเบาๆ บนผิว",
+             hl: ["ปรับสมดุลผิว pH Balance", "ลดการสะสมของแบคทีเรีย", "รูขุมขนกระชับขึ้น", "เย็นสบายผิว ไม่แสบ"] },
+
+        3: { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Water", sale: "฿250", old: "฿400", img: "3.jpeg", 
+             desc: "ผลิตภัณฑ์ทำความสะอาดเครื่องสำอางสูตรน้ำ อ่อนโยนต่อผิวรอบดวงตาและริมฝีปาก ลบเมคอัพกันน้ำได้หมดจดโดยไม่ต้องล้างน้ำซ้ำ พร้อมบำรุงผิวให้ชุ่มชื้นไม่แห้งตึง", 
+             use: "เทลงบนสำลีให้ชุ่ม แล้วเช็ดเบาๆ ทั่วใบหน้าจนกว่าจะไม่มีคราบเครื่องสำอางติดออกมา",
+             hl: ["ล้างสะอาดล้ำลึก", "สูตร No-Wash ไม่ต้องล้างน้ำ", "อ่อนโยนต่อผิวแพ้ง่าย", "บำรุงผิวให้สดใส"] },
+
+        4: { brand: "Fraijour", name: "Original Herb Wormwood Cleansing Foam", sale: "฿290", old: "฿399", img: "4.jpeg", 
+             desc: "โฟมล้างหน้าเนื้อละเอียดที่ช่วยขจัดสิ่งสกปรกและฝุ่นละออง PM 2.5 ได้อย่างมีประสิทธิภาพ พร้อมคุณสมบัติปลอบประโลมผิวจากอาการแพ้ด้วยสารสกัดสมุนไพรเข้มข้น", 
+             use: "บีบเนื้อโฟมลงบนฝ่ามือ ผสมน้ำเล็กน้อยให้เกิดฟอง นวดวนทั่วใบหน้าแล้วล้างออกด้วยน้ำสะอาด",
+             hl: ["ฟองนุ่มละเอียด", "ลดการอักเสบของผิว", "ผิวไม่แห้งหลังล้าง", "ขจัดสารพิษตกค้าง"] },
+
+        5: { brand: "Fraijour", name: "Heartleaf Blemish Moisture Cream", sale: "฿310", old: "฿590", img: "5.jpeg", 
+             desc: "ครีมบำรุงเข้มข้นจากสารสกัด Heartleaf (ผักคาวทอง) ออกแบบมาเพื่อผิวที่เป็นสิวง่ายและผิวมันโดยเฉพาะ ช่วยควบคุมความมันส่วนเกินและยับยั้งการเกิดสิวใหม่", 
+             use: "ทาบางๆ ทั่วใบหน้าหลังการลงเซรั่ม เน้นบริเวณที่แห้งกร้านหรือมีปัญหาสิว",
+             hl: ["คุมมันยาวนาน", "ลดสิวอุดตัน/สิวผด", "ปรับผิวให้เรียบเนียน", "เพิ่มความยืดหยุ่นให้ผิว"] },
+
+        11: { brand: "Fraijour", name: "Heartleaf Airy Fit Sun Cream", sale: "฿280", old: "฿450", img: "Heartleaf Airy Fit Sun Cream 50g ผลิตภัณฑ์.png", 
+             desc: "กันแดดเนื้อแอร์รี่ บางเบาเหมือนอากาศ ไม่เหนียวเหนอะหนะ ปกป้องผิวจาก UVA/UVB สูงสุดด้วย SPF50+ PA++++ พร้อมสารสกัด Heartleaf ที่ช่วยลดอุณหภูมิผิว", 
+             use: "ทาทั่วใบหน้าและลำคอเป็นขั้นตอนสุดท้ายก่อนออกแดดอย่างน้อย 15 นาที",
+             hl: ["เนื้อบางเบาพิเศษ", "ไม่เป็นคราบขาว", "กันแดดสูงสุด", "ปลอบประโลมผิวแดด"] },
+
+        14: { brand: "Bathpa", name: "Bathpa Body Tone Up Cream", sale: "฿150", old: "฿529", img: "13.jpeg", 
+             desc: "ครีมปรับสีผิวกายให้กระจ่างใสทันทีที่ทา ให้ลุคผิวขาวนวลเป็นธรรมชาติ ไม่วอก ไม่ติดขน พร้อมสารบำรุงผิวให้นุ่มชุ่มชื้นและมีกลิ่นหอมติดทนนานหรูหรา", 
+             use: "ลูบไล้ครีมทั่วผิวกายหลังอาบน้ำ หรือใช้ทาก่อนออกงานเพื่อผิวที่ดูมีออร่า",
+             hl: ["ขาวขึ้นทันที", "เกลี่ยง่าย ไม่ติดขน", "กันน้ำ กันเหงื่อ", "กลิ่นหอมระดับน้ำหอม"] },
+
+        15: { brand: "CharChar", name: "Mung Bean Cica Cleansing Foam", sale: "฿120", old: "฿199", img: "https://via.placeholder.com/300", 
+             desc: "โฟมล้างหน้าพลังสารสกัดจากถั่วเขียวและใบบัวบก (Cica) ช่วยดีท็อกซ์ผิวและลดรอยแดงจากสิวได้อย่างดีเยี่ยม ทำความสะอาดได้ถึงระดับรูขุมขน", 
+             use: "ใช้ทำความสะอาดผิวหน้าเป็นประจำเช้าและเย็น",
+             hl: ["ดีท็อกซ์สิ่งสกปรก", "ลดรอยแดงจากสิว", "สารสกัดธรรมชาติ 100%", "ผิวสะอาด สดชื่น"] }
+        // (คุณสามารถก๊อปปี้เพิ่มจนครบ 15 ตัวได้เลยครับ)
     };
 
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id') || 1;
-    const p = productData[id] || productData[1];
+    const id = params.get('id');
+    const p = productData[id] || productData[1]; // ถ้าหา ID ไม่เจอ ให้ดึงตัวที่ 1 มาโชว์ก่อน
 
-    function renderProduct() {
+    if(p) {
         document.getElementById('p-img').src = p.img;
         document.getElementById('p-brand').innerText = p.brand;
         document.getElementById('p-name').innerText = p.name;
@@ -175,13 +163,12 @@
         document.getElementById('p-old').innerText = p.old;
         document.getElementById('p-desc').innerText = p.desc;
         document.getElementById('p-use').innerText = p.use;
-        document.getElementById('page-title').innerText = p.name + " | HJ COSMETICS";
+        document.getElementById('page-title').innerText = p.name;
 
-        const hlContainer = document.getElementById('p-highlights');
-        hlContainer.innerHTML = p.hl.map(item => `<div class="hl-item">${item}</div>`).join('');
+        // ใส่จุดเด่น Highlights
+        const hlBox = document.getElementById('p-highlights');
+        hlBox.innerHTML = p.hl.map(text => `<div class="hl-item">✨ ${text}</div>`).join('');
     }
-
-    renderProduct();
 </script>
 </body>
 </html>
