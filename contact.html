@@ -67,7 +67,7 @@
         .btn-submit:hover { background: var(--gold-dark); color: var(--p-green); }
 
         /* --- Map Section --- */
-        .map-section { width: 100%; max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
+        .map-section { width: 100%; max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; text-align: center; }
         .map-wrapper { 
             width: 100%; height: 450px; 
             border: 1px solid var(--gold-dark); 
@@ -75,8 +75,19 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             background: #fff;
+            margin-bottom: 20px;
         }
         .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+        
+        .btn-maps { 
+            display: inline-block;
+            background: white; color: var(--p-green);
+            border: 2px solid var(--p-green);
+            padding: 12px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: 700;
+            font-size: 0.9rem; transition: 0.3s;
+        }
+        .btn-maps:hover { background: var(--p-green); color: white; }
 
         /* --- Footer --- */
         footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
@@ -140,12 +151,13 @@
 <section class="map-section">
     <div class="map-wrapper">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.355106520336!2d101.12782137588048!3d13.013063414002636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3102c019d45e4537%3A0xc39223a851e39b25!2sThai%20HJ%20Co.%2CLtd.!5e0!3m2!1sth!2sth!4v1714800000000!5m2!1sth!2sth" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.1627768560383!2d101.05731127575456!3d13.028709587291882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3102c72fb9ba42a1%3A0x7b0b3daf90d04ddd!2sHJ%20COSMETICS!5e0!3m2!1sth!2sth!4v1715420000000!5m2!1sth!2sth" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
+    <a href="https://maps.app.goo.gl/uXp2vP4fP7e2x9Uv7" target="_blank" class="btn-maps">📍 Open in Google Maps</a>
 </section>
 
 <footer>
@@ -177,7 +189,7 @@
     const trans = {
         th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroTitle: "ติดต่อเรา", infoH: "ช่องทางการติดต่อ", hAddr: "ที่อยู่", hCont: "โทรศัพท์และอีเมล", hLine: "ไลน์ออฟฟิเชียล", lName: "ชื่อ-นามสกุล", lEmail: "อีเมล", lMsg: "ข้อความของคุณ", btnSend: "ส่งข้อความ", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", btn: "EN" },
         en: { home: "HOME", about: "ABOUT", contact: "CONTACT", heroTitle: "Contact Us", infoH: "Get In Touch", hAddr: "ADDRESS", hCont: "PHONE & EMAIL", hLine: "LINE OFFICIAL", lName: "NAME", lEmail: "EMAIL", lMsg: "MESSAGE", btnSend: "SEND", footDesc: "Premium Korean Skincare Curator.", btn: "KR" },
-        kr: { home: "홈", about: "회사소개", contact: "문의", heroTitle: "문의하기", infoH: "연락처", hAddr: "주소", hCont: "연락처", hLine: "공식 라인", lName: "성함", lEmail: "이메일 주소", lMsg: "문의 내용", btnSend: "보내기", footDesc: "자연의 힘으로 완성하는 최상의 스킨케어", btn: "TH" }
+        kr: { home: "홈", about: "회사소개", contact: "문의", heroTitle: "문의하기", infoH: "연락처", hAddr: "주소", hCont: "연락처", hLine: "공식 라ิน", lName: "성함", lEmail: "이메일 주소", lMsg: "문의 내용", btnSend: "보내기", footDesc: "자연의 힘으로 완성하는 최상의 ส킨케어", btn: "TH" }
     };
 
     function updateContent() {
