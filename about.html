@@ -21,13 +21,23 @@
             line-height: 1.6; 
             letter-spacing: -0.2px; 
         }
+
+        /* --- ✨ ส่วนแก้ไขความห่างฟอนต์ไทย --- */
+        body.lang-th { letter-spacing: 0px !important; }
+        body.lang-th h1, body.lang-th h2, body.lang-th h3, body.lang-th p, body.lang-th a, body.lang-th span { 
+            letter-spacing: 0px !important; 
+        }
+        /* ยกเว้นส่วนที่ต้องการให้ห่างจริงๆ เช่น Hero Sub หรือ Tag */
+        body.lang-th .hero p#hero-sub { letter-spacing: 2px !important; }
+
         body.lang-kr { font-family: 'Nanum-Bold', serif; letter-spacing: 0; line-height: 1.7; }
 
+        /* --- Layout Styles --- */
         .top-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold-dark); }
         .logo-box img { height: 48px; }
         .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; letter-spacing: 1px; font-weight: 600; }
-        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; }
+        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; border-radius: 50px; }
 
         .hero { height: 50vh; position: relative; background: var(--p-green); display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1556228578-0f192f4709b3?q=80') center/cover; opacity: 0.35; }
@@ -36,7 +46,6 @@
         .hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 10px; font-weight: 400; text-transform: uppercase; line-height: 1.2; }
         .hero p { font-size: 0.9rem; letter-spacing: 5px; color: var(--gold-light); text-transform: uppercase; margin-top: 15px; }
 
-        /* --- HJ Story Section --- */
         .origin-section { padding: 100px 0; background: white; border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
         .story-flex { display: flex; align-items: center; gap: 50px; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
         .story-img { flex: 1; text-align: right; }
@@ -46,30 +55,19 @@
         .story-text h2 { font-size: 2.8rem; color: var(--p-green); margin-bottom: 20px; line-height: 1.2; }
         .story-text p { font-size: 1.05rem; color: #444; }
 
-        /* --- Brands Grid --- */
-        .brand-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 60px 8%; background: var(--p-green); box-shadow: 15px 15px 0px var(--gold-dark); overflow: hidden; }
+        .brand-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 60px 8%; background: var(--p-green); box-shadow: 15px 15px 0px var(--gold-dark); overflow: hidden; border-radius: 10px; }
         .brand-image { height: 450px; }
         .brand-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
         .brand-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; color: white; }
         .brand-content span { color: var(--gold-light); letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
         .brand-content h3 { font-size: 3rem; margin: 0 0 20px; font-weight: 400; line-height: 1.2; }
         .brand-content p { line-height: 1.7; color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 30px; }
-        .btn-visit { align-self: flex-start; text-decoration: none; color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 12px 30px; font-size: 0.8rem; letter-spacing: 3px; transition: 0.3s; }
+        .btn-visit { align-self: flex-start; text-decoration: none; color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 12px 30px; font-size: 0.8rem; letter-spacing: 3px; transition: 0.3s; border-radius: 5px; }
         .btn-visit:hover { background: var(--gold-dark); color: var(--p-green); }
 
-        /* --- Footer --- */
-        footer { 
-            background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; 
-            border-top: 5px solid var(--gold-dark); margin-top: 100px; 
-        }
-        .footer-grid { 
-            display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; 
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; 
-        }
-        .footer-col h4 { 
-            font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; 
-            letter-spacing: 2px; font-weight: 400; text-transform: uppercase; 
-        }
+        footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; }
+        .footer-col h4 { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-weight: 400; text-transform: uppercase; }
         .footer-col p { font-size: 0.95rem; line-height: 1.7; margin: 0 0 10px; letter-spacing: 0; }
         .footer-col strong { color: var(--gold-dark); display: block; margin-bottom: 5px; font-size: 0.8rem; letter-spacing: 1px; }
         .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: rgba(197, 160, 89, 0.5); letter-spacing: 1px; }
@@ -132,16 +130,10 @@
             <p id="foot-desc">Premium Korean Skincare Curator.</p>
             <p style="color: var(--gold-dark); font-weight: 600;">Selection of Excellence</p>
         </div>
-
         <div class="footer-col">
             <h4 id="h-addr-foot">ADDRESS</h4>
-            <p>
-                323/11-12 Huayprab Muangthong 5, <br>
-                Moo 3, Bowin, Sriracha, <br>
-                Chon Buri 20230, Thailand
-            </p>
+            <p id="addr-text">323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
         </div>
-
         <div class="footer-col">
             <h4 id="h-cont-foot">CONTACT</h4>
             <p><strong>TEL:</strong> 03-8182-577</p>
@@ -149,9 +141,7 @@
             <p><strong>LINE ID:</strong> @thaihj11</p>
         </div>
     </div>
-    <div class="footer-bottom">
-        &copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.
-    </div>
+    <div class="footer-bottom">&copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
@@ -160,7 +150,7 @@
     if (langIndex === -1) langIndex = 0;
 
     const trans = {
-        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroTitle: "มรดกแห่งความงาม", heroSub: "แก่นแท้ของการคัดสรรสกินแคร์จากเกาหลี", hjTitle: "เส้นทางของ HJ COSMETICS", hjDesc: "เราเริ่มต้นด้วยเจตนารมณ์ที่เรียบง่าย คือการคัดสรรสิ่งที่ดีที่สุด HJ COSMETICS เชื่อมั่นในพลังของส่วนผสมจากธรรมชาติที่ผสานกับเทคโนโลยีอันล้ำสมัยจากเกาหลี เพื่อส่งต่อผลิตภัณฑ์ที่ดูแลผิวของคุณอย่างทะนุถนอมและลึกซึ้ง", fDesc: "สัมผัสพลังแห่งการฟื้นฟูจากพืชพรรณธรรมชาติ ด้วยสารสกัดจาก Wormwood เพื่อสุขภาพผิวที่แข็งแรงอย่างยั่งยืน", bDesc: "เปลี่ยนกิจวัตรประจำวันให้เป็นช่วงเวลาแห่งการพักผ่อนระดับพรีเมียม ปรนนิบัติผิวกายให้กระจ่างใสด้วยกลิ่นหอมอันเป็นเอกลักษณ์", cDesc: "การดูแลอย่างล้ำลึกด้วยสารสกัดเข้มข้น มอบทางออกที่ดีที่สุดสำหรับปัญหาผิวและเส้นผมในหนึ่งเดียว", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", hAddr: "ที่อยู่บริษัท", hCont: "ติดต่อเรา", visit: "OFFICIAL SITE", btn: "EN" },
+        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", heroTitle: "มรดกแห่งความงาม", heroSub: "แก่นแท้ของการคัดสรรสกินแคร์จากเกาหลี", hjTitle: "เส้นทางของ HJ COSMETICS", hjDesc: "เราเริ่มต้นด้วยเจตนารมณ์ที่เรียบง่าย คือการคัดสรรสิ่งที่ดีที่สุด HJ COSMETICS เชื่อมั่นในพลังของส่วนผสมจากธรรมชาติที่ผสานกับเทคโนโลยีอันล้ำสมัยจากเกาหลี เพื่อส่งต่อผลิตภัณฑ์ที่ดูแลผิวของคุณอย่างทะนุถนอมและลึกซึ้ง", fDesc: "สัมผัสพลังแห่งการฟื้นฟูจากพืชพรรณธรรมชาติ ด้วยสารสกัดจาก Wormwood เพื่อสุขภาพผิวที่แข็งแรงอย่างยั่งยืน", bDesc: "เปลี่ยนกิจวัตรประจำวันให้เป็นช่วงเวลาแห่งการพักผ่อนระดับพรีเมียม ปรนนิบัติผิวกายให้กระจ่างใสด้วยกลิ่นหอมอันเป็นเอกลักษณ์", cDesc: "การดูแลอย่างล้ำลึกด้วยสารสกัดเข้มข้น มอบทางออกที่ดีที่สุดสำหรับปัญหาผิวและเส้นผมในหนึ่งเดียว", footDesc: "เราคัดสรรสารสกัดจากธรรมชาติ เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณ", hAddr: "ที่อยู่บริษัท", hCont: "ติดต่อเรา", visit: "เข้าชมเว็บไซต์", btn: "EN" },
         en: { home: "HOME", about: "ABOUT", contact: "CONTACT", heroTitle: "Our Heritage", heroSub: "The Essence of Korean Beauty Selection", hjTitle: "The HJ Story", hjDesc: "Born from a simple vision to curate excellence. HJ COSMETICS believes in the profound synergy of natural ingredients and South Korean innovation.", fDesc: "Experience the healing power of nature. Fraijour’s formulas are crafted for purity and long-term resilience.", bDesc: "Elevate your daily ritual into a premium escape with Bathpa’s scents and textures.", cDesc: "Intensive care with concentrated extracts, providing the ultimate solution for skin and hair health.", footDesc: "Handpicked Korean beauty for your skin's health.", hAddr: "ADDRESS", hCont: "CONTACT", visit: "OFFICIAL SITE", btn: "KR" },
         kr: { home: "홈", about: "회사소개", contact: "문의", heroTitle: "아름다운 유산", heroSub: "한국 뷰티 셀렉션의 정수", hjTitle: "HJ 코스메틱 이야기", hjDesc: "최고만을 선별하겠다는 단순한 비전에서 시작되었습니다. HJ COSMETICS는 진심을 담아 당신의 피부를 돌보는 제품만을 선보입니다.", fDesc: "자연의 치유력을 경험해 보세요. 프라이주어는 당신의 피부 본연의 건강함을 되찾아줍니다.", bDesc: "일상의 루틴을 프리미엄 휴식으로 바꿔보세요. 배스파가 선사하는 고품격 리추얼.", cDesc: "고농축 추출물을 통한 집중 케어, 피부와 헤어 건강을 위한 최적의 솔루션을 제공합니다.", footDesc: "자연의 힘으로 완성하는 최상의 스킨케어.", hAddr: "주소", hCont: "고객센터", visit: "공식 사이트", btn: "TH" }
     };
@@ -168,7 +158,11 @@
     function updateContent() {
         const l = trans[languages[langIndex]];
         const body = document.getElementById('main-body');
-        if (languages[langIndex] === 'kr') body.classList.add('lang-kr'); else body.classList.remove('lang-kr');
+        
+        // จัดการ Class ภาษาเพื่อคุม CSS
+        body.classList.remove('lang-kr', 'lang-th');
+        if (languages[langIndex] === 'kr') body.classList.add('lang-kr');
+        if (languages[langIndex] === 'th') body.classList.add('lang-th');
         
         document.getElementById('nav-home').textContent = l.home;
         document.getElementById('nav-about').textContent = l.about;
@@ -181,7 +175,6 @@
         document.getElementById('b-desc').textContent = l.bDesc;
         document.getElementById('c-desc').textContent = l.cDesc;
         document.getElementById('foot-desc').textContent = l.footDesc;
-        
         document.getElementById('h-addr-foot').textContent = l.hAddr;
         document.getElementById('h-cont-foot').textContent = l.hCont;
 
