@@ -21,6 +21,16 @@
             line-height: 1.5;
             letter-spacing: -0.2px;
         }
+
+        /* --- ✨ แก้ไขตัวหนังสือภาษาไทยไม่ให้ห่าง --- */
+        body.lang-th { letter-spacing: 0px; }
+        body.lang-th .nav-links a, 
+        body.lang-th h1, body.lang-th h2, 
+        body.lang-th p, body.lang-th label, 
+        body.lang-th .btn-submit { 
+            letter-spacing: 0px !important; 
+        }
+
         body.lang-kr { font-family: 'Nanum-Bold', serif; letter-spacing: 0; line-height: 1.6; }
 
         /* --- Navigation --- */
@@ -28,7 +38,7 @@
         .logo-box img { height: 45px; }
         .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--p-green); font-size: 0.85rem; letter-spacing: 1px; font-weight: 600; }
-        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; }
+        .lang-switch { background: var(--p-green); border: 1.5px solid var(--gold-dark); padding: 6px 18px; cursor: pointer; color: var(--gold-light); font-size: 0.75rem; font-weight: 700; border-radius: 50px; }
 
         /* --- Hero --- */
         .hero { height: 40vh; position: relative; background: var(--p-green); display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -40,19 +50,20 @@
         .contact-container { max-width: 1200px; margin: -60px auto 50px; padding: 0 20px; position: relative; z-index: 10; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
 
-        .info-card { background: var(--p-green); color: white; padding: 60px; box-shadow: 15px 15px 0px var(--gold-dark); }
+        /* ปรับกรอบให้มนเหมือนหน้าแรก */
+        .info-card { background: var(--p-green); color: white; padding: 60px; border-radius: 20px; box-shadow: 10px 10px 30px rgba(0,0,0,0.1); }
         .info-card h2 { color: var(--gold-light); font-size: 2.2rem; margin-bottom: 30px; letter-spacing: 1px; line-height: 1.1; }
         .info-item { margin-bottom: 25px; }
         .info-item h4 { color: var(--gold-dark); margin: 0 0 5px; letter-spacing: 2px; font-size: 0.9rem; }
         .info-item p { margin: 0; font-size: 1rem; opacity: 0.9; line-height: 1.4; }
 
-        .form-card { background: white; padding: 60px; border: 1px solid rgba(197, 160, 89, 0.2); }
+        .form-card { background: white; padding: 60px; border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--p-green); font-weight: 700; letter-spacing: 1px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem; outline: none; transition: 0.3s; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem; outline: none; transition: 0.3s; border-radius: 10px; }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--gold-dark); background: white; }
         
-        .btn-submit { background: var(--p-green); color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 15px 40px; font-size: 0.85rem; letter-spacing: 3px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; text-transform: uppercase; }
+        .btn-submit { background: var(--p-green); color: var(--gold-light); border: 1px solid var(--gold-dark); padding: 15px 40px; font-size: 0.85rem; letter-spacing: 3px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; text-transform: uppercase; border-radius: 12px; }
         .btn-submit:hover { background: var(--gold-dark); color: var(--p-green); }
 
         /* --- Map Section --- */
@@ -60,25 +71,17 @@
         .map-wrapper { 
             width: 100%; height: 450px; 
             border: 1px solid var(--gold-dark); 
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             background: #fff;
-            padding: 10px;
         }
-        .map-wrapper iframe { width: 100%; height: 100%; border: none; filter: grayscale(0.2) contrast(1.1); }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- ✨ Premium Footer ✨ --- */
-        footer { 
-            background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; 
-            border-top: 5px solid var(--gold-dark); 
-        }
-        .footer-grid { 
-            display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; 
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; 
-        }
-        .footer-col h4 { 
-            font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; 
-            letter-spacing: 2px; font-weight: 400; text-transform: uppercase; 
-        }
+        /* --- Footer --- */
+        footer { background: #0a1410; color: rgba(255,255,255,0.8); padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 50px; }
+        .footer-col h4 { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-weight: 400; text-transform: uppercase; }
         .footer-col p { font-size: 0.95rem; line-height: 1.7; margin: 0 0 10px; letter-spacing: 0; }
         .footer-col strong { color: var(--gold-dark); display: block; margin-bottom: 5px; font-size: 0.8rem; letter-spacing: 1px; }
         .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: rgba(197, 160, 89, 0.5); letter-spacing: 1px; }
@@ -137,7 +140,7 @@
 <section class="map-section">
     <div class="map-wrapper">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.355193630653!2d101.0963333!3d13.0124444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3102c7760775d71b%3A0xc3f60f607c73335e!2z4Lir4LiC4LmJ4Lin4Lii4Lib4Lij4Liy4LiaIOC5gOC4nuC4o-C4suC4p-C4quC5guC4oeC4lOC4tOC4geC4uOC4oeC4leC4tCDguIjguLPguIHguLHguJQ!5e0!3m2!1sth!2sth!4v1715000000000!5m2!1sth!2sth" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.35824596328!2d101.1293708!3d13.0128919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3102c3425f385157%3A0xc6c4f3460773d2a7!2sThai%20HJ%20Co.%2CLtd.!5e0!3m2!1sth!2sth!4v1715000000000!5m2!1sth!2sth" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
@@ -152,16 +155,10 @@
             <p id="foot-desc">Premium Korean Skincare Curator.</p>
             <p style="color: var(--gold-dark); font-weight: 600;">Selection of Excellence</p>
         </div>
-
         <div class="footer-col">
             <h4 id="h-addr-foot">ADDRESS</h4>
-            <p>
-                323/11-12 Huayprab Muangthong 5, <br>
-                Moo 3, Bowin, Sriracha, <br>
-                Chon Buri 20230, Thailand
-            </p>
+            <p>323/11-12 Huayprab Muangthong 5, <br>Moo 3, Bowin, Sriracha, <br>Chon Buri 20230, Thailand</p>
         </div>
-
         <div class="footer-col">
             <h4 id="h-cont-foot">CONTACT</h4>
             <p><strong>TEL:</strong> 03-8182-577</p>
@@ -169,9 +166,7 @@
             <p><strong>LINE ID:</strong> @thaihj11</p>
         </div>
     </div>
-    <div class="footer-bottom">
-        &copy; 2024 HJ COSMETICS. ALL RIGHTS RESERVED.
-    </div>
+    <div class="footer-bottom">© 2024 HJ COSMETICS. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
@@ -188,7 +183,11 @@
     function updateContent() {
         const l = trans[languages[langIndex]];
         const body = document.getElementById('main-body');
-        if (languages[langIndex] === 'kr') body.classList.add('lang-kr'); else body.classList.remove('lang-kr');
+        
+        // จัดการคลาสภาษาเพื่อแก้ระยะห่างตัวอักษร
+        body.classList.remove('lang-kr', 'lang-th');
+        if (languages[langIndex] === 'kr') body.classList.add('lang-kr');
+        else if (languages[langIndex] === 'th') body.classList.add('lang-th');
         
         document.getElementById('nav-home').textContent = l.home;
         document.getElementById('nav-about').textContent = l.about;
@@ -203,10 +202,8 @@
         document.getElementById('l-msg').textContent = l.lMsg;
         document.getElementById('btn-send').textContent = l.btnSend;
         document.getElementById('foot-desc').textContent = l.footDesc;
-        
         document.getElementById('h-addr-foot').textContent = l.hAddr;
         document.getElementById('h-cont-foot').textContent = l.hCont;
-        
         document.getElementById('langBtn').textContent = l.btn;
         localStorage.setItem('selectedLang', languages[langIndex]);
     }
