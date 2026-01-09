@@ -42,60 +42,82 @@
         .nav-links a { text-decoration: none; color: var(--gold-light); font-size: 0.82rem; font-weight: 500; letter-spacing: 2px; margin-left: 30px; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* ปรับปรุงปุ่มเปลี่ยนภาษาเป็นตัวย่อ */
+        /* ปุ่มภาษาตัวย่อ Minimal */
         .lang-switch { 
             background: none; border: 1px solid var(--gold-dark); color: var(--gold-light); 
-            padding: 6px 12px; cursor: pointer; font-weight: 700; font-size: 0.7rem; 
-            margin-left: 25px; transition: 0.3s; letter-spacing: 1px;
-            min-width: 60px; text-align: center;
+            padding: 6px 10px; cursor: pointer; font-weight: 700; font-size: 0.7rem; 
+            margin-left: 25px; transition: 0.3s; min-width: 50px; text-align: center;
         }
         .lang-switch:hover { background: var(--gold-dark); color: white; }
 
-        /* --- Hero Cinematic --- */
-        .hero-wrap { height: 50vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000; }
+        /* --- Hero --- */
+        .hero-wrap { height: 45vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000; }
         .hero-video { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
         .hero-content { 
             position: relative; z-index: 2; text-align: center; color: white; 
-            border: 2px solid var(--gold-dark); padding: 40px 60px;
+            border: 2px solid var(--gold-dark); padding: 30px 50px;
             background: rgba(13, 43, 31, 0.4); backdrop-filter: blur(8px);
         }
-        .hero-content h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 12px; margin: 0; color: var(--gold-light); }
-        .hero-content p { font-size: 0.8rem; letter-spacing: 5px; margin-top: 15px; text-transform: uppercase; }
+        .hero-content h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); letter-spacing: 10px; margin: 0; color: var(--gold-light); }
+        .hero-content p { font-size: 0.8rem; letter-spacing: 4px; margin-top: 10px; text-transform: uppercase; }
 
-        /* --- 🏛️ Main Container --- */
-        .main-container { padding: 80px 5%; max-width: 1500px; margin: 0 auto; }
-        .brand-block { margin-bottom: 100px; position: relative; padding: 60px 40px; background: rgba(255, 255, 255, 0.3); border-radius: 40px; }
-        .brand-title-box { text-align: center; margin-bottom: 60px; }
-        .brand-title-box h2 { font-size: 3rem; color: var(--deep-green); margin: 0; padding-bottom: 15px; border-bottom: 1px solid var(--gold-dark); display: inline-block; min-width: 200px; }
-        .brand-title-box span { display: block; font-size: 0.75rem; color: var(--gold-dark); letter-spacing: 6px; text-transform: uppercase; margin-top: 15px; }
-
-        /* --- 🛍️ Product Grid --- */
+        /* --- 🛍️ Product Container & Grid --- */
+        .main-container { padding: 60px 5%; max-width: 1500px; margin: 0 auto; }
+        .brand-block { margin-bottom: 80px; padding: 40px; background: rgba(255, 255, 255, 0.3); border-radius: 30px; }
+        .brand-title-box { text-align: center; margin-bottom: 50px; }
+        .brand-title-box h2 { font-size: 2.8rem; color: var(--deep-green); margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--gold-dark); display: inline-block; }
+        
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: white; border: 1px solid rgba(197, 160, 89, 0.15); transition: 0.4s; display: flex; flex-direction: column; padding: 15px; }
-        .product-card:hover { border-color: var(--gold-dark); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card-tag { position: absolute; top: 20px; right: 20px; background: var(--p-green); color: var(--gold-light); font-size: 0.6rem; padding: 4px 10px; font-weight: 700; z-index: 2; }
-        .image-wrap { height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .image-wrap img { max-width: 85%; max-height: 85%; transition: 0.6s; }
+
+        /* 📌 แก้ไขส่วนนี้: เพิ่ม position: relative เพื่อล็อคป้าย */
+        .product-card { 
+            background: white; 
+            border: 1px solid rgba(197, 160, 89, 0.15); 
+            transition: 0.4s; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 15px; 
+            position: relative; /* ล็อคป้ายให้อยู่ในการ์ดตัวเอง */
+            overflow: hidden; 
+        }
+        .product-card:hover { border-color: var(--gold-dark); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+
+        /* 📌 ปรับปรุงป้ายให้ชัดเจน */
+        .card-tag { 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            background: var(--p-green); 
+            color: var(--gold-light); 
+            font-size: 0.6rem; 
+            padding: 5px 10px; 
+            font-weight: 700; 
+            z-index: 5; 
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-wrap { height: 280px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 10px; }
+        .image-wrap img { max-width: 90%; max-height: 90%; transition: 0.5s; }
         .product-card:hover .image-wrap img { transform: scale(1.05); }
-        .info-wrap { padding: 20px 10px; text-align: center; flex-grow: 1; }
-        .info-wrap h3 { font-size: 1rem; margin: 0 0 10px; color: var(--deep-green); min-height: 2.8rem; line-height: 1.4; }
-        .price-wrap { margin-bottom: 15px; }
-        .p-sale { font-size: 1.4rem; color: var(--gold-dark); font-weight: 700; }
-        .p-old { color: #bbb; text-decoration: line-through; font-size: 0.8rem; margin-left: 8px; }
-        .buy-link { background: var(--deep-green); color: var(--gold-light); padding: 14px; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; transition: 0.3s; }
+
+        .info-wrap { padding: 15px 5px; text-align: center; flex-grow: 1; }
+        .info-wrap h3 { font-size: 0.95rem; margin-bottom: 10px; color: var(--deep-green); min-height: 2.8rem; line-height: 1.4; }
+        .p-sale { font-size: 1.3rem; color: var(--gold-dark); font-weight: 700; }
+        .p-old { color: #bbb; text-decoration: line-through; font-size: 0.8rem; margin-left: 5px; }
+
+        .buy-link { background: var(--deep-green); color: var(--gold-light); padding: 12px; text-align: center; text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; transition: 0.3s; margin-top: 10px; }
         .product-card:hover .buy-link { background: var(--gold-dark); color: white; }
 
         /* --- Footer --- */
-        footer { background: var(--deep-green); color: white; padding: 60px 8%; border-top: 4px solid var(--gold-dark); }
-        .f-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .f-brand h2 { color: var(--gold-light); margin-bottom: 15px; }
-        .f-info h4 { color: var(--gold-light); font-size: 0.85rem; margin-bottom: 15px; }
-        .f-info p { font-size: 0.8rem; opacity: 0.8; line-height: 1.6; }
+        footer { background: var(--deep-green); color: white; padding: 50px 8%; border-top: 4px solid var(--gold-dark); }
+        .f-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .f-brand h2 { color: var(--gold-light); margin-bottom: 10px; }
 
         @media (max-width: 768px) {
-            .hero-content { padding: 30px 20px; }
+            .hero-content { padding: 20px; }
             .top-nav { padding: 12px 5%; }
-            .lang-switch { margin-left: 10px; padding: 5px 8px; }
+            .lang-switch { margin-left: 10px; }
         }
     </style>
 </head>
@@ -121,26 +143,15 @@
 
 <div class="main-container">
     <div class="brand-block">
-        <div class="brand-title-box">
-            <h2 id="title-fraijour">Fraijour</h2>
-            <span id="sub-f">Botanical Therapy & Science</span>
-        </div>
+        <div class="brand-title-box"><h2 id="title-fraijour">Fraijour</h2></div>
         <div class="product-grid" id="grid-fraijour"></div>
     </div>
-
     <div class="brand-block">
-        <div class="brand-title-box">
-            <h2 id="title-bathpa">Bathpa</h2>
-            <span id="sub-b">Urban Spa Rituals</span>
-        </div>
+        <div class="brand-title-box"><h2 id="title-bathpa">Bathpa</h2></div>
         <div class="product-grid" id="grid-bathpa"></div>
     </div>
-
     <div class="brand-block">
-        <div class="brand-title-box">
-            <h2 id="title-charchar">Char Char</h2>
-            <span id="sub-c">Premium Hair & Scalp Solutions</span>
-        </div>
+        <div class="brand-title-box"><h2 id="title-charchar">Char Char</h2></div>
         <div class="product-grid" id="grid-charchar"></div>
     </div>
 </div>
@@ -149,15 +160,11 @@
     <div class="f-container">
         <div class="f-brand">
             <h2 id="f-logo">HJ COSMETICS</h2>
-            <p id="f-desc">Premium Korean beauty curator delivering excellence and sustainable results to your skin.</p>
+            <p id="f-desc">Premium Korean beauty curator.</p>
         </div>
         <div class="f-info">
             <h4 id="f-h-addr">OUR OFFICE</h4>
-            <p>323/11-12 Moo 3, Bowin,<br>Sriracha, Chon Buri 20230, Thailand</p>
-        </div>
-        <div class="f-info">
-            <h4 id="f-h-cont">CONCIERGE</h4>
-            <p><strong>LINE:</strong> @thaihj11<br><strong>TEL:</strong> 03-8182-577</p>
+            <p>Sriracha, Chon Buri, Thailand</p>
         </div>
     </div>
 </footer>
@@ -182,28 +189,16 @@
     ];
 
     const trans = {
-        th: { 
-            home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", shop: "เข้าชมสินค้า", 
-            sub: "คัดสรรแก่นแท้ความงามที่สมบูรณ์แบบจากเกาหลี", label: "TH" 
-        },
-        en: { 
-            home: "HOME", about: "ABOUT", contact: "CONTACT", shop: "VIEW PRODUCT", 
-            sub: "Curating the Essence of Korean Perfection", label: "EN" 
-        },
-        kr: { 
-            home: "홈", about: "정보", contact: "문의", shop: "제품 보기", 
-            sub: "완벽한 한국 미의 정수", label: "KR" 
-        }
+        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", shop: "ดูสินค้า", label: "TH" },
+        en: { home: "HOME", about: "ABOUT", contact: "CONTACT", shop: "VIEW", label: "EN" },
+        kr: { home: "홈", about: "정보", contact: "문의", shop: "보기", label: "KR" }
     };
 
     let currentLang = localStorage.getItem('selectedLang') || 'th';
 
     function render() {
         const containers = { Fraijour: 'grid-fraijour', Bathpa: 'grid-bathpa', CharChar: 'grid-charchar' };
-        Object.values(containers).forEach(id => {
-            const el = document.getElementById(id);
-            if(el) el.innerHTML = '';
-        });
+        Object.values(containers).forEach(id => { if(document.getElementById(id)) document.getElementById(id).innerHTML = ''; });
         
         products.forEach(p => {
             const html = `
@@ -226,7 +221,6 @@
         document.getElementById('n-home').textContent = trans[currentLang].home;
         document.getElementById('n-about').textContent = trans[currentLang].about;
         document.getElementById('n-contact').textContent = trans[currentLang].contact;
-        document.getElementById('h-sub').textContent = trans[currentLang].sub;
         document.getElementById('langBtn').textContent = trans[currentLang].label;
 
         const thaiElements = document.querySelectorAll('h1, h2, h3, .nav-links a, .lang-switch, .buy-link');
