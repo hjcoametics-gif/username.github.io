@@ -87,40 +87,34 @@
         .product-card:hover .image-wrap img { transform: scale(1.1); }
 
         .info-wrap { padding: 25px 10px; text-align: center; flex-grow: 1; }
-        .info-wrap h3 { font-size: 1.1rem; margin: 0 0 12px; color: var(--deep-green); min-height: 3.2rem; line-height: 1.4; font-weight: 500; font-family: var(--font-thai); }
+        .info-wrap h3 { font-size: 1.1rem; margin: 0 0 12px; color: var(--deep-green); min-height: 3.2rem; line-height: 1.4; font-weight: 500; }
         .price-wrap { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
         .p-sale { font-size: 1.6rem; color: var(--gold-dark); font-weight: 700; }
         .p-old { color: #bbb; text-decoration: line-through; font-size: 0.85rem; }
 
-        .buy-link { background: var(--deep-green); color: var(--gold-light); padding: 16px; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; transition: 0.4s; font-family: var(--font-thai); }
+        .buy-link { 
+            background: var(--deep-green); color: var(--gold-light); padding: 16px; 
+            text-align: center; text-decoration: none; font-size: 0.75rem; 
+            font-weight: 700; letter-spacing: 2px; transition: 0.4s; 
+            display: block; /* มั่นใจว่าเป็นบล็อกให้กดง่าย */
+            cursor: pointer;
+        }
         .product-card:hover .buy-link { background: var(--gold-dark); color: white; }
 
-        /* --- 🏛️ Footer (Icons for labels) --- */
+        /* --- 🏛️ Footer (Icons version) --- */
         footer { background: var(--deep-green); color: white; padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 50px; }
         .f-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; }
-        
         .f-brand h2 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 20px; }
         .f-brand p { opacity: 0.7; line-height: 1.8; font-size: 0.9rem; max-width: 400px; }
-        
         .f-info h4 { color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-size: 0.95rem; text-transform: uppercase; }
-        
         .f-info p { opacity: 0.8; font-size: 0.85rem; margin: 15px 0; line-height: 1.6; display: flex; align-items: center; }
         
         /* สไตล์ไอคอนหน้าข้อมูลติดต่อ */
-        .f-info p i { 
-            color: var(--gold-dark); 
-            font-size: 1.1rem; 
-            margin-right: 15px; 
-            width: 25px; 
-            text-align: center;
-        }
+        .f-info p i { color: var(--gold-dark); font-size: 1.1rem; margin-right: 15px; width: 25px; text-align: center; }
         
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; opacity: 0.5; }
 
-        @media (max-width: 1024px) { 
-            .f-container { grid-template-columns: 1fr; gap: 40px; } 
-            .f-info p { justify-content: flex-start; }
-        }
+        @media (max-width: 1024px) { .f-container { grid-template-columns: 1fr; gap: 40px; } }
     </style>
 </head>
 <body>
@@ -173,12 +167,10 @@
             <h2 id="f-logo">HJ COSMETICS</h2>
             <p id="f-desc">Premium Korean beauty curator delivering excellence and sustainable results to your skin.</p>
         </div>
-
         <div class="f-info">
             <h4 id="f-h-addr">OUR OFFICE</h4>
             <p><i class="fa-solid fa-location-dot"></i> 323/11-12 Moo 3, Bowin,<br>Sriracha, Chon Buri 20230, Thailand</p>
         </div>
-
         <div class="f-info">
             <h4 id="f-h-cont">CONCIERGE</h4>
             <p><i class="fa-brands fa-line"></i> @thaihj11</p>
@@ -211,7 +203,7 @@
     const trans = {
         th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", shop: "เข้าชมสินค้า", sub: "คัดสรรแก่นแท้ความงามที่สมบูรณ์แบบจากเกาหลี", label: "TH", fDesc: "เราคัดสรรผลิตภัณฑ์พรีเมียมจากเกาหลี เพื่อผลลัพธ์ที่ดีที่สุดสำหรับผิวคุณอย่างยั่งยืน", hAddr: "สำนักงานของเรา", hCont: "ฝ่ายบริการ" },
         en: { home: "HOME", about: "ABOUT", contact: "CONTACT", shop: "VIEW DETAILS", sub: "Curating the Essence of Korean Perfection", label: "EN", fDesc: "Premium Korean beauty curator delivering excellence and sustainable results to your skin.", hAddr: "OUR OFFICE", hCont: "CONCIERGE" },
-        kr: { home: "홈", about: "정보", contact: "문의", shop: "제품 보기", sub: "완벽한 한국 미의 정수", label: "KR", fDesc: "탁월함과 지속 가능한 결과를 선사하는 프리미엄 한국 뷰ที 큐레이터.", hAddr: "오피스", hCont: "고객 서비스" }
+        kr: { home: "홈", about: "정보", contact: "문의", shop: "제품 보기", sub: "완벽한 한국 미의 정수", label: "KR", fDesc: "탁월함과 지속 가능한 결과를 선사하는 프리미엄 한국 뷰티 큐레이터.", hAddr: "오피스", hCont: "고객 서비스" }
     };
 
     let currentLang = localStorage.getItem('selectedLang') || 'th';
@@ -232,12 +224,13 @@
                             <span class="p-old">฿${p.old}</span>
                         </div>
                     </div>
-                    <a href="product-detail.html?id=${p.id}" class="buy-link">${trans[currentLang].shop}</a>
+                    <a href="product-detail.html?id=${p.id}" class="buy-link ${currentLang === 'th' ? 'use-ibm-thai' : ''}">${trans[currentLang].shop}</a>
                 </div>`;
             const target = containers[p.brand];
             if(document.getElementById(target)) document.getElementById(target).innerHTML += html;
         });
 
+        // อัปเดตเมนูและเนื้อหาอื่นๆ
         document.getElementById('n-home').textContent = trans[currentLang].home;
         document.getElementById('n-about').textContent = trans[currentLang].about;
         document.getElementById('n-contact').textContent = trans[currentLang].contact;
@@ -247,7 +240,8 @@
         document.getElementById('f-h-addr').textContent = trans[currentLang].hAddr;
         document.getElementById('f-h-cont').textContent = trans[currentLang].hCont;
 
-        document.querySelectorAll('h1, h2, h4, .nav-links a, .lang-switch, .buy-link').forEach(el => {
+        // บังคับเปลี่ยนฟอนต์ไทยในส่วนที่จำเป็น
+        document.querySelectorAll('h1, h2, h4, .nav-links a, .lang-switch').forEach(el => {
             if(currentLang === 'th') el.classList.add('use-ibm-thai');
             else el.classList.remove('use-ibm-thai');
         });
