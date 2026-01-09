@@ -11,8 +11,9 @@
         :root { 
             --p-green: #1b4332; 
             --deep-green: #0d2b1f;
-            --gold-dark: #c5a059; 
-            --gold-light: #f1d38e; 
+            --gold-base: #d4af37; /* สีทองหลัก */
+            --gold-shimmer: #fbf5b7; /* สีทองสว่างสำหรับแสงสะท้อน */
+            --gold-shadow: #b8860b; /* สีทองเข้มสำหรับมิติ */
             --bg-marble: #f4f1ea;
             --font-thai: 'IBM Plex Sans Thai', sans-serif;
             --font-luxury: 'Nanum Myeongjo', serif;
@@ -39,51 +40,61 @@
         h1, h2, h3, h4 { font-family: var(--font-luxury); transition: 0.3s; }
         .use-ibm-thai { font-family: var(--font-thai) !important; letter-spacing: 0px !important; font-weight: 600 !important; }
 
-        /* --- ✨ Navigation (ปรับเป็นพื้นทอง ตัวหนังสือเขียว) --- */
+        /* --- 🎖️ Metallic Gold Navigation (ปรับให้เลื่อมวาว) --- */
         .top-nav { 
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)); /* พื้นหลังสีทองไล่เฉด */
-            padding: 15px 8%; display: flex; 
+            /* ไล่เฉดสีแบบ Metallic เพื่อสร้างเงาสะท้อน */
+            background: linear-gradient(145deg, 
+                #b8860b 0%, 
+                #e1b941 25%, 
+                #fbf5b7 50%, 
+                #e1b941 75%, 
+                #b8860b 100%);
+            background-size: 200% auto;
+            padding: 12px 8%; 
+            display: flex; 
             justify-content: space-between; align-items: center; 
             position: sticky; top: 0; z-index: 1000; 
-            border-bottom: 2px solid rgba(13, 43, 31, 0.2);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #996515; /* ขอบทองเข้มเพิ่มมิติ */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.4);
         }
         
-        /* ปรับโลโก้ให้เป็นสีเขียวเข้มเพื่อให้ตัดกับพื้นทอง */
-        .logo-box img { height: 45px; filter: brightness(0) saturate(100%) invert(16%) sepia(21%) colors(13, 43, 31); transition: 0.3s; }
-        .logo-box img:hover { filter: contrast(1.2); }
+        /* ปรับโลโก้ให้เป็นสีเขียวเข้ม และเพิ่มเงาจางๆ */
+        .logo-box img { 
+            height: 48px; 
+            filter: brightness(0) saturate(100%) invert(16%) sepia(21%) saturate(1200%) hue-rotate(110deg) brightness(95%) contrast(105%);
+            transition: 0.3s; 
+            drop-shadow: 0 1px 1px rgba(255,255,255,0.3);
+        }
 
         .nav-links { display: flex; align-items: center; }
         
-        /* ตัวหนังสือเมนูสีเขียวเข้ม */
+        /* ตัวหนังสือสีเขียวเข้มบนพื้นทองเลื่อม */
         .nav-links a { 
             text-decoration: none; 
             color: var(--deep-green); 
             font-size: 0.85rem; 
-            font-weight: 600; 
+            font-weight: 700; 
             letter-spacing: 1.5px; 
             margin-left: 30px; 
             transition: 0.3s;
-            position: relative;
+            text-shadow: 0 0.5px 0 rgba(255,255,255,0.4); /* ให้ดูคมชัดบนพื้นสีอ่อน */
         }
-        .nav-links a.active { color: #000; }
-        .nav-links a.active::after {
-            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--deep-green);
-        }
+        .nav-links a.active { color: #000; border-bottom: 2px solid var(--deep-green); padding-bottom: 5px; }
         
-        /* ปุ่มภาษา สีเขียวบนพื้นทอง */
+        /* ปุ่มภาษา สีเขียวเข้มจัดๆ */
         .lang-switch { 
             background: var(--deep-green); 
-            border: none; 
-            color: var(--gold-light); 
-            padding: 6px 14px; cursor: pointer; 
-            font-weight: 700; font-size: 0.7rem; 
-            margin-left: 25px; transition: 0.3s; letter-spacing: 1px; min-width: 60px;
+            border: 1px solid rgba(255,255,255,0.2); 
+            color: #fbf5b7; /* ตัวหนังสือทองสว่าง */
+            padding: 7px 15px; cursor: pointer; 
+            font-weight: 800; font-size: 0.75rem; 
+            margin-left: 25px; transition: 0.3s; letter-spacing: 1px;
             border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        .lang-switch:hover { background: #000; color: white; transform: translateY(-2px); }
+        .lang-switch:hover { background: #000; transform: scale(1.05); }
 
-        /* --- Hero --- */
+        /* --- Hero Section --- */
         .hero { height: 35vh; position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero-bg { position: absolute; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80') center/cover; opacity: 0.4; filter: grayscale(0.5); }
         .hero-content { 
@@ -91,9 +102,9 @@
             border: 2px solid var(--gold-dark); padding: 30px 60px;
             background: rgba(13, 43, 31, 0.4); backdrop-filter: blur(8px);
         }
-        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; letter-spacing: 8px; color: var(--gold-light); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; letter-spacing: 8px; color: #fbf5b7; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
-        /* --- 📝 Form & Contact Section --- */
+        /* --- Contact Content --- */
         .contact-container { max-width: 1200px; margin: -60px auto 80px; padding: 0 20px; position: relative; z-index: 10; }
         .contact-grid { 
             display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; 
@@ -107,13 +118,11 @@
             background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
             border: 1px solid var(--gold-dark); 
         }
-        .info-card h2 { color: var(--gold-light); font-size: 2.2rem; margin-bottom: 35px; border-bottom: 2px solid var(--gold-dark); display: inline-block; padding-bottom: 10px; }
-        .info-item { margin-bottom: 30px; }
-        .info-item h4 { color: var(--gold-light); margin-bottom: 10px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+        .info-card h2 { color: #fbf5b7; font-size: 2.2rem; margin-bottom: 35px; border-bottom: 2px solid var(--gold-dark); display: inline-block; padding-bottom: 10px; }
+        .info-item h4 { color: #fbf5b7; margin-bottom: 10px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
         .info-item p { opacity: 0.8; font-weight: 300; line-height: 1.6; font-size: 0.95rem; }
 
         .form-card { background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 25px; }
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.75rem; font-weight: 600; color: var(--p-green); letter-spacing: 1px; text-transform: uppercase; }
 
         input, textarea { 
@@ -124,20 +133,19 @@
         input:focus, textarea:focus { border-color: var(--gold-dark); background: #fff; box-shadow: 0 0 10px rgba(197,160,89,0.1); }
 
         .btn-submit { 
-            background: var(--deep-green); color: var(--gold-light); border: 1px solid var(--gold-dark); 
+            background: var(--deep-green); color: #fbf5b7; border: 1px solid var(--gold-dark); 
             padding: 18px; width: 100%; font-weight: 700; cursor: pointer; letter-spacing: 2px;
             text-transform: uppercase; transition: 0.4s; font-size: 1rem; font-family: var(--font-thai);
         }
-        .btn-submit:hover { background: var(--gold-dark); color: white; }
+        .btn-submit:hover { background: #000; color: white; }
 
-        /* --- 🏺 Footer --- */
+        /* --- Footer --- */
         footer { background: var(--deep-green); color: white; padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); margin-top: 50px; position: relative; z-index: 10; }
         .f-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; }
-        .f-brand h2 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 20px; }
-        .f-brand p { opacity: 0.7; line-height: 1.8; font-size: 0.9rem; max-width: 400px; }
-        .f-info h4 { color: var(--gold-light); margin-bottom: 25px; letter-spacing: 2px; font-size: 0.95rem; text-transform: uppercase; }
+        .f-brand h2 { font-size: 2.2rem; color: #fbf5b7; margin-bottom: 20px; }
+        .f-info h4 { color: #fbf5b7; margin-bottom: 25px; letter-spacing: 2px; font-size: 0.95rem; text-transform: uppercase; }
         .f-info p { opacity: 0.8; font-size: 0.85rem; margin: 15px 0; line-height: 1.6; display: flex; align-items: center; }
-        .f-info p i { color: var(--gold-dark); font-size: 1.1rem; margin-right: 15px; width: 25px; text-align: center; }
+        .f-info p i { color: #fbf5b7; font-size: 1.1rem; margin-right: 15px; width: 25px; text-align: center; }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; opacity: 0.5; }
 
         @media (max-width: 900px) { 
@@ -240,7 +248,7 @@
         },
         kr: { 
             home: "홈", about: "소개", contact: "문의하기", heroTitle: "문의하기", infoH: "연락처", 
-            hAddr: "주소", hCont: "고객 서비스", lName: "성함", lEmail: "이메일", lMsg: "메시지", 
+            hAddr: "주소", hCont: "고객 서비스", lName: "성함", lEmail: "이เม일", lMsg: "메시지", 
             btnSend: "보내기", footDesc: "한국 프리미엄 뷰티 큐레이터.", label: "KR",
             phName: "이름을 입력하세요", phEmail: "이메일을 입력하세요", phMsg: "메시지를 입력하세요..."
         }
