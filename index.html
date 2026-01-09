@@ -9,11 +9,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
 
         :root { 
-            --p-green: #1b4332; 
             --deep-green: #0d2b1f;
-            --gold-metallic: linear-gradient(145deg, #b8860b 0%, #e1b941 25%, #fbf5b7 50%, #e1b941 75%, #b8860b 100%);
-            --gold-dark: #c5a059; 
-            --gold-light: #f1d38e; 
+            /* สีทองแบบ Metallic เลื่อมวาว */
+            --gold-gradient: linear-gradient(135deg, 
+                #8a6d3b 0%, 
+                #c5a059 20%, 
+                #ffecb3 45%, 
+                #f1d38e 50%, 
+                #ffecb3 55%, 
+                #c5a059 80%, 
+                #8a6d3b 100%);
             --font-thai: 'IBM Plex Sans Thai', sans-serif;
             --font-luxury: 'Nanum Myeongjo', serif;
         }
@@ -22,107 +27,136 @@
         
         body { 
             font-family: var(--font-thai); 
-            margin: 0; background-color: #000; color: var(--p-green);
+            margin: 0; background-color: #000;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* --- 🎬 Full Screen Video Background --- */
-        .video-bg-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; overflow: hidden;
+        /* --- 🎬 Fixed Video Background (วิดีโออยู่หลังสุดจริงๆ) --- */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2; /* อยู่หลังสุด */
+            opacity: 0.6; /* ปรับความเข้ม/อ่อนของวิดีโอที่นี่ */
         }
-        .video-bg-container video {
-            width: 100%; height: 100%; object-fit: cover;
-            opacity: 0.3; /* ปรับความชัดของวิดีโอพื้นหลังที่นี่ */
-        }
-        /* เพิ่ม Layer จางๆ ทับวิดีโอเพื่อให้อ่านตัวหนังสือลื่นขึ้น */
+
+        /* Layer เพิ่มมิติความหรู (Grain/Marble เบาๆ บนวิดีโอ) */
         .video-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(244, 241, 234, 0.85); /* สี marble จางๆ */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* ช่วยให้ตัวหนังสืออ่านง่ายขึ้น */
             z-index: -1;
-            background-image: url('https://www.transparenttextures.com/patterns/white-marble.png');
+            pointer-events: none;
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-luxury); transition: 0.3s; }
-        .use-ibm-thai { font-family: var(--font-thai) !important; letter-spacing: 0px !important; font-weight: 600 !important; }
-
-        /* --- 🎖️ Metallic Gold Navigation --- */
+        /* --- 🎖️ Real Metallic Gold Navigation --- */
         .top-nav { 
-            background: var(--gold-metallic);
-            background-size: 200% auto;
-            padding: 12px 8%; display: flex; justify-content: space-between; align-items: center; 
+            background: var(--gold-gradient);
+            background-size: 300% 300%;
+            animation: shimmer 5s infinite linear; /* เพิ่มการเลื่อมไหวของสีทอง */
+            padding: 12px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
             position: sticky; top: 0; z-index: 1000; 
-            border-bottom: 3px solid #996515;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-bottom: 2px solid #5d4a26;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .logo-box img { 
             height: 50px; 
-            filter: brightness(0) saturate(100%) invert(16%) sepia(21%) saturate(1200%) hue-rotate(110deg); 
+            /* เปลี่ยนโลโก้เป็นสีเขียวเข้มเพื่อตัดกับทองเลื่อม */
+            filter: brightness(0) saturate(100%) invert(10%) sepia(50%) saturate(1000%) hue-rotate(120deg);
         }
-        .nav-links { display: flex; align-items: center; }
+
         .nav-links a { 
-            text-decoration: none; color: var(--deep-green); font-size: 0.85rem; 
-            font-weight: 700; letter-spacing: 1.5px; margin-left: 30px; transition: 0.3s; 
+            text-decoration: none; 
+            color: var(--deep-green); 
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            letter-spacing: 1.5px; 
+            margin-left: 30px; 
+            transition: 0.3s;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
         }
-        .nav-links a:hover { color: #000; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
 
         .lang-switch { 
-            background: var(--deep-green); border: none; color: #fbf5b7; 
+            background: var(--deep-green); border: none; color: #fff; 
             padding: 7px 15px; cursor: pointer; font-weight: 800; font-size: 0.75rem; 
-            margin-left: 25px; transition: 0.3s; letter-spacing: 1px; border-radius: 4px;
+            margin-left: 25px; border-radius: 2px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* --- Hero --- */
-        .hero-wrap { height: 45vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent; }
-        .hero-content { 
-            position: relative; z-index: 2; text-align: center; color: white; 
-            border: 2px solid var(--gold-dark); padding: 40px 60px;
-            background: rgba(13, 43, 31, 0.6); backdrop-filter: blur(12px);
-        }
-        .hero-content h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 12px; margin: 0; color: var(--gold-light); }
+        /* --- 🏛️ Content Glassmorphism --- */
+        .main-container { padding: 60px 5%; max-width: 1300px; margin: 0 auto; position: relative; }
 
-        /* --- 🏛️ Main Container --- */
-        .main-container { padding: 80px 5%; max-width: 1500px; margin: 0 auto; position: relative; }
         .brand-block { 
-            margin-bottom: 120px; position: relative; padding: 60px 40px; 
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(10px);
-            border-radius: 40px; 
-            border: 1px solid rgba(197, 160, 89, 0.2);
+            margin-bottom: 80px; 
+            padding: 50px; 
+            background: rgba(13, 43, 31, 0.7); /* เขียวโปร่งแสง */
+            backdrop-filter: blur(15px); /* เอฟเฟกต์กระจกฝ้า */
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 10px;
         }
-        .brand-title-box h2 { font-size: 3.5rem; color: var(--deep-green); border-bottom: 2px solid var(--gold-dark); display: inline-block; }
+
+        .brand-title-box h2 { 
+            font-size: 3rem; 
+            color: #f1d38e; 
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
 
         /* --- 🛍️ Product Card --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        
         .product-card { 
-            background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(197, 160, 89, 0.15); 
-            transition: 0.5s; display: flex; flex-direction: column; padding: 15px; 
-            position: relative; overflow: hidden; backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 5px;
+            overflow: hidden;
+            transition: 0.4s;
+            display: flex; flex-direction: column;
         }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--gold-dark); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .product-card:hover { transform: translateY(-10px); }
+
+        .image-wrap { height: 300px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .image-wrap img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+        .info-wrap { padding: 20px; text-align: center; color: var(--deep-green); }
+        .info-wrap h3 { font-size: 1rem; height: 3rem; margin-bottom: 10px; }
+        .price { font-size: 1.5rem; font-weight: 800; color: #b8860b; }
 
         .buy-link { 
-            background: var(--deep-green); color: var(--gold-light); padding: 16px; 
-            text-align: center; text-decoration: none; font-size: 0.75rem; 
-            font-weight: 700; letter-spacing: 2px; transition: 0.4s; cursor: pointer;
+            background: var(--deep-green); color: #f1d38e; padding: 15px; 
+            text-align: center; text-decoration: none; font-weight: 700; font-size: 0.8rem;
         }
-        .buy-link:hover { background: var(--gold-dark); color: white; }
 
         /* --- Footer --- */
-        footer { background: var(--deep-green); color: white; padding: 80px 8% 40px; border-top: 5px solid var(--gold-dark); position: relative; }
-        .f-brand h2 { font-size: 2.2rem; color: var(--gold-light); }
-        .f-info p i { color: var(--gold-dark); margin-right: 15px; width: 25px; text-align: center; }
+        footer { 
+            background: rgba(13, 43, 31, 0.9); 
+            backdrop-filter: blur(10px);
+            color: white; padding: 60px 8%; 
+            border-top: 4px solid #c5a059;
+        }
+        .f-info p i { color: #f1d38e; margin-right: 15px; }
 
-        @media (max-width: 1024px) { .f-container { grid-template-columns: 1fr; gap: 40px; } }
+        .use-ibm-thai { font-family: var(--font-thai) !important; font-weight: 600; }
     </style>
 </head>
 <body>
 
-<div class="video-bg-container">
-    <video autoplay muted loop playsinline>
-        <source src="วิดีโอทำเว็บไซต์.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-</div>
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="วิดีโอทำเว็บไซต์.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
 
 <nav class="top-nav">
     <div class="logo-box"><a href="index.html"><img src="HJ (5).png" alt="HJ LOGO"></a></div>
@@ -134,92 +168,63 @@
     </div>
 </nav>
 
-<header class="hero-wrap">
-    <div class="hero-content">
-        <h1 id="h-main">HJ COSMETICS</h1>
-        <p id="h-sub">Curating the Essence of Korean Perfection</p>
-    </div>
-</header>
-
 <div class="main-container">
     <div class="brand-block">
         <div class="brand-title-box">
             <h2 id="title-fraijour">Fraijour</h2>
-            <span id="sub-f">Botanical Therapy & Science</span>
+            <p style="color: #c5a059; letter-spacing: 5px;">BOTANICAL THERAPY</p>
         </div>
-        <div class="product-grid" id="grid-fraijour"></div>
-    </div>
-    <div class="brand-block">
-        <div class="brand-title-box">
-            <h2 id="title-bathpa">Bathpa</h2>
-            <span id="sub-b">Urban Spa Rituals</span>
-        </div>
-        <div class="product-grid" id="grid-bathpa"></div>
+        <div class="product-grid" id="grid-fraijour">
+            </div>
     </div>
 </div>
 
 <footer>
-    <div class="f-container">
-        <div class="f-brand">
-            <h2 id="f-logo">HJ COSMETICS</h2>
-            <p id="f-desc">Premium Korean beauty curator...</p>
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px;">
+        <div>
+            <h2 style="color: #f1d38e;">HJ COSMETICS</h2>
+            <p style="opacity: 0.7;">Premium Korean beauty curator.</p>
         </div>
-        <div class="f-info">
-            <h4 id="f-h-addr">OUR OFFICE</h4>
-            <p><i class="fa-solid fa-location-dot"></i> 323/11-12 Moo 3, Bowin,<br>Sriracha, Chon Buri 20230, Thailand</p>
+        <div>
+            <h4 style="color: #f1d38e;">CONCIERGE</h4>
+            <p><i class="fa-brands fa-line"></i> thaihj11</p> <p><i class="fa-solid fa-phone"></i> 03-8182-577</p>
         </div>
-        <div class="f-info">
-            <h4 id="f-h-cont">CONCIERGE</h4>
-            <p><i class="fa-brands fa-line"></i> thaihj11</p>
-            <p><i class="fa-solid fa-phone"></i> 03-8182-577</p>
-            <p><i class="fa-solid fa-envelope"></i> thaihjglobal@gmail.com</p>
+        <div>
+            <h4 style="color: #f1d38e;">LOCATION</h4>
+            <p>Bowin, Chon Buri, Thailand</p>
         </div>
     </div>
-    <div class="footer-bottom">&copy; 2024 HJ COSMETICS GLOBAL. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
-    // ข้อมูลสินค้า (ยกมาบางส่วนเพื่อทดสอบ)
+    // ข้อมูลสินค้าเบื้องต้น
     const products = [
-        { id: 1, brand: "Fraijour", name: "Wormwood Calming Watery Cream", sale: 250, old: 369, badge: "BEST SELLER", img: "1.jpeg" },
-        { id: 2, brand: "Fraijour", name: "Wormwood Calming Toner", sale: 350, old: 459, badge: "POPULAR", img: "2.jpeg" },
-        { id: 14, brand: "Bathpa", name: "Body Tone Up Cream", sale: 150, old: 529, badge: "BODY", img: "13.jpeg" }
+        { id: 1, brand: "Fraijour", name: "Wormwood Calming Watery Cream", sale: 250, img: "1.jpeg" },
+        { id: 2, brand: "Fraijour", name: "Wormwood Calming Toner", sale: 350, img: "2.jpeg" }
     ];
 
-    const trans = {
-        th: { home: "หน้าแรก", about: "เกี่ยวกับเรา", contact: "ติดต่อเรา", shop: "เข้าชมสินค้า", sub: "คัดสรรแก่นแท้ความงามที่สมบูรณ์แบบจากเกาหลี", label: "TH" },
-        en: { home: "HOME", about: "ABOUT", contact: "CONTACT", shop: "VIEW DETAILS", sub: "Curating the Essence of Korean Perfection", label: "EN" }
-    };
-
-    let currentLang = localStorage.getItem('selectedLang') || 'th';
-
     function render() {
-        const containers = { Fraijour: 'grid-fraijour', Bathpa: 'grid-bathpa' };
-        Object.values(containers).forEach(id => { if(document.getElementById(id)) document.getElementById(id).innerHTML = ''; });
-        
+        const grid = document.getElementById('grid-fraijour');
+        grid.innerHTML = '';
         products.forEach(p => {
-            const html = `
+            grid.innerHTML += `
                 <div class="product-card">
-                    <div class="card-tag">${p.badge}</div>
-                    <div class="image-wrap" style="text-align:center; padding:20px; background:#fff;"><img src="${p.img}" style="max-height:200px; max-width:100%;"></div>
-                    <div class="info-wrap" style="text-align:center; padding:20px;">
-                        <h3 class="${currentLang === 'th' ? 'use-ibm-thai' : ''}" style="font-size:1rem; min-height:3rem;">${p.name}</h3>
-                        <div style="font-size:1.4rem; color:var(--gold-dark); font-weight:700;">฿${p.sale}</div>
+                    <div class="image-wrap"><img src="${p.img}"></div>
+                    <div class="info-wrap">
+                        <h3>${p.name}</h3>
+                        <div class="price">฿${p.sale}</div>
                     </div>
-                    <a href="product-detail.html?id=${p.id}" class="buy-link">${trans[currentLang].shop}</a>
-                </div>`;
-            const target = containers[p.brand];
-            if(document.getElementById(target)) document.getElementById(target).innerHTML += html;
+                    <a href="#" class="buy-link">VIEW DETAILS</a>
+                </div>
+            `;
         });
-
-        document.getElementById('n-home').textContent = trans[currentLang].home;
-        document.getElementById('langBtn').textContent = trans[currentLang].label;
     }
 
+    let currentLang = 'th';
     function rotateLanguage() {
         currentLang = currentLang === 'th' ? 'en' : 'th';
-        localStorage.setItem('selectedLang', currentLang);
-        render();
+        document.getElementById('langBtn').textContent = currentLang.toUpperCase();
+        // เพิ่ม logic เปลี่ยนภาษาอื่นๆ ที่นี่
     }
 
     render();
