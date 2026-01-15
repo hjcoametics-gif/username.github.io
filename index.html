@@ -37,6 +37,7 @@
         }
 
         h1, h2, h3, h4 { font-family: var(--font-luxury); transition: 0.3s; }
+        .use-thai { font-family: var(--font-thai) !important; letter-spacing: 0px !important; }
 
         /* --- 🎖️ Gold Navigation --- */
         .top-nav { 
@@ -68,13 +69,9 @@
             margin-left: 25px; border-radius: 2px; min-width: 55px;
         }
 
-        /* --- ✨ Hero Header (Updated with Logo) --- */
+        /* --- ✨ Hero Header --- */
         .hero-header { text-align: center; padding: 120px 5% 60px; position: relative; }
-        .hero-logo { 
-            width: 120px; 
-            margin-bottom: 20px; 
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); 
-        }
+        .hero-logo { width: 120px; margin-bottom: 20px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
         .hero-header h1 {
             font-size: clamp(3rem, 10vw, 6rem); margin: 0;
             color: var(--gold-light); letter-spacing: 15px;
@@ -118,7 +115,7 @@
         .product-card:hover .image-wrap img { transform: scale(1.1); }
 
         .info-wrap { padding: 20px 15px; text-align: center; color: var(--deep-green); flex-grow: 1; }
-        .info-wrap h3 { font-size: 0.95rem; margin: 0 0 12px; height: 2.8rem; overflow: hidden; line-height: 1.4; font-weight: 700; }
+        .info-wrap h3 { font-size: 0.95rem; margin: 0 0 12px; height: 3rem; overflow: hidden; line-height: 1.4; font-weight: 700; }
         .price-wrap { display: flex; align-items: center; justify-content: center; gap: 10px; }
         .p-sale { font-size: 1.5rem; color: #8a6d3b; font-weight: 800; }
         .p-old { color: #bbb; text-decoration: line-through; font-size: 0.85rem; }
@@ -203,21 +200,21 @@
 
 <script>
     const products = [
-        { id: 1, brand: "Fraijour", name: "Wormwood Calming Watery Cream", sale: 250, old: 369, badge: "BEST SELLER", img: "1.jpg.png" },
-        { id: 2, brand: "Fraijour", name: "Wormwood Calming Toner", sale: 350, old: 459, badge: "POPULAR", img: "2.jpeg" },
-        { id: 3, brand: "Fraijour", name: "Wormwood Cleansing Water", sale: 250, old: 400, badge: "NEW", img: "3.jpeg" },
-        { id: 4, brand: "Fraijour", name: "Wormwood Cleansing Foam", sale: 290, old: 399, badge: "GENTLE", img: "4.jpeg" },
-        { id: 5, brand: "Fraijour", name: "Heartleaf Blemish Moisture Cream", sale: 310, old: 590, badge: "ACNE CARE", img: "5.jpeg" },
-        { id: 6, brand: "Fraijour", name: "Heartleaf Blemish Toner", sale: 360, old: 529, badge: "SOOTHING", img: "6.jpeg" },
-        { id: 7, brand: "Fraijour", name: "Retin-Collagen 3D Core Cream", sale: 250, old: 459, badge: "LIFTING", img: "7.jpeg" },
-        { id: 8, brand: "Fraijour", name: "Retin-Collagen 3D Core Eye Cream", sale: 195, old: 370, badge: "CORE 3D", img: "8.jpeg" },
-        { id: 9, brand: "Fraijour", name: "Retin-Collagen 3D Core Toner", sale: 290, old: 500, badge: "FIRMING", img: "9.jpeg" },
-        { id: 10, brand: "Fraijour", name: "Retin-Collagen 3D Core Lip Oil", sale: 125, old: 259, badge: "NEW", img: "10.jpeg" },
-        { id: 11, brand: "Fraijour", name: "Heartleaf Airy Fit Sun Cream", sale: 280, old: 450, badge: "SUN CARE", img: "11.jpeg" },
-        { id: 12, brand: "Fraijour", name: "Heartleaf Water Fit Sun Screen", sale: 320, old: 590, badge: "SUN CARE", img: "12.jpeg" },
-        { id: 13, brand: "Fraijour", name: "Original Herb Sheet Mask", sale: 17, old: 29, badge: "MASK", img: "15.jpeg" },
-        { id: 14, brand: "Bathpa", name: "Body Tone Up Cream", sale: 150, old: 529, badge: "BODY", img: "13.jpeg" },
-        { id: 15, brand: "CharChar", name: "Mung Bean Cica Cleansing Foam", sale: 120, old: 199, badge: "CICA", img: "14.jpeg" }
+        { id: 1, brand: "Fraijour", nameTh: "วอร์มวูด คาล์มมิ่ง วอเตอรี่ ครีม", nameEn: "Wormwood Calming Watery Cream", nameKr: "쑥 진정 워터리 크림", sale: 250, old: 369, badgeTh: "ขายดี", badgeEn: "BEST SELLER", badgeKr: "베스트", img: "1.jpg.png" },
+        { id: 2, brand: "Fraijour", nameTh: "วอร์มวูด คาล์มมิ่ง โทนเนอร์", nameEn: "Wormwood Calming Toner", nameKr: "쑥 진정 토너", sale: 350, old: 459, badgeTh: "ยอดนิยม", badgeEn: "POPULAR", badgeKr: "인기", img: "2.jpeg" },
+        { id: 3, brand: "Fraijour", nameTh: "วอร์มวูด คลีนซิ่ง วอเตอร์", nameEn: "Wormwood Cleansing Water", nameKr: "쑥 클렌징 워터", sale: 250, old: 400, badgeTh: "ใหม่", badgeEn: "NEW", badgeKr: "신제품", img: "3.jpeg" },
+        { id: 4, brand: "Fraijour", nameTh: "วอร์มวูด คลีนซิ่ง โฟม", nameEn: "Wormwood Cleansing Foam", nameKr: "쑥 클렌징 폼", sale: 290, old: 399, badgeTh: "อ่อนโยน", badgeEn: "GENTLE", badgeKr: "저자극", img: "4.jpeg" },
+        { id: 5, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ เบลมมิช มอยส์เจอร์ ครีม", nameEn: "Heartleaf Blemish Moisture Cream", nameKr: "어성초 블레미쉬 크림", sale: 310, old: 590, badgeTh: "ดูแลสิว", badgeEn: "ACNE CARE", badgeKr: "여드름 케어", img: "5.jpeg" },
+        { id: 6, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ เบลมมิช โทนเนอร์", nameEn: "Heartleaf Blemish Toner", nameKr: "어성초 블레미쉬 토너", sale: 360, old: 529, badgeTh: "ปลอบประโลม", badgeEn: "SOOTHING", badgeKr: "진정", img: "6.jpeg" },
+        { id: 7, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ ครีม", nameEn: "Retin-Collagen 3D Core Cream", nameKr: "레틴 콜라겐 3D 코어 크림", sale: 250, old: 459, badgeTh: "ยกกระชับ", badgeEn: "LIFTING", badgeKr: "리프팅", img: "7.jpeg" },
+        { id: 8, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ อายครีม", nameEn: "Retin-Collagen 3D Core Eye Cream", nameKr: "레틴 콜라겐 3D 코어 아이크림", sale: 195, old: 370, badgeTh: "คอร์ 3ดี", badgeEn: "CORE 3D", badgeKr: "코어 3D", img: "8.jpeg" },
+        { id: 9, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ โทนเนอร์", nameEn: "Retin-Collagen 3D Core Toner", nameKr: "레틴 콜라겐 3D 코어 토너", sale: 290, old: 500, badgeTh: "กระชับผิว", badgeEn: "FIRMING", badgeKr: "탄력", img: "9.jpeg" },
+        { id: 10, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ ลิป ออยล์", nameEn: "Retin-Collagen 3D Core Lip Oil", nameKr: "레틴 콜라겐 3D 코어 립 오일", sale: 125, old: 259, badgeTh: "ใหม่", badgeEn: "NEW", badgeKr: "신제품", img: "10.jpeg" },
+        { id: 11, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ แอรี่ ฟิต ซัน ครีม", nameEn: "Heartleaf Airy Fit Sun Cream", nameKr: "어성초 에어리 핏 선크림", sale: 280, old: 450, badgeTh: "กันแดด", badgeEn: "SUN CARE", badgeKr: "선케어", img: "11.jpeg" },
+        { id: 12, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ วอเตอร์ ฟิต ซัน สกรีน", nameEn: "Heartleaf Water Fit Sun Screen", nameKr: "어성초 워터 핏 선스크린", sale: 320, old: 590, badgeTh: "กันแดด", badgeEn: "SUN CARE", badgeKr: "선케어", img: "12.jpeg" },
+        { id: 13, brand: "Fraijour", nameTh: "ออริจินัล เฮิร์บ ชีท มาส์ก", nameEn: "Original Herb Sheet Mask", nameKr: "오리지널 허브 시트 마스크", sale: 17, old: 29, badgeTh: "มาส์ก", badgeEn: "MASK", badgeKr: "마스크", img: "15.jpeg" },
+        { id: 14, brand: "Bathpa", nameTh: "บอดี้ โทนอัพ ครีม", nameEn: "Body Tone Up Cream", nameKr: "바디 톤업 크림", sale: 150, old: 529, badgeTh: "ผิวตัว", badgeEn: "BODY", badgeKr: "바디", img: "13.jpeg" },
+        { id: 15, brand: "CharChar", nameTh: "มุงบีน ซิก้า คลีนซิ่ง โฟม", nameEn: "Mung Bean Cica Cleansing Foam", nameKr: "녹두 시카 클렌징 폼", sale: 120, old: 199, badgeTh: "ซิก้า", badgeEn: "CICA", badgeKr: "시카", img: "14.jpeg" }
     ];
 
     const trans = {
@@ -226,7 +223,7 @@
         kr: { home: "홈", about: "회사소개", contact: "문의하기", shop: "상세보기", label: "KR", sub: "완벽한 한국 미의 정수" }
     };
 
-    let currentLang = 'th';
+    let currentLang = localStorage.getItem('selectedLang') || 'th';
     const langOrder = ['th', 'en', 'kr'];
 
     function render() {
@@ -236,34 +233,49 @@
         if(gridO) gridO.innerHTML = '';
 
         products.forEach(p => {
+            // เลือกชื่อสินค้าและป้ายตามภาษา
+            let pName = p.nameEn;
+            let pBadge = p.badgeEn;
+            if(currentLang === 'th') { pName = p.nameTh; pBadge = p.badgeTh; }
+            if(currentLang === 'kr') { pName = p.nameKr; pBadge = p.badgeKr; }
+
             const html = `
                 <div class="product-card">
-                    <div class="card-tag">${p.badge}</div>
-                    <div class="image-wrap"><img src="${p.img}" alt="${p.name}"></div>
+                    <div class="card-tag ${currentLang==='th'?'use-thai':''}">${pBadge}</div>
+                    <div class="image-wrap"><img src="${p.img}" alt="${pName}"></div>
                     <div class="info-wrap">
-                        <h3>${p.name}</h3>
+                        <h3 class="${currentLang==='th'?'use-thai':''}">${pName}</h3>
                         <div class="price-wrap">
                             <span class="p-sale">฿${p.sale}</span>
                             <span class="p-old">฿${p.old}</span>
                         </div>
                     </div>
-                    <a href="product.html?id=${p.id}" class="buy-link">${trans[currentLang].shop}</a>
+                    <a href="product.html?id=${p.id}" class="buy-link ${currentLang==='th'?'use-thai':''}">${trans[currentLang].shop}</a>
                 </div>`;
             
             if(p.brand === "Fraijour") gridF.innerHTML += html;
             else gridO.innerHTML += html;
         });
 
-        document.getElementById('n-home').textContent = trans[currentLang].home;
-        document.getElementById('n-about').textContent = trans[currentLang].about;
-        document.getElementById('n-contact').textContent = trans[currentLang].contact;
-        document.getElementById('langBtn').textContent = trans[currentLang].label;
-        document.getElementById('h-sub').textContent = trans[currentLang].sub;
+        // อัปเดตเมนูและส่วนหัว
+        const t = trans[currentLang];
+        document.getElementById('n-home').textContent = t.home;
+        document.getElementById('n-about').textContent = t.about;
+        document.getElementById('n-contact').textContent = t.contact;
+        document.getElementById('langBtn').textContent = t.label;
+        document.getElementById('h-sub').textContent = t.sub;
+
+        // จัดการฟอนต์สำหรับภาษาไทย
+        const heads = document.querySelectorAll('h1, h2, h3, .buy-link, .nav-links a');
+        heads.forEach(el => {
+            if(currentLang === 'th') el.classList.add('use-thai');
+            else el.classList.remove('use-thai');
+        });
     }
 
     function rotateLanguage() {
-        const nextIndex = (langOrder.indexOf(currentLang) + 1) % langOrder.length;
-        currentLang = langOrder[nextIndex];
+        currentLang = langOrder[(langOrder.indexOf(currentLang) + 1) % langOrder.length];
+        localStorage.setItem('selectedLang', currentLang);
         render();
     }
 
