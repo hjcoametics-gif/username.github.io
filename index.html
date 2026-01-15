@@ -38,7 +38,7 @@
 
         h1, h2, h3, h4 { font-family: var(--font-luxury); transition: 0.3s; }
 
-        /* --- 🎖️ Real Metallic Gold Navigation --- */
+        /* --- 🎖️ Gold Navigation --- */
         .top-nav { 
             background: var(--gold-metallic);
             background-size: 300% 300%;
@@ -68,8 +68,13 @@
             margin-left: 25px; border-radius: 2px; min-width: 55px;
         }
 
-        /* --- ✨ Hero Header --- */
-        .hero-header { text-align: center; padding: 100px 5% 40px; position: relative; }
+        /* --- ✨ Hero Header (Updated with Logo) --- */
+        .hero-header { text-align: center; padding: 120px 5% 60px; position: relative; }
+        .hero-logo { 
+            width: 120px; 
+            margin-bottom: 20px; 
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); 
+        }
         .hero-header h1 {
             font-size: clamp(3rem, 10vw, 6rem); margin: 0;
             color: var(--gold-light); letter-spacing: 15px;
@@ -77,7 +82,7 @@
         }
         .hero-header p {
             font-size: 1rem; letter-spacing: 8px; text-transform: uppercase;
-            color: #fff; margin-top: 10px; opacity: 0.9;
+            color: #fff; margin-top: 15px; opacity: 0.9;
         }
 
         /* --- 🏛️ Main Container --- */
@@ -100,7 +105,6 @@
         }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3); }
         
-        /* ป้าย Badge สวยๆ */
         .card-tag {
             position: absolute; top: 15px; left: 15px; z-index: 2;
             background: var(--gold-metallic); color: var(--deep-green);
@@ -119,7 +123,6 @@
         .p-sale { font-size: 1.5rem; color: #8a6d3b; font-weight: 800; }
         .p-old { color: #bbb; text-decoration: line-through; font-size: 0.85rem; }
 
-        /* ปุ่มดูรายละเอียด */
         .buy-link { 
             background: var(--deep-green); color: var(--gold-light); 
             padding: 18px; text-align: center; text-decoration: none; 
@@ -155,6 +158,7 @@
 </nav>
 
 <header class="hero-header">
+    <img src="HJ (5).png" alt="HJ Logo" class="hero-logo">
     <h1 id="h-main">HJ COSMETICS</h1>
     <p id="h-sub">Curating the Essence of Korean Perfection</p>
 </header>
@@ -232,7 +236,6 @@
         if(gridO) gridO.innerHTML = '';
 
         products.forEach(p => {
-            // แก้ไขตรง href ให้ไปที่ product.html?id=...
             const html = `
                 <div class="product-card">
                     <div class="card-tag">${p.badge}</div>
