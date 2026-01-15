@@ -69,22 +69,32 @@
             margin-left: 25px; border-radius: 2px; min-width: 55px;
         }
 
-        /* --- ✨ Hero Header (ปรับแต่งโลโก้ที่นี่) --- */
+        /* --- ✨ Hero Header (ปรับเปลี่ยนเป็นตัวหนังสือสีทอง) --- */
         .hero-header { text-align: center; padding: 120px 5% 60px; position: relative; }
-        .hero-logo { 
-            width: 400px; /* เพิ่มขนาดจาก 120px เป็น 220px */
-            margin-bottom: 25px; 
-            filter: brightness(0) invert(1) drop-shadow(0 5px 15px rgba(255,255,255,0.2)); /* เปลี่ยนโลโก้เป็นสีขาว */
-            transition: 0.3s;
+        
+        .hero-logo-text { 
+            font-family: var(--font-luxury);
+            font-size: 5rem; /* ขนาดตัวอักษรโลโก้ */
+            font-weight: 800;
+            margin-bottom: 0px;
+            display: inline-block;
+            background: var(--gold-metallic);
+            background-size: 200% auto;
+            -webkit-background-clip: text; /* ทำให้พื้นหลังเข้าไปอยู่ในตัวอักษร */
+            -webkit-text-fill-color: transparent; /* ทำให้ตัวอักษรเดิมโปร่งใส */
+            animation: shimmer 5s infinite linear;
+            filter: drop-shadow(0 5px 15px rgba(197, 160, 89, 0.4));
+            letter-spacing: 5px;
         }
+
         .hero-header h1 {
-            font-size: clamp(3rem, 10vw, 6rem); margin: 0;
-            color: var(--gold-light); letter-spacing: 15px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8); font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3rem); margin: 0;
+            color: #fff; letter-spacing: 10px;
+            opacity: 0.8; font-weight: 400;
         }
         .hero-header p {
             font-size: 1rem; letter-spacing: 8px; text-transform: uppercase;
-            color: #fff; margin-top: 15px; opacity: 0.9;
+            color: var(--gold-light); margin-top: 15px; opacity: 0.9;
         }
 
         /* --- 🏛️ Main Container --- */
@@ -139,7 +149,10 @@
         .f-info p i { color: var(--gold-dark); font-size: 1.1rem; margin-right: 15px; width: 25px; text-align: center; }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; opacity: 0.5; }
 
-        @media (max-width: 1024px) { .f-container { grid-template-columns: 1fr; gap: 40px; } }
+        @media (max-width: 1024px) { 
+            .f-container { grid-template-columns: 1fr; gap: 40px; } 
+            .hero-logo-text { font-size: 3.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -160,8 +173,8 @@
 </nav>
 
 <header class="hero-header">
-    <img src="HJ (5).png" alt="HJ Logo" class="hero-logo">
-    <h1 id="h-main">HJ COSMETICS</h1>
+    <div class="hero-logo-text">HJ</div>
+    <h1 id="h-main">COSMETICS</h1>
     <p id="h-sub">Curating the Essence of Korean Perfection</p>
 </header>
 
@@ -213,7 +226,7 @@
         { id: 6, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ เบลมมิช โทนเนอร์", nameEn: "Heartleaf Blemish Toner", nameKr: "어성초 블레미쉬 토너", sale: 360, old: 529, badgeTh: "ปลอบประโลม", badgeEn: "SOOTHING", badgeKr: "진정", img: "6.jpeg" },
         { id: 7, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ ครีม", nameEn: "Retin-Collagen 3D Core Cream", nameKr: "레틴 콜라겐 3D 코어 크림", sale: 250, old: 459, badgeTh: "ยกกระชับ", badgeEn: "LIFTING", badgeKr: "리프팅", img: "7.jpeg" },
         { id: 8, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ อายครีม", nameEn: "Retin-Collagen 3D Core Eye Cream", nameKr: "레틴 콜라겐 3D 코어 아이크림", sale: 195, old: 370, badgeTh: "คอร์ 3ดี", badgeEn: "CORE 3D", badgeKr: "코어 3D", img: "8.jpeg" },
-        { id: 9, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ โทนเนอร์", nameEn: "Retin-Collagen 3D Core Toner", nameKr: "레틴 콜라겐 3D 코อร์ 토너", sale: 290, old: 500, badgeTh: "กระชับผิว", badgeEn: "FIRMING", badgeKr: "탄력", img: "9.jpeg" },
+        { id: 9, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ โทนเนอร์", nameEn: "Retin-Collagen 3D Core Toner", nameKr: "레틴 콜라겐 3D 코어 토너", sale: 290, old: 500, badgeTh: "กระชับผิว", badgeEn: "FIRMING", badgeKr: "탄력", img: "9.jpeg" },
         { id: 10, brand: "Fraijour", nameTh: "เรติน-คอลลาเจน 3ดี คอร์ ลิป ออยล์", nameEn: "Retin-Collagen 3D Core Lip Oil", nameKr: "레틴 콜라겐 3D 코어 립 오일", sale: 125, old: 259, badgeTh: "ใหม่", badgeEn: "NEW", badgeKr: "신제품", img: "10.jpeg" },
         { id: 11, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ แอรี่ ฟิต ซัน ครีม", nameEn: "Heartleaf Airy Fit Sun Cream", nameKr: "어성초 에어리 핏 선크림", sale: 280, old: 450, badgeTh: "กันแดด", badgeEn: "SUN CARE", badgeKr: "선케어", img: "11.jpeg" },
         { id: 12, brand: "Fraijour", nameTh: "ฮาร์ทลีฟ วอเตอร์ ฟิต ซัน สกรีน", nameEn: "Heartleaf Water Fit Sun Screen", nameKr: "어성초 워터 핏 선스크린", sale: 320, old: 590, badgeTh: "กันแดด", badgeEn: "SUN CARE", badgeKr: "선케어", img: "12.jpeg" },
