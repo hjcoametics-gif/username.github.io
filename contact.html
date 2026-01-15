@@ -6,6 +6,7 @@
     <title>Contact Us - HJ COSMETICS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* นำเข้าฟอนต์: Nanum Myeongjo สำหรับเกาหลี/หรูหรา และ IBM Plex Sans Thai สำหรับไทย */
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
 
         :root { 
@@ -15,7 +16,7 @@
             --gold-dark: #c5a059; 
             --gold-light: #f1d38e; 
             --font-thai: 'IBM Plex Sans Thai', sans-serif;
-            --font-luxury: 'Nanum Myeongjo', serif;
+            --font-kr: 'Nanum Myeongjo', serif;
         }
 
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -26,59 +27,32 @@
             overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;
         }
 
-        /* --- 🎬 Background --- */
-        #bg-video {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: -2; opacity: 0.5;
-        }
-        .video-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); z-index: -1; pointer-events: none;
-        }
+        /* Classes สำหรับสลับฟอนต์ตามภาษา */
+        .use-thai { font-family: var(--font-thai) !important; letter-spacing: 0px !important; }
+        .use-kr { font-family: var(--font-kr) !important; font-weight: 700 !important; letter-spacing: 0px !important; }
 
-        h1, h2, h3, h4 { font-family: var(--font-luxury); transition: 0.3s; }
-        .use-ibm-thai { font-family: var(--font-thai) !important; letter-spacing: 0px !important; font-weight: 600 !important; }
+        /* --- 🎬 Background --- */
+        #bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: 0.5; }
+        .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; pointer-events: none; }
 
         /* --- 🎖️ Gold Navigation (Fixed Mobile) --- */
         .top-nav { 
             background: var(--gold-metallic);
             background-size: 300% 300%;
             animation: shimmer 8s infinite linear;
-            padding: 0 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 3px solid #5d4a26;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-            height: 70px;
+            padding: 0 5%; display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid #5d4a26;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.6); height: 70px;
         }
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .logo-box img { 
-            height: 40px; 
-            filter: brightness(0) saturate(100%) invert(10%) sepia(50%) saturate(1000%) hue-rotate(120deg); 
-        }
+        @keyframes shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .logo-box img { height: 40px; filter: brightness(0) saturate(100%) invert(10%) sepia(50%) saturate(1000%) hue-rotate(120deg); }
         .nav-links { display: flex; align-items: center; gap: 20px; }
-        .nav-links a { 
-            text-decoration: none; color: var(--deep-green); 
-            font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; 
-            white-space: nowrap; transition: 0.3s;
-        }
+        .nav-links a { text-decoration: none; color: var(--deep-green); font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; white-space: nowrap; transition: 0.3s; }
         .nav-links a.active { border-bottom: 2px solid var(--deep-green); }
 
-        .lang-switch { 
-            background: var(--deep-green); border: none; color: #f1d38e; 
-            padding: 6px 12px; cursor: pointer; font-weight: 800; font-size: 0.75rem; 
-            border-radius: 2px;
-        }
+        .lang-switch { background: var(--deep-green); border: none; color: #f1d38e; padding: 6px 12px; cursor: pointer; font-weight: 800; font-size: 0.75rem; border-radius: 2px; }
 
-        /* Mobile Breakpoint for Nav */
         @media (max-width: 480px) {
             .top-nav { padding: 0 3%; }
             .logo-box img { height: 32px; }
@@ -89,23 +63,13 @@
 
         /* --- ✨ Hero --- */
         .hero-header { text-align: center; padding: 80px 5% 40px; }
-        .hero-header h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            color: var(--gold-light);
-            letter-spacing: 10px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            margin: 0;
-        }
+        .hero-header h1 { font-size: clamp(2.5rem, 8vw, 5rem); color: var(--gold-light); letter-spacing: 10px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); margin: 0; font-family: var(--font-kr); }
 
         /* --- 🏛️ Contact Card --- */
         .contact-container { max-width: 1200px; margin: 0 auto 80px; padding: 0 5%; flex: 1; }
-        .contact-grid { 
-            display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; 
-            background: rgba(13, 43, 31, 0.85); backdrop-filter: blur(20px); padding: 50px; 
-            border-radius: 25px; border: 1px solid rgba(197, 160, 89, 0.4);
-        }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; background: rgba(13, 43, 31, 0.85); backdrop-filter: blur(20px); padding: 50px; border-radius: 25px; border: 1px solid rgba(197, 160, 89, 0.4); }
         
-        .info-card h2 { color: var(--gold-light); font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid var(--gold-dark); display: inline-block; }
+        .info-card h2 { color: var(--gold-light); font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid var(--gold-dark); display: inline-block; font-family: var(--font-kr); }
         .info-item { margin-bottom: 25px; }
         .info-item h4 { color: var(--gold-light); margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 2px; }
         .info-item p { opacity: 0.95; font-weight: 300; line-height: 1.6; font-size: 1rem; color: #fff; margin: 5px 0; }
@@ -115,22 +79,14 @@
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 10px; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 1px; }
 
-        input, textarea { 
-            width: 100%; padding: 14px; font-size: 0.95rem; 
-            border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px;
-            background: #fff; font-family: var(--font-thai); color: #000;
-        }
+        input, textarea { width: 100%; padding: 14px; font-size: 0.95rem; border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px; background: #fff; color: #000; }
 
-        .btn-submit { 
-            background: var(--gold-metallic); color: var(--deep-green); border: none; 
-            padding: 18px; width: 100%; font-weight: 800; cursor: pointer; letter-spacing: 2px;
-            text-transform: uppercase; transition: 0.4s; font-size: 1rem; margin-top: 10px;
-        }
+        .btn-submit { background: var(--gold-metallic); color: var(--deep-green); border: none; padding: 18px; width: 100%; font-weight: 800; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s; font-size: 1rem; margin-top: 10px; }
 
         /* --- 🏛️ Footer --- */
         footer { background: rgba(13, 43, 31, 0.98); color: white; padding: 60px 8% 40px; border-top: 5px solid var(--gold-dark); }
         .f-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; }
-        .f-brand h2 { font-size: 2rem; color: var(--gold-light); margin-bottom: 15px; }
+        .f-brand h2 { font-size: 2rem; color: var(--gold-light); margin-bottom: 15px; font-family: var(--font-kr); }
         .f-info h4 { color: var(--gold-light); margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
         .f-info p { opacity: 0.8; font-size: 0.85rem; margin: 12px 0; display: flex; align-items: center; line-height: 1.5; }
         .f-info p i { color: var(--gold-dark); margin-right: 15px; width: 20px; text-align: center; }
@@ -266,11 +222,14 @@
         document.getElementById('ph-email').placeholder = l.phEmail;
         document.getElementById('ph-msg').placeholder = l.phMsg;
 
-        const elements = document.querySelectorAll('h1, h2, h4, .btn-submit, .nav-links a, .lang-switch');
-        elements.forEach(el => {
-            if(currentLang === 'th') el.classList.add('use-ibm-thai');
-            else el.classList.remove('use-ibm-thai');
+        // สลับฟอนต์ตามภาษาที่เลือก
+        const allTextElements = document.querySelectorAll('body, h1, h2, h4, .btn-submit, .nav-links a, input, textarea');
+        allTextElements.forEach(el => {
+            el.classList.remove('use-thai', 'use-kr');
+            if(currentLang === 'th') el.classList.add('use-thai');
+            else if(currentLang === 'kr') el.classList.add('use-kr');
         });
+
         localStorage.setItem('selectedLang', currentLang);
     }
 
